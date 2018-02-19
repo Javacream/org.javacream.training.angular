@@ -1,0 +1,6 @@
+<form [formGroup]="bookForm" (ngSubmit)="save()">
+    <label>Title:
+      <input type="text" formControlName="title">
+    </label>
+    <button type="submit" [disabled]="!bookForm.valid">Save</button>
+</form>
