@@ -1,20 +1,8 @@
 <p>
   Sample Person
 </p>
-<ul>
-  <li>
-    Id: {{peopleManager.sample_person.id}}
-  </li>
-  <li>
-    Lastname: {{peopleManager.sample_person.lastname}}
-  </li>
-  <li>
-    Firstname: {{peopleManager.sample_person.firstname}}
-  </li>
-  <li>
-    Gender: {{peopleManager.sample_person.gender}}
-  </li>
-  <li>
-    Height: {{peopleManager.sample_person.height}}
-  </li>
-</ul>
+
+<app-simple-person-detail
+  [person]="peopleManager.sample_person"
+>
+</app-simple-person-detail>
