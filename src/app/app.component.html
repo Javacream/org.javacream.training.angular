@@ -5,10 +5,10 @@
   </h1>
 </div>
 <div>
-  <hr />
-  <sample-person></sample-person>
-  <hr />
-  <app-simple-person-input></app-simple-person-input>
-  <hr />
-  <app-simple-person-list></app-simple-person-list>
+  <nav>
+    <a routerLink="/sample" routerLinkActive="active">Sample Data</a>
+    <a routerLink="/input" routerLinkActive="active">Person Input</a>
+    <a routerLink="/list" routerLinkActive="active">People List</a>
+  </nav>
+  <router-outlet></router-outlet>
 </div>
