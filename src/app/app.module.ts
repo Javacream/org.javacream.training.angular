@@ -3,20 +3,18 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { SecondAppComponent } from './second-app/second-app.component';
-import { ThirdAppComponent } from './third-app/third-app.component';
+import { SamplePersonComponent } from './sample-person/sample-person.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SecondAppComponent,
-    ThirdAppComponent
+    SamplePersonComponent
   ],
   imports: [
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent, SecondAppComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
