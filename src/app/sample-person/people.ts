@@ -21,7 +21,8 @@ class PersonClass implements Person{
     this.gender = gender
   }
 }
-export class PeopleManager{
+  export class PeopleManager{
+  static peopleCounter: number = 0
   people: Array<Person>
   sample_person: Person
   constructor(){
@@ -33,7 +34,27 @@ export class PeopleManager{
       gender: "m",
       id: 1
     }
-  }
+    let arr = [1,2,3,4,5]
+    arr.forEach((element) => {
+      let person = {
+        lastname: "Lastname" + element,
+        firstname: "Firstname" + element,
+        height: 180 + element,
+        gender: "m",
+        id: 100 + element
+      }
+      this.people.push(person)
+
+    })
+
+}
+save(p:any){
+  PeopleManager.peopleCounter++
+  let newPerson:Person ={...p, id: PeopleManager.peopleCounter}
+  console.log(newPerson.height)
+  this.people.push(newPerson)
+
+}
 
 
 }
