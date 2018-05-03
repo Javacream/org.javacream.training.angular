@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PeopleManager } from './people';
+import { PeopleManager } from '../people-model.service';
 
 @Component({
   selector: 'sample-person',
@@ -8,10 +8,12 @@ import { PeopleManager } from './people';
 })
 export class SamplePersonComponent implements OnInit {
   peopleManager: PeopleManager
-  constructor() { }
+  constructor(peopleManager: PeopleManager) {
+    this.peopleManager = peopleManager
+
+  }
 
   ngOnInit() {
-    this.peopleManager = new PeopleManager()
   }
 
 }

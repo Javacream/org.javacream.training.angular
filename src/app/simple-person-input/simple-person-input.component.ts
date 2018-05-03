@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PeopleManager } from '../sample-person/people';
+import { PeopleManager } from '../people-model.service';
 
 @Component({
   selector: 'app-simple-person-input',
@@ -8,7 +8,11 @@ import { PeopleManager } from '../sample-person/people';
 })
 export class SimplePersonInputComponent implements OnInit {
   person_input: any = {}
-  peopleManager = new PeopleManager()
+  peopleManager: PeopleManager
+  constructor(peopleManager: PeopleManager) {
+    this.peopleManager = peopleManager
+
+  }
   ngOnInit() {
   }
   save(){

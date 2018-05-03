@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 export interface Person{
   lastname: string
   firstname:string
@@ -21,6 +22,7 @@ class PersonClass implements Person{
     this.gender = gender
   }
 }
+@Injectable()
   export class PeopleManager{
   static peopleCounter: number = 0
   people: Array<Person>

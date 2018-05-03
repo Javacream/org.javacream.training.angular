@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { SamplePersonComponent } from './sample-person/sample-person.component';
 import { SimplePersonInputComponent } from './simple-person-input/simple-person-input.component';
 import { SimplePersonListComponent } from './simple-person-list/simple-person-list.component';
+import { PeopleManager } from './people-model.service';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { SimplePersonListComponent } from './simple-person-list/simple-person-li
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [PeopleManager],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

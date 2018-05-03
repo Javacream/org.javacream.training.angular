@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PeopleManager } from '../sample-person/people';
+import { PeopleManager } from '../people-model.service';
 
 @Component({
   selector: 'app-simple-person-list',
@@ -7,9 +7,11 @@ import { PeopleManager } from '../sample-person/people';
   styleUrls: ['./simple-person-list.component.css']
 })
 export class SimplePersonListComponent implements OnInit {
-  peopleManager = new PeopleManager()
-  constructor() { }
+  peopleManager: PeopleManager
+  constructor(peopleManager: PeopleManager) {
+    this.peopleManager = peopleManager
 
+  }
   ngOnInit() {
   }
 
