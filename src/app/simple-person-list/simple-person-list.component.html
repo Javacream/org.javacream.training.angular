@@ -1,5 +1,5 @@
   <ul>
-    <li *ngFor="let person of peopleManager.people">
+    <li *ngFor="let person of peopleManager.people, let i = index" (dblclick)="remove(i)">
       <span>{{person.firstname}}</span> {{person.lastname}}
     </li>
   </ul>

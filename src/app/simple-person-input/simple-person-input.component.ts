@@ -19,9 +19,6 @@ export class SimplePersonInputComponent implements OnInit {
     this.peopleManager.save(this.person_input)
     this.person_input = {}
   }
-  dump(){
-    this.peopleManager.people.forEach((element, index) => console.log(`${index} ${element.lastname} ${element.firstname} ${element.height} ${element.gender}`))
-  }
   keyUp(value:string){
     console.log("typed key, actual input = " + value)
   }

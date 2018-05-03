@@ -53,9 +53,13 @@ class PersonClass implements Person{
 save(p:any){
   PeopleManager.peopleCounter++
   let newPerson:Person ={...p, id: PeopleManager.peopleCounter}
-  console.log(newPerson.height)
   this.people.push(newPerson)
 
+}
+remove(index:number){
+  if (index > -1){
+    this.people.splice(index, 1)
+  }
 }
 
 

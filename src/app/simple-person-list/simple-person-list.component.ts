@@ -15,4 +15,7 @@ export class SimplePersonListComponent implements OnInit {
   ngOnInit() {
   }
 
+  remove(index: number){
+    this.peopleManager.remove(index)
+  }
 }
