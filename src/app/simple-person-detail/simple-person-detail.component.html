@@ -1,3 +1,4 @@
+<hr />
 <ul>
   <li>
     Id: {{person.id}}
@@ -15,3 +16,5 @@
     Height: {{person.height}}
   </li>
 </ul>
+
+<input *ngIf="state" type="button" value="delete" (click)="delete()" />

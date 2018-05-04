@@ -64,7 +64,7 @@ remove(index:number){
 async loadPerson(id:number){
   try{
     let response = await fetch(`http://localhost:8080/people/${id}`)
-    let person:Person = await response.json()
+    let person = await response.json()
     return person
   }
   catch(error){

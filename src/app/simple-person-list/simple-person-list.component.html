@@ -1,7 +1,10 @@
   <ul>
-    <li *ngFor="let p of peopleManager.people, let i = index" (dblclick)="remove(i)">
+    <li *ngFor="let p of peopleManager.people, let i = index">
       <app-simple-person-detail
         [person]="p"
+        [index]="i"
+        [state]="true"
+        (deleteEventEmitter) = "remove($event)"
       >
       </app-simple-person-detail>
     </li>
