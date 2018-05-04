@@ -61,6 +61,8 @@ remove(index:number){
     this.people.splice(index, 1)
   }
 }
-
+loadPerson(id:number):Promise<Person>{
+  return fetch(`http://localhost:8080/people/${id}`).then((response) => response.json()).catch((error) => console.log(error))
+}
 
 }

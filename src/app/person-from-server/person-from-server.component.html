@@ -1,0 +1,7 @@
+<input type="text" [(ngModel)]="id" />
+<input type="button" value="Load" (click)="loadPerson()" />
+<hr />
+
+<div *ngIf="loaded">
+  <app-simple-person-detail [person]="loaded"></app-simple-person-detail>
+</div>

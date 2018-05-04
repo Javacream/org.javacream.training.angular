@@ -9,12 +9,14 @@ import { SimplePersonInputComponent } from './simple-person-input/simple-person-
 import { SimplePersonListComponent } from './simple-person-list/simple-person-list.component';
 import { PeopleManager } from './people-model.service';
 import { SimplePersonDetailComponent } from './simple-person-detail/simple-person-detail.component';
+import { PersonFromServerComponent } from './person-from-server/person-from-server.component';
 
 const routes:Routes =
   [
     { path: 'sample', component: SamplePersonComponent },
     { path: 'input', component: SimplePersonInputComponent },
-    { path: 'list', component: SimplePersonListComponent }
+    { path: 'list', component: SimplePersonListComponent },
+    { path: 'load', component: PersonFromServerComponent }
 ]
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ const routes:Routes =
     SamplePersonComponent,
     SimplePersonInputComponent,
     SimplePersonListComponent,
-    SimplePersonDetailComponent
+    SimplePersonDetailComponent,
+    PersonFromServerComponent
   ],
   imports: [
     BrowserModule,

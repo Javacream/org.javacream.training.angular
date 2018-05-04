@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+import {Person} from '../people-model.service'
 @Component({
   selector: 'app-simple-person-detail',
   templateUrl: './simple-person-detail.component.html',
@@ -11,5 +11,5 @@ export class SimplePersonDetailComponent implements OnInit {
 
   ngOnInit() {
   }
-  @Input() person:Person
+  @Input() person: Person
 }

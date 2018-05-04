@@ -1,7 +1,7 @@
   <ul>
-    <li *ngFor="let person of peopleManager.people, let i = index" (dblclick)="remove(i)">
+    <li *ngFor="let p of peopleManager.people, let i = index" (dblclick)="remove(i)">
       <app-simple-person-detail
-        [person]="person"
+        [person]="p"
       >
       </app-simple-person-detail>
     </li>
