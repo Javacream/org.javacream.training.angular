@@ -13,8 +13,8 @@ export class PersonFromServerComponent implements OnInit {
 
   ngOnInit() {
   }
-  loadPerson(){
-    this.peopleManager.loadPerson(this.id).then((data) => this.loaded = data).catch((error) => console.log(error))
+  async loadPerson(){
+    this.loaded = await this.peopleManager.loadPerson(this.id)
   }
 
 }
