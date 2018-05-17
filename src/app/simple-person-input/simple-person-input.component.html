@@ -1,0 +1,8 @@
+<p>
+  <input #lastnameInput type="text" (keyup)="keyUp(lastnameInput.value)" [(ngModel)]="person_input.lastname" />
+  <input #firstnameInput type="text"  [(ngModel)]="person_input.firstname" />
+  <input #heightInput type="text"  [(ngModel)]="person_input.height" />
+  <input #genderInput type="text"  [(ngModel)]="person_input.gender" />
+  <input type="button" (click)="save()"value="Save" />
+
+</p>
