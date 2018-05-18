@@ -10,10 +10,12 @@ export class SamplePersonComponent implements OnInit {
   peopleManager: PeopleManager
   constructor(peopleManager: PeopleManager) {
     this.peopleManager = peopleManager
+    console.log("*********** Initializing SamplePersonComponent constructor")
 
   }
 
   ngOnInit() {
+    console.log("*********** Initializing SamplePersonComponent ngOnInit")
   }
 
 }

@@ -1,5 +1,6 @@
   <ul>
     <li *ngFor="let p of peopleManager.people, let i = index">
+      <hr />
       <app-simple-person-detail
         [person]="p"
         [index]="i"

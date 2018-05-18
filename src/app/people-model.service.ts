@@ -28,6 +28,8 @@ class PersonClass implements Person{
   people: Array<Person>
   sample_person: Person
   constructor(){
+    console.log("*********** Initializing PeopleManager")
+
     this.people = new Array<Person>()
     this.sample_person = {
       lastname: "Sawitzki",
