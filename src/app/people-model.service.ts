@@ -77,6 +77,6 @@ async loadPerson(id:number){
 }
 
 loadPersonHttpClient(id:number, update: (p:Person) => void){
-  this.http.get<Person>(`http://10.8.1.1:8080/people/${id}`).subscribe(update);  
+  this.http.get<Person>(`people/${id}`).subscribe(update);  
 }
 }
