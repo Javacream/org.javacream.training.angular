@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {BehaviorSubject} from 'rxjs'
 export interface Person{
   lastname: string
   firstname:string
@@ -14,7 +15,6 @@ class PersonClass implements Person{
   height:number
   gender:string
   id:number
-
   constructor(id: number, lastname: string, firstname:string, gender:string, height: number){
     this.id = id
     this.lastname = lastname
@@ -26,6 +26,7 @@ class PersonClass implements Person{
 @Injectable()
   export class PeopleManager{
   static peopleCounter: number = 0
+  observablePerson: BehaviorSubject<Person>
   people: Array<Person>
   sample_person: Person
   constructor(private readonly http: HttpClient){
@@ -49,7 +50,7 @@ class PersonClass implements Person{
         id: 100 + element
       }
       this.people.push(person)
-
+      this.observablePerson = new BehaviorSubject(this.sample_person)
     })
 
 }
@@ -78,5 +79,16 @@ async loadPerson(id:number){
 
 loadPersonHttpClient(id:number, update: (p:Person) => void){
   this.http.get<Person>(`people/${id}`).subscribe(update);  
+}
+loadPersonHttpClientObserver(id:number){
+  
+  this.http.get<Person>(`people/${id}`,  {observe: 'response'}).subscribe((response) => {
+    console.log(response.status)
+    this.observablePerson.next(response.body)
+  });  
+}
+
+subscribePersonObserver(callback: (p:Person) => void){
+  this.observablePerson.subscribe(callback)
 }
 }

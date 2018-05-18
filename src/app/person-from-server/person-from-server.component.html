@@ -1,6 +1,7 @@
 <input type="text" [(ngModel)]="id" />
 <input type="button" value="Load" (click)="loadPerson()" />
 <input type="button" value="Load with HttpClient" (click)="loadPersonHttpClient()" />
+<input type="button" value="Load sample Person" (click)="loadPersonHttpClientObserver()" />
 <hr />
 
 <div *ngIf="loaded">

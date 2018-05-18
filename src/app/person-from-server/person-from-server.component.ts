@@ -12,7 +12,9 @@ export class PersonFromServerComponent implements OnInit {
   constructor(readonly peopleManager: PeopleManager) { }
 
   ngOnInit() {
+    this.peopleManager.subscribePersonObserver(this.updateLoadPerson)
   }
+
   async loadPerson(){
     this.loaded = await this.peopleManager.loadPerson(this.id)
   }
@@ -24,5 +26,9 @@ export class PersonFromServerComponent implements OnInit {
   updateLoadPerson = (person:Person) => {
     console.log("updateLoadPerson: " + person.lastname)
     this.loaded = person
+  }
+
+  loadPersonHttpClientObserver(){
+    this.peopleManager.loadPersonHttpClientObserver(this.id)
   }
 }
