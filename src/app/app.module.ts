@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { SamplePersonComponent } from './sample-person/sample-person.component';
@@ -31,7 +32,8 @@ const routes:Routes =
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(
-     routes)
+     routes), 
+     HttpClientModule
   ],
   providers: [PeopleManager],
   bootstrap: [AppComponent]

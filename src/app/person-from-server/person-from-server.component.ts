@@ -16,5 +16,13 @@ export class PersonFromServerComponent implements OnInit {
   async loadPerson(){
     this.loaded = await this.peopleManager.loadPerson(this.id)
   }
+  loadPersonHttpClient(){
+    console.log("loadPersonHttpClient")
+    this.peopleManager.loadPersonHttpClient(this.id, this.updateLoadPerson)
+  }
 
+  updateLoadPerson = (person:Person) => {
+    console.log("updateLoadPerson: " + person.lastname)
+    this.loaded = person
+  }
 }

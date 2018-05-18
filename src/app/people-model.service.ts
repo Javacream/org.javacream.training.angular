@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 export interface Person{
   lastname: string
   firstname:string
@@ -27,7 +28,7 @@ class PersonClass implements Person{
   static peopleCounter: number = 0
   people: Array<Person>
   sample_person: Person
-  constructor(){
+  constructor(private readonly http: HttpClient){
     console.log("*********** Initializing PeopleManager")
 
     this.people = new Array<Person>()
@@ -75,4 +76,7 @@ async loadPerson(id:number){
   }
 }
 
+loadPersonHttpClient(id:number, update: (p:Person) => void){
+  this.http.get<Person>(`http://10.8.1.1:8080/people/${id}`).subscribe(update);  
+}
 }
