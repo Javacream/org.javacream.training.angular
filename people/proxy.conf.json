@@ -1,6 +1,6 @@
 {
     "/people/*": {
-      "target": "http://10.8.1.1:8080/people",
+      "target": "http://172.29.1.213:8080/people",
       "secure": false,
       "logLevel": "debug",
       "changeOrigin": true,
