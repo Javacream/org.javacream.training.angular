@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('org.javacream.training.angular App', () => {
+describe('first App', () => {
   let page: AppPage;
 
   beforeEach(() => {
