@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor="let p of people">{{p.firstname}} {{p.lastname}}</li>
+</ul>
+<div>
+  <div *ngFor="let option of sortOptions">
+    {{ option.description }}
+      <input type="radio" name="radiogroup" [checked]="idx === 0" [value]="option.id" (change)="onSelectionChange(option)">
+  </div>
+<input type="button" value="Sort" (click)="sort()" />
+</div>

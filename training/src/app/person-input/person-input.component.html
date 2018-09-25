@@ -1,0 +1,9 @@
+<form name="personInput">
+  <div>Lastname: <input name="lastnameInput" type="text" [(ngModel)]="person.lastname" /></div>
+  <div>Firstname: <input name="firstnameInput" type="text" [(ngModel)]="person.firstname" /></div>
+  <div>Gender: <input name="genderInput" type="text" [(ngModel)]="person.gender" /></div>
+  <div>Height: <input name="heightInput" type="text" [(ngModel)]="person.height" /></div>
+  <div><input name="saveButton" type="button" value="Save" (click)="save()" /></div>
+</form>
+<hr>
+<p>{{result}}</p>
