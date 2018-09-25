@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Person} from '../people'
+import {Person, PeopleModelService } from "../people-model.service"
+
 @Component({
   selector: 'person-input',
   templateUrl: './person-input.component.html',
@@ -7,13 +8,12 @@ import {Person} from '../people'
 })
 export class PersonInputComponent implements OnInit {
   person: Person = {lastname:"", firstname:"", gender:"", height:0}
-  result:string = "Result: "
-  constructor() { }
+  constructor (readonly peopleModel:PeopleModelService){}
 
   ngOnInit() {
   }
 
   save(){
-    this.result = "Saved " + this.person.firstname + " " + this.person.lastname
+    this.peopleModel.save(Object.assign({}, this.person))
   }
 }

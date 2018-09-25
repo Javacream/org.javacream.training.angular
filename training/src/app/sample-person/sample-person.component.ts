@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { samplePerson as sp } from "../people"
+import {Person, PeopleModelService } from "../people-model.service"
+
+
 @Component({
   selector: 'sample-person',
   templateUrl: './sample-person.component.html',
   styleUrls: ['./sample-person.component.css']
 })
 export class SamplePersonComponent implements OnInit {
-  samplePerson = sp
+
+  constructor (readonly peopleModel:PeopleModelService){}
+  samplePerson:Person
 
 
   ngOnInit() {
-
+    this.samplePerson = this.peopleModel.samplePerson
   }
 
 }

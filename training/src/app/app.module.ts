@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { SamplePersonComponent } from './sample-person/sample-person.component';
 import { PeopleListComponent } from './people-list/people-list.component';
 import { PersonInputComponent } from './person-input/person-input.component';
-
+import {PeopleModelService} from './people-model.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +18,7 @@ import { PersonInputComponent } from './person-input/person-input.component';
     BrowserModule, 
     FormsModule
   ],
-  providers: [],
+  providers: [PeopleModelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
