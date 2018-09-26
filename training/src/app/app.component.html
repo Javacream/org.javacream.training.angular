@@ -3,12 +3,13 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <h2>Sample Person</h2>
-  <sample-person></sample-person>
-  <hr />
-  <h2>People List</h2>
-  <people-list></people-list>
-  <hr />
-  <h2>People Input</h2>
-  <person-input></person-input>
+  </div>
+<div>
+  <nav>
+    <a routerLink="/sample" routerLinkActive="active">Sample Data</a>
+    <a routerLink="/input" routerLinkActive="active">Person Input</a>
+    <a routerLink="/list" routerLinkActive="active">People List</a>
+  </nav>
+  <router-outlet></router-outlet>
+
 </div>
