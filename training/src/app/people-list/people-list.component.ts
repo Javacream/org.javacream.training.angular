@@ -7,6 +7,8 @@ import {Person, PeopleModelService } from "../people-model.service"
 })
 export class PeopleListComponent implements OnInit {
   people:Array<Person>
+  state=true
+
   constructor (readonly peopleModel:PeopleModelService){
     this.people = peopleModel.peopleList()
   }
@@ -45,11 +47,7 @@ export class PeopleListComponent implements OnInit {
   sort(){
     this.peopleModel.sort(this.actualSortCriterium)
   }
-  
-  delete(toDelete:Person){
-    this.peopleModel.delete(toDelete)
-  }
-
+ 
   onSelectionChange(option){
     this.actualSortCriterium = option.algorithm
   }

@@ -11,7 +11,7 @@ export class SamplePersonComponent implements OnInit {
 
   constructor (readonly peopleModel:PeopleModelService){}
   samplePerson:Person
-
+  state=false
 
   ngOnInit() {
     this.samplePerson = this.peopleModel.samplePerson

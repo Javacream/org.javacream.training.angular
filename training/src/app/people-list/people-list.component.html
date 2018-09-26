@@ -1,7 +1,6 @@
 <ul>
-  <li *ngFor="let p of people">{{p.firstname}} {{p.lastname}}
-      <input type="button" value="Delete" (click)="delete(p)"/>
-
+  <li *ngFor="let p of people">
+    <person-detail [person]= "p" [state]="state" ></person-detail>
   </li>
 </ul>
 <div>
