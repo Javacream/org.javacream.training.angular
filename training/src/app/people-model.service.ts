@@ -9,7 +9,12 @@ export class PeopleModelService {
   save(person: Person) {
     this.people.push(person)
   }
-
+  delete(person: Person) {
+    const index = this.people.indexOf(person, 0);
+    if (index > -1) {
+      this.people.splice(index, 1);
+    }
+  }
   peopleList() {
     return this.people
   }

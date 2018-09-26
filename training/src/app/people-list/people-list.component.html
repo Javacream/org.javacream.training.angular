@@ -1,5 +1,8 @@
 <ul>
-  <li *ngFor="let p of people">{{p.firstname}} {{p.lastname}}</li>
+  <li *ngFor="let p of people">{{p.firstname}} {{p.lastname}}
+      <input type="button" value="Delete" (click)="delete(p)"/>
+
+  </li>
 </ul>
 <div>
   <div *ngFor="let option of sortOptions">

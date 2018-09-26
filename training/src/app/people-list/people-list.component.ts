@@ -46,6 +46,10 @@ export class PeopleListComponent implements OnInit {
     this.peopleModel.sort(this.actualSortCriterium)
   }
   
+  delete(toDelete:Person){
+    this.peopleModel.delete(toDelete)
+  }
+
   onSelectionChange(option){
     this.actualSortCriterium = option.algorithm
   }

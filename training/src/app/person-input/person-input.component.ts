@@ -16,4 +16,6 @@ export class PersonInputComponent implements OnInit {
   save(){
     this.peopleModel.save(Object.assign({}, this.person))
   }
+
+  
 }
