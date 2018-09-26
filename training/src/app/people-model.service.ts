@@ -47,8 +47,8 @@ export class PeopleModelService {
     }
   }
 
-  loadPersonHttpClient(id: number, update: (p: Person) => void) {
-    this.http.get<Person>(`people/${id}`).subscribe(update);
+  loadPersonHttpClient(id: number, update: (p: Person) => void, error: (e:any) => void) {
+    this.http.get<Person>(`people/${id}`).subscribe(update, error);
   }
 
 

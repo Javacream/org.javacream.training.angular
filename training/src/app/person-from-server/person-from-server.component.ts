@@ -14,12 +14,17 @@ export class PersonFromServerComponent implements OnInit {
   ngOnInit() {
   }
   loadPersonHttpClient() {
-    console.log("loadPersonHttpClient")
-    this.peopleModelService.loadPersonHttpClient(this.id, this.updateLoadPerson)
+    let updateLoadPerson = (person: Person) => {
+      this.loaded = person
+    }
+    let errorLoadPerson = (error) => {
+      console.log(error)
+    }
+    this.peopleModelService.loadPersonHttpClient(this.id, updateLoadPerson, errorLoadPerson)
   }
 
-  updateLoadPerson = (person: Person) => {
-    console.log("updateLoadPerson: " + person.lastname)
-    this.loaded = person
+  async loadPersonHttpClientVersion2(){
+    this.loaded = await this.peopleModelService.loadPerson(this.id);
   }
+
 }
