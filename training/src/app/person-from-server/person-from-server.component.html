@@ -1,0 +1,7 @@
+<input type="text" [(ngModel)]="id" />
+<input type="button" value="Load with HttpClient" (click)="loadPersonHttpClient()" />
+<hr />
+
+<div *ngIf="loaded">
+  <person-detail [person]="loaded"></person-detail>
+</div>

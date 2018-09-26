@@ -1,0 +1,11 @@
+{
+    "/people/*": {
+      "target": "http://localhost:8080/people",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/people": ""
+      }
+    }
+}

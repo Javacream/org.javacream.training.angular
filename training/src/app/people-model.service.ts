@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class PeopleModelService {
   peopleList() {
     return this.people
   }
-  constructor() {
+  constructor(private readonly http: HttpClient) {
     this.people.push(this.samplePerson)
     this.people.push(new SimplePerson("Mustermann", "Klaus", "m", 171))
     this.people.push(new SimplePerson("Sawitzki", "Klaus", "m", 181))
@@ -34,6 +35,23 @@ export class PeopleModelService {
     this.people.sort(this.sortAlgorithms[algorithm])
   }
 
+  async loadPerson(id: number) {
+    try {
+      let response = await fetch(`http://localhost:8080/people/${id}`)
+      let person = await response.json()
+      return person
+    }
+    catch (error) {
+      console.log(error)
+      return null
+    }
+  }
+
+  loadPersonHttpClient(id: number, update: (p: Person) => void) {
+    this.http.get<Person>(`people/${id}`).subscribe(update);
+  }
+
+
 }
 export interface Person {
   lastname: string
@@ -47,4 +65,7 @@ export class SimplePerson implements Person {
   }
 
 }
+
+
+
 
