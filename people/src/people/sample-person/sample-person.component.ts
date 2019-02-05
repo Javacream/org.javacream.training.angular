@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Person, PersonImpl } from 'src/model/people';
+import { samplePerson } from 'src/model/people-sample-data';
 
 @Component({
   selector: 'people-sample-person',
@@ -11,7 +12,7 @@ export class SamplePersonComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.samplePerson = new PersonImpl(42, 'Sawi', 'Rainer', 183);
+    this.samplePerson = samplePerson;
     setTimeout(() => {this.samplePerson.lastname = 'Sawitzki'; }, 5000);
   }
 
