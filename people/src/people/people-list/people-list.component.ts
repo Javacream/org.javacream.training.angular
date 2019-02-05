@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from 'src/model/people';
-import { samplePeople } from 'src/model/people-sample-data';
+import { peopleModel } from 'src/model/people';
 
 @Component({
   selector: 'people-list',
@@ -12,10 +12,12 @@ export class PeopleListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.people = samplePeople;
+    this.people = peopleModel.findAll();
   }
 
   handleRemovePerson(id: number) {
-    this.people = this.people.filter((person) => person.id !== id);
+    peopleModel.delete(id);
+    this.people = peopleModel.findAll();
+
   }
 }

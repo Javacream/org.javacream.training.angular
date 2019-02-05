@@ -5,12 +5,16 @@ import { PeopleMainComponent} from './people.main.component';
 import { SamplePersonComponent} from './sample-person/sample-person.component';
 import {PersonComponent} from './person/person.component';
 import { PeopleListComponent } from './people-list/people-list.component';
+
+import {MatButtonModule} from '@angular/material'
+import { PersonInputComponent } from './person-input/person-input.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
-    PeopleMainComponent, SamplePersonComponent, PersonComponent, PeopleListComponent
+    PeopleMainComponent, SamplePersonComponent, PersonComponent, PeopleListComponent, PersonInputComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, MatButtonModule, FormsModule
   ],
   providers: [],
   bootstrap: [PeopleMainComponent]
