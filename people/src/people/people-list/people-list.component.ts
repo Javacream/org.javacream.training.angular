@@ -13,11 +13,9 @@ export class PeopleListComponent implements OnInit {
 
   ngOnInit() {
     this.people = samplePeople;
-    console.log(this.people);
   }
 
   handleRemovePerson(id: number) {
-    console.log(`removing person ${id}`);
     this.people = this.people.filter((person) => person.id !== id);
   }
 }

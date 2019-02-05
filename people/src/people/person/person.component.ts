@@ -8,8 +8,10 @@ import { Person } from 'src/model/people';
 export class PersonComponent implements OnInit {
   @Input() person: Person;
   @Input() canDelete: boolean;
-  @Output() removeEventEmitter = new EventEmitter<number>();
-  constructor() { }
+  @Output() removeEventEmitter;
+  constructor() {
+    this.removeEventEmitter = new EventEmitter<number>();
+   }
 
   ngOnInit() {
   }
