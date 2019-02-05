@@ -1,3 +1,4 @@
 <p>
     {{person.id}} {{person.firstname}} {{person.lastname}} {{person.height}} 
+    <input *ngIf="canDelete" type="button" (click)="removeAction(person.id)" value="Delete" />
 </p>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Person } from 'src/model/people';
 @Component({
   selector: 'people-person',
@@ -7,11 +7,15 @@ import { Person } from 'src/model/people';
 })
 export class PersonComponent implements OnInit {
   @Input() person: Person;
-
+  @Input() canDelete: boolean;
+  @Output() removeEventEmitter = new EventEmitter<number>();
   constructor() { }
 
   ngOnInit() {
   }
 
+  removeAction(index: number) {
+    this.removeEventEmitter.emit(index);
+  }
 
 }

@@ -1,5 +1,5 @@
 <ol>
   <li *ngFor="let person of people, let i = index">
-    <div><people-person [person]="person" ></people-person></div>
+    <div><people-person [canDelete]="true" [person]="person" (removeEventEmitter)="handleRemovePerson($event)"></people-person></div>
   </li>
 </ol>
