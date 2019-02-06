@@ -10,11 +10,12 @@ export class PeopleListComponent implements OnInit {
   people: Array<Person>;
   constructor(readonly controller: PeopleControllerService) { }
 
-  ngOnInit() {
-    this.people = this.controller.findAll();
+  async ngOnInit() {
+    this.people = await this.controller.findAll();
   }
 
-  handleRemovePerson(id: number) {
+  async handleRemovePerson(id: number) {
     this.controller.delete(id);
+    this.people = await this.controller.findAll();
   }
 }
