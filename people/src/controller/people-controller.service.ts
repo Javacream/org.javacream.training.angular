@@ -9,16 +9,12 @@ export class PeopleControllerService {
   ENDPOINT = 'http://localhost:8080/people/';
   counter = 0;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   async create(lastname: string, firstname: string, height: number) {
     this.counter++;
     const person = new PersonImpl(this.counter, lastname, firstname, height);
-    try {
-    await fetch(`${this.ENDPOINT}/${this.counter}`, {method: 'PUT', body: JSON.stringify(person)});
-  } catch (error) {
-    console.log(error);
-  }
+    this.http.post(`${this.ENDPOINT}`, person).subscribe(() => console.log('DONE'));
 
   }
   async findById(id: number): Promise<Person> {
@@ -37,7 +33,7 @@ export class PeopleControllerService {
   }
 
   update(person: Person) {
-    fetch(`${this.ENDPOINT}/${person.id}`, {method: 'PUT', body: JSON.stringify(person)});
+    this.http.put(`${this.ENDPOINT}`, person).subscribe(() => console.log('DONE PUT'));
   }
   delete(id: number) {
     fetch(`${this.ENDPOINT}/${id}`, {method: 'DELETE'});
