@@ -28,11 +28,13 @@ export class PeopleControllerService {
   }
 
 
-  async loadPerson(id: number) {
+  async loadPerson(id: number): Promise<Person> {
+
     try {
-      const response = await fetch(`http://localhost:8080/people/${id}`);
-      const person = await response.json();
+      const response: Response = await fetch(`http://localhost:8080/people/${id}`);
+      const person: Person = await response.json();
       return person;
+
     } catch (error) {
       console.log(error);
       return null;
