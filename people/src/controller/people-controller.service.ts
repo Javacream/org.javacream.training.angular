@@ -26,4 +26,16 @@ export class PeopleControllerService {
   delete(id: number) {
     this.peopleModel.delete(id);
   }
+
+
+  async loadPerson(id: number) {
+    try {
+      const response = await fetch(`http://localhost:8080/people/${id}`);
+      const person = await response.json();
+      return person;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
 }

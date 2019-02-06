@@ -1,0 +1,5 @@
+<p>
+  <input type="text" [(ngModel)]="id"  />
+  <input type="button" value="Load" (click)="load()" />
+  <people-person *ngIf="person" [person]="person"></people-person>
+</p>
