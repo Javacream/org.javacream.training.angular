@@ -1,3 +1,5 @@
+import { Injectable } from '@angular/core';
+
 export interface Person {
     lastname: string;
     firstname: string;
@@ -6,10 +8,13 @@ export interface Person {
 }
 
 export class PersonImpl implements Person {
-    constructor(readonly id: number, readonly lastname: string, readonly firstname: string, readonly height: number){}
+    constructor(readonly id: number, readonly lastname: string, readonly firstname: string, readonly height: number) {}
 }
 
-class PeopleModel {
+@Injectable({
+    providedIn: 'root'
+})
+export class PeopleModel {
     counter = 0;
     peopleMap: Map<number, Person>;
     peopleList: Array<Person>;
@@ -48,5 +53,3 @@ class PeopleModel {
         this.peopleMap.delete(id);
     }
 }
-
-export let peopleModel = new PeopleModel();

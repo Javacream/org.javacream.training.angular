@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { peopleModel } from 'src/model/people';
+import { PeopleControllerService } from 'src/controller/people-controller.service';
 
 @Component({
   selector: 'people-person-input',
@@ -12,13 +12,13 @@ export class PersonInputComponent implements OnInit {
   firstname: string;
   height: number;
 
-  constructor() { }
+  constructor(readonly controller: PeopleControllerService) { }
 
   ngOnInit() {
   }
 
   saveAction() {
-    peopleModel.create(this.lastname, this.firstname, this.height);
+    this.controller.create(this.lastname, this.firstname, this.height);
   }
   clearAction() {
     this.lastname = '';
