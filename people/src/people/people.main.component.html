@@ -4,11 +4,10 @@
     {{ title }}
   </h1>
   <hr />
-  <people-sample-person></people-sample-person>
-  <hr />
-  <people-list></people-list>
-  <hr />
-  <people-person-input></people-person-input>
-  <hr />
-  <people-person-loader></people-person-loader>
+  <nav>
+    <a routerLink="/list" routerLinkActive="active">People List</a>
+    <a routerLink="/loader" routerLinkActive="active">Person Loader</a>
+  </nav>
+<router-outlet></router-outlet>
+
 </div>
