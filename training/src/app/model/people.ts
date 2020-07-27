@@ -8,7 +8,7 @@ export interface Person{
 }
 
 export class PersonClass implements Person{
-    constructor(readonly id: number, readonly  lastname: string, readonly  firstname: string, readonly  gender: string, readonly  height:number){
+    constructor(readonly id: number, public lastname: string, readonly  firstname: string, readonly  gender: string, readonly  height:number){
     }
 }
 
