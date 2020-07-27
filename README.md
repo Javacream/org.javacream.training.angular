@@ -14,7 +14,8 @@ Angular Training Project
 
 * Seminarzeiten
   * 12 Unterrichtseinheiten mit jeweils 90 Minuten
-  * Mittagspause 45’ (12:15-13:00)
+  * Mittagspause 45’ (12:00-12:45)
   * Kaffeepausen nach Bedarf
   * Zeitplan 
-    * Mo. - Mi.:  9:00-16:00
+    * Mo.:        9:00-16:00
+    * Di. - Mi.:  8:45-15:45
