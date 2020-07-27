@@ -2,7 +2,20 @@ function helper(s, cb){
     let s2 = "Hello" + s
     let result:number = cb(s2) //Compiler garantiert hier gar nichts
 }
+
+/*
+public void typedHelper(String s, Function<String, Integer> cb)
+*/
 function typedHelper(s:string, cb:(p:string) => number){
+    let s2 = "Hello" + s
+    let result:number = cb(s2) //Compiler garantiert hier gar nichts
+}
+
+/*
+public void typedHelper(String s, Function<???, Integer> cb)
+*/
+
+function typedHelper2(s:string, cb:(p:string, p2:number, p3:boolean) => number){
     let s2 = "Hello" + s
     let result:number = cb(s2) //Compiler garantiert hier gar nichts
 }
@@ -34,3 +47,4 @@ typedHelper(true, 42)
 f1 = (param:string) => {
     return 42;
 }
+
