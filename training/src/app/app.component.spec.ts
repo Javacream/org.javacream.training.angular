@@ -1,6 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { PersonClass, Person } from './model/people';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
