@@ -16,4 +16,11 @@ export class PeopleContentComponent implements OnInit {
     console.log(this.company)
   }
 
+  clicked(event:Event){
+    console.log("clicked on button" + event.currentTarget)
+  }
+
+  handlePerson(personData){
+    samplePeople.push(personData)
+  }
 }
