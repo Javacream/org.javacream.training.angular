@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-people-content',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./people-content.component.css']
 })
 export class PeopleContentComponent implements OnInit {
-  footerText = "Hugo"
+  @Input() company
   constructor() { }
 
   ngOnInit(): void {

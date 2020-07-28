@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {company} from '../../../ApplicationContext'
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -7,10 +6,12 @@ import {company} from '../../../ApplicationContext'
 })
 export class FooterComponent implements OnInit {
   @Input() footerText
+
   constructor() {
 
    }
   ngOnInit(): void {
+    console.log(this.footerText)
   }
 
 }
