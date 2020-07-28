@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {company} from '../../../ApplicationContext'
 @Component({
   selector: 'app-footer',
@@ -6,7 +6,7 @@ import {company} from '../../../ApplicationContext'
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  footerText = company
+  @Input() footerText
   constructor() {
 
    }

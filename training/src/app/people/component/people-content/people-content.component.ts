@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./people-content.component.css']
 })
 export class PeopleContentComponent implements OnInit {
-
+  footerText = "Hugo"
   constructor() { }
 
   ngOnInit(): void {
