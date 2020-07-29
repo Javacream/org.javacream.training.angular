@@ -11,7 +11,8 @@ import { PersonInputComponent } from './people/component/person-input/person-inp
 import { ClockComponent } from './common/component/clock/clock.component';
 import { LogComponent } from './common/component/log/log.component';
 import { PersonReactiveInputComponent } from './people/component/person-reactive-input/person-reactive-input.component';
-
+import { PersonSearchComponent } from './people/component/person-search/person-search.component';
+import { HttpClientModule } from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,10 +24,11 @@ import { PersonReactiveInputComponent } from './people/component/person-reactive
     PersonInputComponent,
     ClockComponent,
     LogComponent,
-    PersonReactiveInputComponent
+    PersonReactiveInputComponent,
+    PersonSearchComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
