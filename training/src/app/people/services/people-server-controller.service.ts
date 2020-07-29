@@ -23,6 +23,6 @@ export class PeopleServerControllerService {
 
   findByIdHttpClient(id:number, update:(person:Person)=> void):void{
     this.notificationService.notify("people.search", `searched for person with id ${id}`)
-    this.http.get(`${this.ENDPOINT}/${id}`).subscribe(update)
+    this.http.get<Person>(`${this.ENDPOINT}/${id}`).subscribe(update)
   }
 }
