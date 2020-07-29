@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import {Person } from '../../model/people';
-import {publish} from 'pubsub-js'
+import {PeopleControllerService} from '../../services/people-controller.service'
+
 @Component({
   selector: 'app-person-input',
   templateUrl: './person-input.component.html',
@@ -8,7 +8,7 @@ import {publish} from 'pubsub-js'
 })
 export class PersonInputComponent implements OnInit {
 
-  constructor() { }
+  constructor(readonly peopleController: PeopleControllerService) { }
 
   ngOnInit(): void {
   }
@@ -16,13 +16,9 @@ export class PersonInputComponent implements OnInit {
   firstname:string
   gender:string
   height:number
-  counter = 100;
   save(){
-    this.counter++;
-    let person = {id:this.counter, lastname:this.lastname, firstname:this.firstname, gender:this.gender, height: this.height}
-    this.personEventEmitter.emit(person)
-    publish("topic1", "Hello")
+    let person = {lastname:this.lastname, firstname:this.firstname, gender:this.gender, height: this.height}
+    this.peopleController.create(person)
   }
 
-  @Output() personEventEmitter = new EventEmitter<Person>()
 }

@@ -1,7 +1,9 @@
 <app-header></app-header>
 <app-person [person]="person"></app-person>
 <hr />
-<app-people-list [people]="people"></app-people-list>
+<app-people-list></app-people-list>
 <hr />
-<app-person-input (personEventEmitter)="handlePerson($event)"></app-person-input>
+<app-person-input></app-person-input>
+<hr />
+<app-person-reactive-input></app-person-reactive-input>
 <app-footer [footerText]="'Company: ' + company" ></app-footer>

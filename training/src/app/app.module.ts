@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent} from './app.component';
 import { PeopleContentComponent } from './people/component/people-content/people-content.component';
 import { HeaderComponent } from './common/component/header/header.component';
@@ -9,6 +9,8 @@ import { PersonComponent } from './people/component/person/person.component';
 import { PeopleListComponent } from './people/component/people-list/people-list.component';
 import { PersonInputComponent } from './people/component/person-input/person-input.component';
 import { ClockComponent } from './common/component/clock/clock.component';
+import { LogComponent } from './common/component/log/log.component';
+import { PersonReactiveInputComponent } from './people/component/person-reactive-input/person-reactive-input.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +21,12 @@ import { ClockComponent } from './common/component/clock/clock.component';
     PersonComponent,
     PeopleListComponent,
     PersonInputComponent,
-    ClockComponent
+    ClockComponent,
+    LogComponent,
+    PersonReactiveInputComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
