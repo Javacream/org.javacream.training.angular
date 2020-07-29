@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { PersonClass, Person } from '../../model/people';
-
+import {Person } from '../../model/people';
+import {publish} from 'pubsub-js'
 @Component({
   selector: 'app-person-input',
   templateUrl: './person-input.component.html',
@@ -21,6 +21,7 @@ export class PersonInputComponent implements OnInit {
     this.counter++;
     let person = {id:this.counter, lastname:this.lastname, firstname:this.firstname, gender:this.gender, height: this.height}
     this.personEventEmitter.emit(person)
+    publish("topic1", "Hello")
   }
 
   @Output() personEventEmitter = new EventEmitter<Person>()
