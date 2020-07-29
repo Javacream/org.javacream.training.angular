@@ -2,5 +2,6 @@
     <input type="text" [(ngModel)]="id"  />
     <input type="button" value="Load (Async/Await)" (click)="loadAsyncAwait()" />
     <input type="button" value="Load (Observer)" (click)="loadSubscription()" />
+    <input type="button" value="Load (Observer direct)" (click)="loadSubscriptionDirect()" />
     <app-person *ngIf="person" [person]="person"></app-person>
   </p>
