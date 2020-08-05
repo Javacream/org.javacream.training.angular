@@ -1,7 +1,7 @@
 # org.javacream.training.angular
 Angular Training Project
 
-## Durchführung des digitalen Seminars vom 27.-29.7.2020
+## Durchführung des digitalen Seminars vom 5.-7.8.2020
 
 * Referent: Rainer Sawitzki, eMail: training@rainer-sawitzki.de
 
