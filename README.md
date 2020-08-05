@@ -7,10 +7,10 @@ Angular Training Project
 
 * Beispiele
   * https://github.com/Javacream/org.javacream.training.angular
-    *  Branch landesamt_27.7.2020
+    *  Branch landesamt_5.8.2020
     
 * Digitales Flipchart
-  * https://docs.google.com/presentation/d/1vEaPS9b4RSWywxsw-RpvUHwVtpXKC96PMfUdj0Y16YI/edit?usp=sharing
+  * https://docs.google.com/presentation/d/1yFKqa5-4civirNQLfhLWGro3RC2ud1nKPC4gj6Xqz3c/edit?usp=sharing
 
 * Seminarzeiten
   * 12 Unterrichtseinheiten mit jeweils 90 Minuten
