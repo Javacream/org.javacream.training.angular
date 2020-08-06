@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './books/components/header/header.component';
@@ -10,6 +10,7 @@ import { BookComponent } from './books/components/book/book.component';
 import { BooklistComponent } from './books/components/booklist/booklist.component';
 import { ClockComponent } from './util/components/clock/clock.component';
 import { BookInputComponent } from './books/components/book-input/book-input.component';
+import { BookInputReactiveComponent } from './books/components/book-input-reactive/book-input-reactive.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +21,11 @@ import { BookInputComponent } from './books/components/book-input/book-input.com
     BookComponent,
     BooklistComponent,
     ClockComponent,
-    BookInputComponent
+    BookInputComponent,
+    BookInputReactiveComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
