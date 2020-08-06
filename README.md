@@ -18,3 +18,7 @@ Angular Training Project
   * Kaffeepausen nach Bedarf
   * Zeitplan 
     * Mo. - Mi.:  9:00-16:00
+
+* Start WebService
+  * java -jar ./org.javacream.training.telekom.academy-1.0.jar --spring.datasource.url=jdbc:h2:mem:
+
