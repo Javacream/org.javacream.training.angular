@@ -1,0 +1,6 @@
+<form [formGroup]="todoForm" (ngSubmit)="save()">
+    <label>ToDo:
+      <input type="text" formControlName="todo">
+    </label>
+    <button type="submit" [disabled]="!todoForm.valid">Save</button>
+</form>

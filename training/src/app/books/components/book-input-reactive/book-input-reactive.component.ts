@@ -12,12 +12,14 @@ export class BookInputReactiveComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  bookForm = new FormGroup({
-    title: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
-    pages: new FormControl(0, Validators.compose([Validators.required, Validators.min(1), Validators.max(5000)])),
-    price: new FormControl(0, Validators.compose([Validators.required, Validators.min(0), Validators.max(1000)])),
-    available: new FormControl(true),
-  });
+  bookForm = new FormGroup( 
+    {
+      title: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
+      pages: new FormControl(0, Validators.min(1)),
+      price: new FormControl(0, Validators.compose([Validators.required, Validators.min(0), Validators.max(1000)])),
+      available: new FormControl(true),
+    }
+  );
   save(){
     let bookData = this.bookForm.value
     let isbn = this.booksController.create(bookData.title, bookData.pages, bookData.price, bookData.available)
