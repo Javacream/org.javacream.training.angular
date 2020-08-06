@@ -5,6 +5,6 @@
     <hr />
     <button (click)="handleButtonClick()">Click me!</button>
     <hr />
-    <app-book-input></app-book-input>
+    <app-book-input (bookEventEmitter)="handleBookCreation($event)"></app-book-input>
 </div>
 

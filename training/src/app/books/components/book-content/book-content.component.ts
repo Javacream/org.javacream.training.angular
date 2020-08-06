@@ -18,4 +18,8 @@ export class BookContentComponent implements OnInit {
   handleButtonClick(){
     console.log("clicked!")
   }
+
+  handleBookCreation(isbn:string){
+    this.books = this.booksController.findAll()
+  }
 }

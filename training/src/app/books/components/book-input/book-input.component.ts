@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { BooksController } from '../../model/books';
 
 @Component({
@@ -19,6 +19,9 @@ export class BookInputComponent implements OnInit {
 
   handleSave(){
     console.log(`created new book using title ${this.titleInput} and price ${this.priceInput} and pages ${this.pagesInput}`)
-    this.booksController.create(this.titleInput, Number(this.pagesInput), Number(this.priceInput), false)
+    let isbn = this.booksController.create(this.titleInput, Number(this.pagesInput), Number(this.priceInput), false)
+    this.bookEventEmitter.emit(isbn)
   }
+
+  @Output() bookEventEmitter = new EventEmitter<string>()
 }
