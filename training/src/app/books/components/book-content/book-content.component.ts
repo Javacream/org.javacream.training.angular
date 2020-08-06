@@ -10,13 +10,10 @@ import {sampleBook, BooksController, Book} from '../../model/books'
 export class BookContentComponent implements OnInit {
   book = sampleBook
   books:Array<Book>
-  constructor() { 
-    let booksController = new BooksController()
-      this.books = booksController.findAll()
-  }
+  constructor(readonly booksController:BooksController) {this.books = booksController.findAll()}
 
   ngOnInit(): void {
-  }
+    this.books = this.booksController.findAll()}
 
   handleButtonClick(){
     console.log("clicked!")

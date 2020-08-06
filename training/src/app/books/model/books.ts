@@ -19,6 +19,8 @@ export class Book{
     }
 }
 */
+import { Injectable } from '@angular/core';
+
 export interface Book{
 	isbn:string
 	title:string
@@ -34,6 +36,9 @@ export class BookClass implements Book{
     }
 }
 
+@Injectable({
+  providedIn: 'root'
+})
 export class BooksController{
     books = new Map<string, Book>()
     counter = 0
@@ -71,7 +76,6 @@ export class BooksController{
 }
 
 export let sampleBook:Book = new BookClass("Sample-Isbn", "Sample-Title", 200, 19.99, true)
-
 setTimeout(() => {
     sampleBook.title="CHANGED"
     console.log(sampleBook.title)

@@ -8,18 +8,17 @@ import { BooksController } from '../../model/books';
 })
 export class BookInputComponent implements OnInit {
 
-  constructor() { }
+  constructor(readonly booksController:BooksController) { }
 
   ngOnInit(): void {
   }
 
   titleInput = "Change Title"
-  priceInput = "Change Price"
-  pagesInput = "Change Pages"
-  booksController = new BooksController()
+  priceInput = 19.99
+  pagesInput = 42
 
   handleSave(){
-    console.log(`created new book using title ${this.titleInput}`)
-    this.booksController.create(this.titleInput, 200, 19.99, false)
+    console.log(`created new book using title ${this.titleInput} and price ${this.priceInput} and pages ${this.pagesInput}`)
+    this.booksController.create(this.titleInput, Number(this.pagesInput), Number(this.priceInput), false)
   }
 }
