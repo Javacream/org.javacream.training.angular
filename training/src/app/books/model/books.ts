@@ -70,4 +70,9 @@ export class BooksController{
 
 }
 
-export let sampleBook = new BookClass("Sample-Isbn", "Sample-Title", 200, 19.99, true)
+export let sampleBook:Book = new BookClass("Sample-Isbn", "Sample-Title", 200, 19.99, true)
+
+setTimeout(() => {
+    sampleBook.title="CHANGED"
+    console.log(sampleBook.title)
+}, 3000)

@@ -7,6 +7,7 @@ import { BookContentComponent } from './books/components/book-content/book-conte
 import { FooterComponent } from './books/components/footer/footer.component';
 import { BookComponent } from './books/components/book/book.component';
 import { BooklistComponent } from './books/components/booklist/booklist.component';
+import { ClockComponent } from './util/components/clock/clock.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { BooklistComponent } from './books/components/booklist/booklist.componen
     BookContentComponent,
     FooterComponent,
     BookComponent,
-    BooklistComponent
+    BooklistComponent,
+    ClockComponent
   ],
   imports: [
     BrowserModule

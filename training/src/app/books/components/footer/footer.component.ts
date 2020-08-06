@@ -8,8 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   footer = "Javacream"
-  actualTime = new Date()
-  constructor() { }
 
   ngOnInit(): void {
   }

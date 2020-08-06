@@ -18,4 +18,7 @@ export class BookContentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  handleButtonClick(){
+    console.log("clicked!")
+  }
 }
