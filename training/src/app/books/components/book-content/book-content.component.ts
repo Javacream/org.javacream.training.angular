@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {sampleBook} from '../../model/books' 
+import {sampleBook, BooksController, Book} from '../../model/books' 
 
 
 @Component({
@@ -9,7 +9,11 @@ import {sampleBook} from '../../model/books'
 })
 export class BookContentComponent implements OnInit {
   book = sampleBook
-  constructor() { }
+  books:Array<Book>
+  constructor() { 
+    let booksController = new BooksController()
+      this.books = booksController.findAll()
+  }
 
   ngOnInit(): void {
   }

@@ -37,6 +37,14 @@ export class BookClass implements Book{
 export class BooksController{
     books = new Map<string, Book>()
     counter = 0
+    constructor(){
+        for (let i:number = 42; i < 47; i++){
+            let book = new BookClass(`ISBN-${i}`, `Title-${i}`, i, 1.99*i, true)
+            this.books.set(book.isbn, book)
+
+        }        
+    }
+
     create(title:string, pages:number, price:number, available:boolean):string{
         this.counter++
         let book = new BookClass(`ISBN-${this.counter}`, title, pages, price, available)
