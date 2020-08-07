@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { BooksController } from '../../model/books';
+import { BooksService } from '../../services/books.service';
 
 @Component({
   selector: 'app-book-input',
@@ -8,7 +9,7 @@ import { BooksController } from '../../model/books';
 })
 export class BookInputComponent implements OnInit {
 
-  constructor(readonly booksController:BooksController) { }
+  constructor(readonly booksService:BooksService) { }
 
   ngOnInit(): void {
   }
@@ -18,9 +19,11 @@ export class BookInputComponent implements OnInit {
   pagesInput = 42
 
   handleSave(){
-    console.log(`created new book using title ${this.titleInput} and price ${this.priceInput} and pages ${this.pagesInput}`)
-    let isbn = this.booksController.create(this.titleInput, Number(this.pagesInput), Number(this.priceInput), false)
-    this.bookEventEmitter.emit(isbn)
+    console.log(`created new book using title ${this.titleInput}`)
+    this.booksService.create(this.titleInput, (isbn:string) => {
+      this.bookEventEmitter.emit(isbn)
+
+    })
   }
 
   @Output() bookEventEmitter = new EventEmitter<string>()

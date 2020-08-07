@@ -25,7 +25,7 @@ export interface Book{
 	isbn:string
 	title:string
 	price:number
-	pages:number
+	pages?:number
     available?:boolean
 }
 

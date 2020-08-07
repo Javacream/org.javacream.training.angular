@@ -15,19 +15,19 @@ export class BookContentComponent implements OnInit {
 
   ngOnInit() {
     //this.books = await this.booksService.findAllBooksFetch()
-    this.booksService.findAllBooksHttpClient(this.update)
-  }
+    this.booksService.findAllBooksHttpClient((books:Array<Book>) => {
+      this.books = books
+    })
+}
 
   handleButtonClick(){
     console.log("clicked!")
   }
 
    handleBookCreation(isbn:string){
-    this.booksService.findAllBooksHttpClient(this.update)
+    this.booksService.findAllBooksHttpClient((books:Array<Book>) => {
+        this.books = books
+      })
     //this.books = await this.booksService.findAllBooksFetch()
-  }
-
-  update(books:Array<Book>) {
-    this.books = books
   }
 }

@@ -5,7 +5,7 @@ import { Book } from '../model/books';
   providedIn: 'root'
 })
 export class BooksService {
-
+  counter = 0;
   constructor(readonly http: HttpClient) { }
 
 
@@ -35,5 +35,9 @@ export class BooksService {
   findAllBooksHttpClient(update:(books:Array<Book>)=> void):void{
     this.http.get<Array<Book>>(`http://10.28.6.1:8080/api/books`).subscribe(update)
   }
+  create(title:string, update: (isbn:string) => void){
+    this.http.post<string>(`http://10.28.6.1:8080/api/books/${title}`, {}, {responseType:'text' as 'json'}).subscribe(update)
+}
+
 
 }
