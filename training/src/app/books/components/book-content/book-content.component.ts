@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {sampleBook, BooksController, Book} from '../../model/books' 
+import {sampleBook, Book} from '../../model/books' 
+import { BooksService } from '../../services/books.service';
 
 
 @Component({
@@ -10,16 +11,16 @@ import {sampleBook, BooksController, Book} from '../../model/books'
 export class BookContentComponent implements OnInit {
   book = sampleBook
   books:Array<Book>
-  constructor(readonly booksController:BooksController) {this.books = booksController.findAll()}
+  constructor(readonly booksService:BooksService) {}
 
-  ngOnInit(): void {
-    this.books = this.booksController.findAll()}
+  async ngOnInit() {
+    this.books = await this.booksService.findAllBooksFetch()}
 
   handleButtonClick(){
     console.log("clicked!")
   }
 
-  handleBookCreation(isbn:string){
-    this.books = this.booksController.findAll()
+  async handleBookCreation(isbn:string){
+    this.books = await this.booksService.findAllBooksFetch()
   }
 }

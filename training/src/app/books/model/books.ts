@@ -28,6 +28,7 @@ export interface Book{
 	pages:number
     available?:boolean
 }
+
 export class BookClass implements Book{
     constructor(readonly isbn:string, readonly title:string, readonly pages:number, readonly price:number, readonly available:boolean){}
 
