@@ -1,14 +1,10 @@
-<div id="content">
-    <app-book [book]="book"></app-book>
-    <hr />
-    <app-booklist [books]="books"></app-booklist>
-    <hr />
-    <button (click)="handleButtonClick()">Click me!</button>
-    <hr />
-    <app-book-input (bookEventEmitter)="handleBookCreation($event)"></app-book-input>
-    <hr />
-    <app-book-input-reactive (bookEventEmitter)="handleBookCreation($event)"></app-book-input-reactive>
-    <hr />
-    <app-book-search ></app-book-search>
-</div>
+<nav>
+    <ul>
+      <li><a routerLink="/list" routerLinkActive="active">Book List</a></li>
+      <li><a routerLink="/input" routerLinkActive="active">Book Input</a></li>
+      <li><a routerLink="/input-reactive" routerLinkActive="active">Book Input Reactive</a></li>
+      <li><a routerLink="/search" routerLinkActive="active">Book Search</a></li>
+    </ul>
+  </nav>
+  <router-outlet></router-outlet>
 

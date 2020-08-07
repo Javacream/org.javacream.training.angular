@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms'
 import { BooksService } from '../../services/books.service';
 @Component({
@@ -21,11 +21,7 @@ export class BookInputReactiveComponent implements OnInit {
     let title = this.bookForm.value.title
     console.log(`created new book using title ${title}`)
     this.booksService.create(title, (isbn:string) => {
-      this.bookEventEmitter.emit(isbn)
-
     })
-  }
-
-  @Output() bookEventEmitter = new EventEmitter<string>()
+ }
   
 }

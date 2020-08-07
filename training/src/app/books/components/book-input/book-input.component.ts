@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../../services/books.service';
 
 @Component({
@@ -18,10 +18,6 @@ export class BookInputComponent implements OnInit {
   handleSave(){
     console.log(`created new book using title ${this.titleInput}`)
     this.booksService.create(this.titleInput, (isbn:string) => {
-      this.bookEventEmitter.emit(isbn)
-
     })
   }
-
-  @Output() bookEventEmitter = new EventEmitter<string>()
 }

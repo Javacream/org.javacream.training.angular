@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Book } from '../../model/books';
+import { BooksService } from '../../services/books.service';
 
 @Component({
   selector: 'app-booklist',
@@ -7,10 +8,21 @@ import { Book } from '../../model/books';
   styleUrls: ['./booklist.component.css']
 })
 export class BooklistComponent implements OnInit {
+  books: Array<Book>
+  constructor(readonly booksService:BooksService) {}
 
-  constructor() { }
+  ngOnInit() {
+    //this.books = await this.booksService.findAllBooksFetch()
+    this.booksService.findAllBooksHttpClient((books:Array<Book>) => {
+      this.books = books
+    })
+}
 
-  ngOnInit(): void {
+
+   handleBookCreation(isbn:string){
+    this.booksService.findAllBooksHttpClient((books:Array<Book>) => {
+        this.books = books
+      })
+    //this.books = await this.booksService.findAllBooksFetch()
   }
-  @Input() books:Array<Book>
 }
