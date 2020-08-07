@@ -21,6 +21,18 @@ export class BooksService {
   
   }
 
+  async findBookByIsbn(isbn:string){
+    try{
+      let response:Response = await fetch(`http://10.28.6.1:8080/api/books/${isbn}`)
+      let data:Book = await response.json()
+      return data
+    }
+    catch(error){
+      console.log(error)
+    }
+  
+  }
+
   findAllBooksHttpClient(){
     
   }
