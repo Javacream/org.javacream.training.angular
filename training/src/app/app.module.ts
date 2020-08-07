@@ -12,7 +12,8 @@ import { ClockComponent } from './util/components/clock/clock.component';
 import { BookInputComponent } from './books/components/book-input/book-input.component';
 import { BookInputReactiveComponent } from './books/components/book-input-reactive/book-input-reactive.component';
 import { BookSearchComponent } from './books/components/book-search/book-search.component';
-import {BookRoutingModule} from './books/book-routing.module'
+import {BookRoutingModule} from './books/book-routing.module';
+import { LogComponent } from './books/components/log/log.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import {BookRoutingModule} from './books/book-routing.module'
     ClockComponent,
     BookInputComponent,
     BookInputReactiveComponent,
-    BookSearchComponent
+    BookSearchComponent,
+    LogComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, BookRoutingModule
