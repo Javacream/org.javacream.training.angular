@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { BooksController } from '../../model/books';
 import { BooksService } from '../../services/books.service';
 
 @Component({
@@ -15,8 +14,6 @@ export class BookInputComponent implements OnInit {
   }
 
   titleInput = "Change Title"
-  priceInput = 19.99
-  pagesInput = 42
 
   handleSave(){
     console.log(`created new book using title ${this.titleInput}`)

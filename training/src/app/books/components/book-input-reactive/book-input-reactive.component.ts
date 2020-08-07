@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms'
-import { BooksController } from '../../model/books';
+import { BooksService } from '../../services/books.service';
 @Component({
   selector: 'app-book-input-reactive',
   templateUrl: './book-input-reactive.component.html',
@@ -8,22 +8,22 @@ import { BooksController } from '../../model/books';
 })
 export class BookInputReactiveComponent implements OnInit {
 
-  constructor(readonly booksController:BooksController) { }
+  constructor(readonly booksService:BooksService) { }
 
   ngOnInit(): void {
   }
   bookForm = new FormGroup( 
     {
-      title: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
-      pages: new FormControl(0, Validators.min(1)),
-      price: new FormControl(0, Validators.compose([Validators.required, Validators.min(0), Validators.max(1000)])),
-      available: new FormControl(true),
+      title: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)]))
     }
   );
   save(){
-    let bookData = this.bookForm.value
-    let isbn = this.booksController.create(bookData.title, bookData.pages, bookData.price, bookData.available)
-    this.bookEventEmitter.emit(isbn)
+    let title = this.bookForm.value.title
+    console.log(`created new book using title ${title}`)
+    this.booksService.create(title, (isbn:string) => {
+      this.bookEventEmitter.emit(isbn)
+
+    })
   }
 
   @Output() bookEventEmitter = new EventEmitter<string>()
