@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient}from '@angular/common/http';
 import { Book } from '../model/books';
+import {NotificationService} from './notification.service' 
+
 @Injectable({
   providedIn: 'root'
 })
 export class BooksService {
   counter = 0;
-  constructor(readonly http: HttpClient) { }
+  constructor(readonly http: HttpClient, readonly notificationService:NotificationService) { }
 
 
   async findAllBooksFetch(){
@@ -35,8 +37,10 @@ export class BooksService {
   findAllBooksHttpClient(update:(books:Array<Book>)=> void):void{
     this.http.get<Array<Book>>(`http://10.28.6.1:8080/api/books`).subscribe(update)
   }
-  create(title:string, update: (isbn:string) => void){
-    this.http.post<string>(`http://10.28.6.1:8080/api/books/${title}`, {}, {responseType:'text' as 'json'}).subscribe(update)
+  create(title:string){
+    this.http.post<void>(`http://10.28.6.1:8080/api/books/${title}`, {}, {responseType:'text' as 'json'}).subscribe(
+        () => this.notificationService.notify("books", `created new book using title ${title}`)
+        )
 }
 
 
