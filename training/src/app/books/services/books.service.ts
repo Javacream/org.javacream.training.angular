@@ -32,9 +32,8 @@ export class BooksService {
     }
   
   }
-
-  findAllBooksHttpClient(){
-    
+  findAllBooksHttpClient(update:(books:Array<Book>)=> void):void{
+    this.http.get<Array<Book>>(`http://10.28.6.1:8080/api/books`).subscribe(update)
   }
 
 }

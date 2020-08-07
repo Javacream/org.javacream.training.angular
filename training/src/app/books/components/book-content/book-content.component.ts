@@ -13,14 +13,21 @@ export class BookContentComponent implements OnInit {
   books:Array<Book>
   constructor(readonly booksService:BooksService) {}
 
-  async ngOnInit() {
-    this.books = await this.booksService.findAllBooksFetch()}
+  ngOnInit() {
+    //this.books = await this.booksService.findAllBooksFetch()
+    this.booksService.findAllBooksHttpClient(this.update)
+  }
 
   handleButtonClick(){
     console.log("clicked!")
   }
 
-  async handleBookCreation(isbn:string){
-    this.books = await this.booksService.findAllBooksFetch()
+   handleBookCreation(isbn:string){
+    this.booksService.findAllBooksHttpClient(this.update)
+    //this.books = await this.booksService.findAllBooksFetch()
+  }
+
+  update(books:Array<Book>) {
+    this.books = books
   }
 }
