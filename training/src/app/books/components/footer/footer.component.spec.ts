@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FooterComponent } from './footer.component';
+import { ClockComponent } from 'src/app/util/components/clock/clock.component';
+import { LogComponent } from '../log/log.component';
 
 describe('FooterComponent', () => {
   let component: FooterComponent;
@@ -8,7 +10,7 @@ describe('FooterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FooterComponent ]
+      declarations: [ FooterComponent, ClockComponent, LogComponent ]
     })
     .compileComponents();
   }));

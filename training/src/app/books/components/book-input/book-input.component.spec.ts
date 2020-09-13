@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BookInputComponent } from './book-input.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BooksService } from '../../services/books.service';
+import { FormsModule } from '@angular/forms';
 
 describe('BookInputComponent', () => {
   let component: BookInputComponent;
@@ -12,7 +13,7 @@ describe('BookInputComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ BookInputComponent ],
       providers: [BooksService],
-      imports: [HttpClientModule]
+      imports: [HttpClientModule, FormsModule]
     })
     .compileComponents();
   }));
