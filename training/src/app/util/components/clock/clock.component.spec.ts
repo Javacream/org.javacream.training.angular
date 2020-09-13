@@ -9,7 +9,7 @@ describe('ClockComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ClockComponent ]
-    })
+        })
     .compileComponents();
   }));
 

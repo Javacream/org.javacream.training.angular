@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookInputReactiveComponent } from './book-input-reactive.component';
+import { BooksService } from '../../services/books.service';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('BookInputReactiveComponent', () => {
   let component: BookInputReactiveComponent;
@@ -8,7 +10,9 @@ describe('BookInputReactiveComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookInputReactiveComponent ]
+      declarations: [ BookInputReactiveComponent ], 
+      providers: [BooksService],
+      imports: [HttpClientModule]
     })
     .compileComponents();
   }));

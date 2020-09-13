@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookInputComponent } from './book-input.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BooksService } from '../../services/books.service';
 
 describe('BookInputComponent', () => {
   let component: BookInputComponent;
@@ -8,7 +10,9 @@ describe('BookInputComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookInputComponent ]
+      declarations: [ BookInputComponent ],
+      providers: [BooksService],
+      imports: [HttpClientModule]
     })
     .compileComponents();
   }));

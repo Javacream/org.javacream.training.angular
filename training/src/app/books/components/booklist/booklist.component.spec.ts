@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BooklistComponent } from './booklist.component';
+import { BooksService } from '../../services/books.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 describe('BooklistComponent', () => {
   let component: BooklistComponent;
@@ -8,7 +10,9 @@ describe('BooklistComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BooklistComponent ]
+      declarations: [ BooklistComponent ], 
+      providers: [BooksService],
+      imports: [HttpClientModule]
     })
     .compileComponents();
   }));
