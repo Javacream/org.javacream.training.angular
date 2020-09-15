@@ -13,7 +13,7 @@ import { BookInputReactiveComponent } from './books/components/book-input-reacti
 import { BookSearchComponent } from './books/components/book-search/book-search.component';
 import {BookRoutingModule} from './books/book-routing.module';
 import { LogComponent } from './books/components/log/log.component'
-import {ClockModule} from '@javacream/clock'
+import {UtilModule} from '@javacream/util'
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +28,7 @@ import {ClockModule} from '@javacream/clock'
     LogComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, BookRoutingModule, ClockModule
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, BookRoutingModule, UtilModule
   ],
   providers: [],
   bootstrap: [AppComponent]
