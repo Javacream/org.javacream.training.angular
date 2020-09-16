@@ -13,7 +13,7 @@ export class BooksService {
 
   async findAllBooksFetch(){
     try{
-      let response:Response = await fetch("http://localhost:8080/api/books")
+      let response = await fetch("http://localhost:8080/api/books")
       let data:Array<Book> = await response.json()
       return data
     }
@@ -43,5 +43,10 @@ export class BooksService {
         )
 }
 
+deleteBookByIsbn(isbn:string){
+  this.http.delete<void>(`http://localhost:8080/api/books/${isbn}`).subscribe(
+      () => this.notificationService.notify("books", `deleted book using isbn ${isbn}`)
+      )
+}
 
 }
