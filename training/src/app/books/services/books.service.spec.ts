@@ -7,7 +7,6 @@ describe('BooksService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [HttpClient],
       imports: [HttpClientModule]
     });
     service = TestBed.inject(BooksService);
