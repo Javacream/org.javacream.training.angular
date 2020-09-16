@@ -43,10 +43,13 @@ export class BooksService {
         )
 }
 
-deleteBookByIsbn(isbn:string){
-  this.http.delete<void>(`http://localhost:8080/api/books/${isbn}`).subscribe(
-      () => this.notificationService.notify("books", `deleted book using isbn ${isbn}`)
-      )
-}
+  deleteBookByIsbn(isbn:string, update?:() => void ){
+    this.http.delete<void>(`http://localhost:8080/api/books/${isbn}`).subscribe(
+        () => {
+          this.notificationService.notify("books", `deleted book using isbn ${isbn}`)
+         if (update != null){update()}
+        }
+        )
+  }
 
 }

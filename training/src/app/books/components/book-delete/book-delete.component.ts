@@ -9,13 +9,12 @@ import { BooksService } from '../../services/books.service';
 export class BookDeleteComponent implements OnInit {
 
   isbn:string
-  book:Book
   constructor(readonly booksService:BooksService) { }
 
   ngOnInit(): void {
   }
 
   delete(){
-    this.book = this.booksService.deleteBookByIsbn(this.isbn)
+    this.booksService.deleteBookByIsbn(this.isbn)
   }
 }

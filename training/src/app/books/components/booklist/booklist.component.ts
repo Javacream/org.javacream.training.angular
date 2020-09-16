@@ -23,6 +23,14 @@ export class BooklistComponent implements OnInit {
     this.booksService.findAllBooksHttpClient((books:Array<Book>) => {
         this.books = books
       })
-    //this.books = await this.booksService.findAllBooksFetch()
   }
+
+  handleDeleteBook(isbn:string){
+    this.booksService.deleteBookByIsbn(isbn, () => {
+      this.booksService.findAllBooksHttpClient((books:Array<Book>) => {
+        console.log(books)
+        this.books = books
+      })
+    })
+}
 }
