@@ -22,4 +22,11 @@ describe('FooterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it('should create have a Javacream paragraph', () => {
+    let footer = fixture.debugElement.nativeElement
+    const p = footer.querySelector('p')
+    expect(p.textContent).toEqual('Javacream') 
+  });
 });

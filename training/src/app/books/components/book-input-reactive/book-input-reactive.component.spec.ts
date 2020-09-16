@@ -1,14 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookInputReactiveComponent } from './book-input-reactive.component';
+import { BooksService } from '../../services/books.service';
 
 describe('BookInputReactiveComponent', () => {
   let component: BookInputReactiveComponent;
   let fixture: ComponentFixture<BookInputReactiveComponent>;
+  let mockBooksService = jasmine.createSpyObj(BooksService, ['create'])
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookInputReactiveComponent ]
+      declarations: [ BookInputReactiveComponent ], 
+      providers: [{provide: BooksService, useValue: mockBooksService}]
     })
     .compileComponents();
   }));
