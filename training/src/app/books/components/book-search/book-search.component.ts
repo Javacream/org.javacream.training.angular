@@ -17,6 +17,7 @@ export class BookSearchComponent implements OnInit {
 
   async search(){
     this.book = await this.booksService.findBookByIsbn(this.isbn)
+    console.log("++" + this.book.isbn)
   }
 
 }

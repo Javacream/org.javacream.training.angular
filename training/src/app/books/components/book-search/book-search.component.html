@@ -1,5 +1,3 @@
-<p>
-    <input type="text" [(ngModel)]="isbn"  />
-    <input type="button" value="Search" (click)="search()" />
+    <input type="text" [(ngModel)]="isbn"  id="isbn-input"/>
+    <input type="button" id="search-button" value="Search" (click)="search()" />
     <app-book *ngIf="book" [book]="book"></app-book>
-  </p>
