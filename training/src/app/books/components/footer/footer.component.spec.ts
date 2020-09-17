@@ -24,7 +24,7 @@ describe('FooterComponent', () => {
   });
 
 
-  it('should create have a Javacream paragraph', () => {
+  it('should have a Javacream paragraph', () => {
     let footer = fixture.debugElement.nativeElement
     const p = footer.querySelector('p')
     expect(p.textContent).toEqual('Javacream') 

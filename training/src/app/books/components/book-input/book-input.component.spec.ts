@@ -6,7 +6,7 @@ import { BooksService } from '../../services/books.service';
 describe('BookInputComponent', () => {
   let component: BookInputComponent;
   let fixture: ComponentFixture<BookInputComponent>;
-  let mockBooksService = jasmine.createSpyObj(BooksService, ['deleteBookByIsbn'])
+  let mockBooksService = jasmine.createSpyObj(BooksService, ['create'])
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -26,4 +26,10 @@ describe('BookInputComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should invoke create in BooksService', () => {
+    component.handleSave()
+    expect(mockBooksService.create).toHaveBeenCalled();
+  });
+
 });
