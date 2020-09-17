@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~10.0.6",
     "@angular/router": "~10.0.6",
     "@types/pubsub-js": "^1.8.0",
+    "karma-phantomjs-launcher": "^1.0.4",
     "pubsub-js": "^1.8.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

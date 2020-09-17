@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookSearchComponent } from './book-search.component';
 import { BooksService } from '../../services/books.service';
+import { FormsModule} from '@angular/forms';
 
 describe('BookSearchComponent', () => {
   let component: BookSearchComponent;
@@ -11,6 +12,7 @@ describe('BookSearchComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ BookSearchComponent ], 
+      imports: [FormsModule],
       providers: [{provide: BooksService, useValue: mockBooksService}]
 
     })

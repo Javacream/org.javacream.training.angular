@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookDeleteComponent } from './book-delete.component';
 import { BooksService } from '../../services/books.service';
+import { FormsModule} from '@angular/forms';
 
 describe('BookDeleteComponent', () => {
   let component: BookDeleteComponent;
@@ -10,6 +11,7 @@ describe('BookDeleteComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ BookDeleteComponent ], 
+      imports:[FormsModule],
       providers: [{provide: BooksService, useValue: mockBooksService}]
     })
     .compileComponents();

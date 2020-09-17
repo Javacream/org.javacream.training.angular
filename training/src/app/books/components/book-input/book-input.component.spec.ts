@@ -1,7 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 
 import { BookInputComponent } from './book-input.component';
 import { BooksService } from '../../services/books.service';
+import { FormsModule} from '@angular/forms';
 
 describe('BookInputComponent', () => {
   let component: BookInputComponent;
@@ -11,6 +12,7 @@ describe('BookInputComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ BookInputComponent ], 
+      imports: [FormsModule]
       providers: [{provide: BooksService, useValue: mockBooksService}]
 
     })
@@ -31,5 +33,9 @@ describe('BookInputComponent', () => {
     component.handleSave()
     expect(mockBooksService.create).toHaveBeenCalled();
   });
+  it('javascript click event should invoke create in BooksService', fakeAsync(() => {
+    fixture.debugElement.nativeElement.querySelector('#the-button').click()
+    expect(mockBooksService.create).toHaveBeenCalled();
+  }));
 
 });
