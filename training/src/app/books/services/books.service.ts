@@ -35,7 +35,8 @@ export class BooksService {
   
   }
   findAllBooksHttpClient(update:(books:Array<Book>)=> void):void{
-    this.http.get<Array<Book>>(`http://localhost:8080/api/books`).subscribe(update)
+    let observeable = this.http.get<Array<Book>>(`http://localhost:8080/api/books`)
+    observeable.subscribe(update)
   }
   create(title:string){
     this.http.post<void>(`http://localhost:8080/api/books/${title}`, {}, {responseType:'text' as 'json'}).subscribe(
@@ -44,7 +45,9 @@ export class BooksService {
 }
 
   deleteBookByIsbn(isbn:string, update?:() => void ){
-    this.http.delete<void>(`http://localhost:8080/api/books/${isbn}`).subscribe(
+    let x = this.http.delete<void>(`http://localhost:8080/api/books/${isbn}`)
+    
+    x.subscribe(
         () => {
           this.notificationService.notify("books", `deleted book using isbn ${isbn}`)
          if (update != null){update()}
