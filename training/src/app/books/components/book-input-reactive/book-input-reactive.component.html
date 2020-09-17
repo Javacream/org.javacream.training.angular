@@ -2,5 +2,12 @@
     <label>Title:
       <input type="text" formControlName="title">
     </label>
+    <label>Price:
+      <input type="text" formControlName="price">
+    </label>
+    <label>Pages:
+      <input type="text" formControlName="pages">
+    </label>
     <button type="submit" [disabled]="!bookForm.valid">Save</button>
+    <input type="checkbox" (click)="toggleBerserkerMode()">
 </form>

@@ -1,10 +1,13 @@
 import { FormGroup, FormControl } from '@angular/forms';
 
 export function validateBook(g: FormGroup) {
-    let titleControl  = g.controls["title"]
-    console.log(titleControl.value)
-    if (false){
-        return {valid:false}
+    const priceControl  = g.controls["price"]
+    const pagesControl  = g.controls["pages"]
+    const price = Number(priceControl.value)
+    const pages = Number(pagesControl.value)
+    if ((pages>100) && (price<9.99)){
 
-    }
+        return {description: "inconsistent price/pages", valid:false}
+    } 
+
 }
