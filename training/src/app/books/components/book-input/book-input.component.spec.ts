@@ -12,7 +12,7 @@ describe('BookInputComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ BookInputComponent ], 
-      imports: [FormsModule]
+      imports: [FormsModule],
       providers: [{provide: BooksService, useValue: mockBooksService}]
 
     })

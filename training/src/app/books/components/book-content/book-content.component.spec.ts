@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookContentComponent } from './book-content.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('BookContentComponent', () => {
   let component: BookContentComponent;
@@ -8,7 +9,7 @@ describe('BookContentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookContentComponent ]
+      declarations: [ BookContentComponent ],schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));

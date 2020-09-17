@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookInputReactiveComponent } from './book-input-reactive.component';
 import { BooksService } from '../../services/books.service';
-import { ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 
 describe('BookInputReactiveComponent', () => {
   let component: BookInputReactiveComponent;
@@ -12,7 +12,7 @@ describe('BookInputReactiveComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ BookInputReactiveComponent ], 
-      imports: [ReactiveFormsModule],
+      imports: [ReactiveFormsModule, FormsModule],
       providers: [{provide: BooksService, useValue: mockBooksService}]
     })
     .compileComponents();
