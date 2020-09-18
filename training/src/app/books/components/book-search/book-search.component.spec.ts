@@ -35,7 +35,6 @@ describe('BookSearchComponent', () => {
     fixture.debugElement.nativeElement.querySelector('#isbn-input').value = "ISBN1"
     fixture.debugElement.nativeElement.querySelector('#search-button').click()
     fixture.whenStable().then(() => {
-      console.log("*****" + component.book)
       fixture.detectChanges()
       const p = fixture.debugElement.nativeElement.querySelector('p')
       expect(p.textContent).toEqual('Book: isbn=ISBN1, title=Title1')
