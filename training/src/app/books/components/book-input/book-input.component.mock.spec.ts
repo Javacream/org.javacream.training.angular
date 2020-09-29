@@ -1,15 +1,15 @@
-import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { BooksService } from '../../services/books.service';
 
 import { BookInputComponent } from './book-input.component';
 
-describe('BookInputComponent', () => {
+describe('BookInputComponent With Mock', () => {
   let component: BookInputComponent;
   let fixture: ComponentFixture<BookInputComponent>;
-
+  let mockCreateBooksService = jasmine.createSpyObj(BooksService, ['create'])
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookInputComponent ], imports: [HttpClientModule]
+      declarations: [ BookInputComponent ], providers:[{provide: BooksService, useValue: mockCreateBooksService}]
     })
     .compileComponents();
   }));
@@ -23,14 +23,10 @@ describe('BookInputComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('component creates book', () => {
-    component.titleInput="FROM TEST"
-    expect(() => component.handleSave()).not.toThrow();
-  });
+  it('should invoke create', () => {
+    component.handleSave()
 
-  it('html creates book', () => {
-    component.titleInput="FROM TEST"
-    expect(() => component.handleSave()).not.toThrow();
+    expect(mockCreateBooksService.create).toHaveBeenCalled();
   });
 
 });
