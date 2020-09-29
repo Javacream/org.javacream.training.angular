@@ -7,7 +7,7 @@ describe('HeaderComponent', () => {
   });
 
 
-  it('', () => {
+  it('retrieves headertext', () => {
     component.headerText = "Hello"
     expect(component.retriveHeaderText()).toBe("Hello");
   });
