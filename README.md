@@ -11,7 +11,7 @@ containing a simple web application (books warehouse) using a RESTful backend (J
   * npm install
   * ng serve --open
   
-## Durchführung des Seminars vom 29.9-1-10.2020
+## Durchführung des Seminars vom 29.9-1.10.2020
 
 * Referent: Rainer Sawitzki, eMail: training@rainer-sawitzki.de
 
@@ -25,7 +25,7 @@ containing a simple web application (books warehouse) using a RESTful backend (J
 * Seminarzeiten
   * 12 Unterrichtseinheiten mit jeweils 90 Minuten
   * Mittagspause 45’ (12:15-13:00)
-  * Kaffeepausen nach Bedarf
+  * Kaffeepausen 10:30 - 10:45 und 14:30 - 14:45
   * Zeitplan 
     * Di. - Do.:  9:00-16:15
    
