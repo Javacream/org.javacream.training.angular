@@ -11,7 +11,7 @@ export class BooksService {
   constructor(readonly http: HttpClient, readonly notificationService:NotificationService) { }
 
 
-  async findAllBooksFetch(){
+  async findAllBooksFetch() :Promise<Array<Book>>{
     try{
       let response:Response = await fetch("http://localhost:8080/api/books")
       let data:Array<Book> = await response.json()
@@ -42,6 +42,13 @@ export class BooksService {
         () => this.notificationService.notify("books", `created new book using title ${title}`)
         )
 }
+  deleteBookByIsbn(isbn:string, update?: () => void){
+    this.http.delete<void>(`http://localhost:8080/api/books/${isbn}`).subscribe(
+      () => {this.notificationService.notify("books", `deleted book with isbn ${isbn}`)
+      if (update != null){update()}
+    }
+    )
+  }
 
 
 }
