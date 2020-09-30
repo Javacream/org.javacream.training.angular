@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ReversePipe } from '../../pipes/reverse-pipe'
 import { FooterComponent } from './footer.component';
 
 describe('FooterComponent', () => {
@@ -9,7 +9,7 @@ describe('FooterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FooterComponent, LogStubComponent, ClockStubComponent ]
+      declarations: [ FooterComponent, LogStubComponent, ClockStubComponent, ReversePipe ], providers:[ReversePipe]
     })
     .compileComponents();
   }));

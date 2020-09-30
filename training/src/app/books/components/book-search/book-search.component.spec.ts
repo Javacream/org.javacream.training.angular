@@ -1,6 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
+import { BookComponent } from '../book/book.component';
 
 import { BookSearchComponent } from './book-search.component';
 
@@ -10,7 +11,7 @@ describe('BookSearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookSearchComponent ], imports:[HttpClientTestingModule, FormsModule]
+      declarations: [ BookSearchComponent, BookComponent ], imports:[HttpClientTestingModule, FormsModule]
     })
     .compileComponents();
   }));
