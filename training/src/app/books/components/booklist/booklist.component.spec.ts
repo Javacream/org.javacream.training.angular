@@ -6,7 +6,7 @@ import { BooklistComponent } from './booklist.component';
 describe('BooklistComponent', () => {
   let component: BooklistComponent;
   let fixture: ComponentFixture<BooklistComponent>;
-  let mockBooksService = jasmine.createSpyObj(BooksService, ['findAllBooksHttpClient'])
+  let mockBooksService = jasmine.createSpyObj(BooksService, ['findAllBooks'])
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ BooklistComponent ], providers: [{provide: BooksService, useValue: mockBooksService}]

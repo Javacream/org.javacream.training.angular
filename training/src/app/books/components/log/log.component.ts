@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {NotificationService} from '../../services/notification.service' 
+import { Subscription } from 'rxjs';
+import {whiteboard} from '../../../whiteboard'
 @Component({
   selector: 'app-log',
   templateUrl: './log.component.html',
@@ -8,19 +9,19 @@ import {NotificationService} from '../../services/notification.service'
 export class LogComponent implements OnInit {
  
   message: string
-  registrationToken:string
-  constructor(readonly notificationService:NotificationService){} 
+
+  subscription:Subscription
+  constructor(){} 
 
   ngOnInit(): void {
-    this.registrationToken = this.notificationService.register("books", this.updateLog)
+    this.subscription = whiteboard.log.subscribe((logMessage:string) => {
+      this.message = logMessage;
+    })
   }
   ngOnDestroy(): void {
-    this.notificationService.unregister(this.registrationToken)
+    this.subscription.unsubscribe()
   }
 
-  updateLog = (topic:string, logMessage) => {
-    this.message = logMessage;
-  }
 
 }
 

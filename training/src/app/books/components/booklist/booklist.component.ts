@@ -13,14 +13,14 @@ export class BooklistComponent implements OnInit {
 
   ngOnInit() {
     //this.books = await this.booksService.findAllBooksFetch()
-    this.booksService.findAllBooksHttpClient((books:Array<Book>) => {
+    this.booksService.findAllBooks((books:Array<Book>) => {
       this.books = books
     })
 }
 
 
    handleBookCreation(isbn:string){
-    this.booksService.findAllBooksHttpClient((books:Array<Book>) => {
+    this.booksService.findAllBooks((books:Array<Book>) => {
         this.books = books
       })
     //this.books = await this.booksService.findAllBooksFetch()

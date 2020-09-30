@@ -29,9 +29,4 @@ describe('BookInputComponent', () => {
     expect(() => component.handleSave()).not.toThrow();
   });
 
-  xit('html creates book', () => {
-    component.titleInput="FROM TEST"
-    expect(() => component.handleSave()).not.toThrow();
-  });
-
 });
