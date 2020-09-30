@@ -14,7 +14,8 @@ import { BookInputReactiveComponent } from './books/components/book-input-reacti
 import { BookSearchComponent } from './books/components/book-search/book-search.component';
 import {BookRoutingModule} from './books/book-routing.module';
 import { LogComponent } from './books/components/log/log.component';
-import { BookDeleteComponent } from './books/components/book-delete/book-delete.component'
+import { BookDeleteComponent } from './books/components/book-delete/book-delete.component';
+import { ZoneComponent } from './demo/components/zone/zone.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { BookDeleteComponent } from './books/components/book-delete/book-delete.
     BookInputReactiveComponent,
     BookSearchComponent,
     LogComponent,
-    BookDeleteComponent
+    BookDeleteComponent,
+    ZoneComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, BookRoutingModule
