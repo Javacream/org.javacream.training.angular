@@ -15,8 +15,8 @@ export class BookSearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async search(){
-    this.book = await this.booksService.findBookByIsbn(this.isbn)
+  search(){
+    this.booksService.findBookByIsbn(this.isbn, (book) => this.book = book)
   }
 
 }
