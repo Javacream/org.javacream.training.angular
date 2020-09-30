@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { whiteboard } from 'src/app/whiteboard';
 import { Book } from '../../model/books';
 import { BooksService } from '../../services/books.service';
 
@@ -12,17 +13,14 @@ export class BooklistComponent implements OnInit {
   constructor(readonly booksService:BooksService) {}
 
   ngOnInit() {
-    //this.books = await this.booksService.findAllBooksFetch()
-    this.booksService.findAllBooks((books:Array<Book>) => {
+    whiteboard.bookList.subscribe((books:Array<Book>) => {
       this.books = books
     })
+    this.booksService.findAllBooks()
 }
 
 
    handleBookCreation(isbn:string){
-    this.booksService.findAllBooks((books:Array<Book>) => {
-        this.books = books
-      })
-    //this.books = await this.booksService.findAllBooksFetch()
+    this.booksService.findAllBooks()
   }
 }

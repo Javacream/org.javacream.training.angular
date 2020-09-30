@@ -10,28 +10,24 @@ export class BooksService {
   counter = 0;
   constructor(readonly http: HttpClient) { }
 
-  findBookByIsbn(isbn:string, update:(books?:Book)=> void){
-    this.http.get<Book>(`http://localhost:8080/api/books/${isbn}`).subscribe(update)
+  findBookByIsbn(isbn:string){
+    this.http.get<Book>(`http://localhost:8080/api/books/${isbn}`).subscribe((book) => whiteboard.searchResult.next(book))
   }
 
-  findAllBooks(update:(books:Array<Book>)=> void):void{
-    this.http.get<Array<Book>>(`http://localhost:8080/api/books`).subscribe(update)
+  findAllBooks():void{
+    this.http.get<Array<Book>>(`http://localhost:8080/api/books`).subscribe((books) => whiteboard.bookList.next(books))
   }
-  create(title:string, update?: () => void){
+  create(title:string){
     this.http.post<void>(`http://localhost:8080/api/books/${title}`, {}, {responseType:'text' as 'json'}).subscribe(
         () => {
-            if (update){
-              update()
-            }
             whiteboard.log.next(`created book with title ${title}`)
-
         }
       )
   }
   deleteBookByIsbn(isbn:string, update?: () => void){
     this.http.delete<void>(`http://localhost:8080/api/books/${isbn}`).subscribe(
-      () => {if (update){update()}
-    }
+      () => {whiteboard.log.next(`deleted book with isbn ${isbn}`)}
+  
     )
   }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { whiteboard } from 'src/app/whiteboard';
 import { Book } from '../../model/books';
 import { BooksService } from '../../services/books.service';
 
@@ -13,10 +14,11 @@ export class BookSearchComponent implements OnInit {
   constructor(readonly booksService:BooksService) { }
 
   ngOnInit(): void {
+    whiteboard.searchResult.subscribe((book) => this.book = book)
   }
 
   search(){
-    this.booksService.findBookByIsbn(this.isbn, (book) => this.book = book)
+    this.booksService.findBookByIsbn(this.isbn)
   }
 
 }
