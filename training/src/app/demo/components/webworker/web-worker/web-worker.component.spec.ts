@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { WebWorkerComponent } from './web-worker.component';
 
@@ -8,7 +9,7 @@ describe('WebWorkerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WebWorkerComponent ]
+      declarations: [ WebWorkerComponent ], imports: [FormsModule]
     })
     .compileComponents();
   }));
