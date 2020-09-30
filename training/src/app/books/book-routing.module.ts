@@ -6,6 +6,7 @@ import { BookInputReactiveComponent } from './components/book-input-reactive/boo
 import { BookSearchComponent } from './components/book-search/book-search.component';
 import { BookDeleteComponent } from './components/book-delete/book-delete.component';
 import { ZoneComponent } from '../demo/components/zone/zone.component';
+import { DynamicComponentComponent } from '../demo/components/dynamic/dynamic-component/dynamic-component.component';
 
 const routes: Routes = [
   { path: 'list', component: BooklistComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'search', component: BookSearchComponent },
   { path: 'delete', component: BookDeleteComponent },
   { path: 'demo/zone', component: ZoneComponent },
+  { path: 'demo/dynamic', component: DynamicComponentComponent },
 
 ];
 @NgModule({

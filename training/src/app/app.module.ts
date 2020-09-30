@@ -16,6 +16,7 @@ import {BookRoutingModule} from './books/book-routing.module';
 import { LogComponent } from './books/components/log/log.component';
 import { BookDeleteComponent } from './books/components/book-delete/book-delete.component';
 import { ZoneComponent } from './demo/components/zone/zone.component'
+import { DynamicComponentComponent } from './demo/components/dynamic/dynamic-component/dynamic-component.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { ZoneComponent } from './demo/components/zone/zone.component'
     BookSearchComponent,
     LogComponent,
     BookDeleteComponent,
-    ZoneComponent
+    ZoneComponent, 
+    DynamicComponentComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, BookRoutingModule
