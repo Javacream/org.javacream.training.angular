@@ -17,7 +17,8 @@ import { LogComponent } from './books/components/log/log.component';
 import { BookDeleteComponent } from './books/components/book-delete/book-delete.component';
 import { ZoneComponent } from './demo/components/zone/zone.component'
 import { DynamicComponentComponent } from './demo/components/dynamic/dynamic-component/dynamic-component.component'
-import { ReversePipe } from './books/pipes/reverse-pipe'
+import { ReversePipe } from './books/pipes/reverse-pipe';
+import { WebWorkerComponent } from './demo/components/webworker/web-worker/web-worker.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,7 @@ import { ReversePipe } from './books/pipes/reverse-pipe'
     BookDeleteComponent,
     ZoneComponent, 
     DynamicComponentComponent, 
-    ReversePipe
+    ReversePipe, WebWorkerComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, BookRoutingModule

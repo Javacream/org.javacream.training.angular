@@ -7,6 +7,7 @@ import { BookSearchComponent } from './components/book-search/book-search.compon
 import { BookDeleteComponent } from './components/book-delete/book-delete.component';
 import { ZoneComponent } from '../demo/components/zone/zone.component';
 import { DynamicComponentComponent } from '../demo/components/dynamic/dynamic-component/dynamic-component.component';
+import { WebWorkerComponent } from '../demo/components/webworker/web-worker/web-worker.component';
 
 const routes: Routes = [
   { path: 'list', component: BooklistComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'delete', component: BookDeleteComponent },
   { path: 'demo/zone', component: ZoneComponent },
   { path: 'demo/dynamic', component: DynamicComponentComponent },
+  { path: 'demo/webworker', component: WebWorkerComponent },
 
 ];
 @NgModule({
