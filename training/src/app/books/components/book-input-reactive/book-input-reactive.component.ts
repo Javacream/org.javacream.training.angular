@@ -18,6 +18,7 @@ export class BookInputReactiveComponent implements OnInit {
       pages: new FormControl(0, Validators.compose([Validators.required, Validators.min(1)])),
       
     });
+    this.bookForm.setValidators(Validators.nullValidator)
   }
   save(){
     let title = this.bookForm.value.title
@@ -25,12 +26,12 @@ export class BookInputReactiveComponent implements OnInit {
  }
 
  toggleFormValidation(){
+  this.validateForm = !this.validateForm;
   if (this.validateForm){
     this.bookForm.setValidators(validateBook)
   }else{
     this.bookForm.setValidators(Validators.nullValidator)
   }
-  this.validateForm = !this.validateForm;
   this.bookForm.updateValueAndValidity()
 
 }

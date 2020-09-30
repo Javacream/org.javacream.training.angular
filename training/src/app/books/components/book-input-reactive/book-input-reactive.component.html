@@ -7,4 +7,23 @@
     </label>
     <button type="submit" [disabled]="!bookForm.valid">Save</button>
     <input type="checkbox" (click)="toggleFormValidation()"> 
+    <p class="error" *ngIf="bookForm.errors">
+      {{bookForm.errors.description}}
+    </p>
+</form>
+<hr />
+
+<form [formGroup]="bookForm" (ngSubmit)="save()">
+  <ul>
+    <p *ngFor="let control of bookForm.controls | keyvalue">
+      <input type="text" [formControlName]="control.key" [name]="control.key">
+    </p>
+
+  </ul>
+  <button type="submit" [disabled]="!bookForm.valid">Save</button>
+  <input type="checkbox" (click)="toggleFormValidation()"> 
+  <p class="error" *ngIf="bookForm.errors">
+    {{bookForm.errors.description}}
+  </p>
+
 </form>
