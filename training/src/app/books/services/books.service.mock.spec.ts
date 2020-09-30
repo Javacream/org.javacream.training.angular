@@ -16,10 +16,10 @@ describe('BooksService with Mock', () => {
     expect(service).toBeTruthy();
   });
   it('should execute a get', () => {
-    service.findAllBooksHttpClient((data) => console.log(data));
+    service.findAllBooksHttpClient((data) => expect(data[0].isbn).toBe("ISBN1"));
     const req = testingController.expectOne('http://localhost:8080/api/books');
     expect(req.request.method).toEqual('GET');
-    req.flush({isbn:"ISBN1"})
+    req.flush([{isbn:"ISBN1", title:"Title1"}])
     testingController.verify();
   });
 });

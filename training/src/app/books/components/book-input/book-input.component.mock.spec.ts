@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { BooksService } from '../../services/books.service';
 
 import { BookInputComponent } from './book-input.component';
@@ -9,7 +10,7 @@ describe('BookInputComponent With Mock', () => {
   let mockCreateBooksService = jasmine.createSpyObj(BooksService, ['create'])
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookInputComponent ], providers:[{provide: BooksService, useValue: mockCreateBooksService}]
+      declarations: [ BookInputComponent ], providers:[{provide: BooksService, useValue: mockCreateBooksService}], imports: [FormsModule]
     })
     .compileComponents();
   }));
