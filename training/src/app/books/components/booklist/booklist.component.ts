@@ -16,11 +16,7 @@ export class BooklistComponent implements OnInit {
     whiteboard.bookList.subscribe((books:Array<Book>) => {
       this.books = books
     })
-    this.booksService.findAllBooks()
+    this.booksService.findAllBooksOutsideAngular()
 }
 
-
-   handleBookCreation(isbn:string){
-    this.booksService.findAllBooks()
-  }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import {HttpClient}from '@angular/common/http';
 import { Book } from '../model/books';
 import {whiteboard} from '../../whiteboard'
@@ -8,7 +8,7 @@ import {whiteboard} from '../../whiteboard'
 })
 export class BooksService {
   counter = 0;
-  constructor(readonly http: HttpClient) { }
+  constructor(readonly http: HttpClient, readonly ngZone: NgZone) { }
 
   findBookByIsbn(isbn:string){
     this.http.get<Book>(`http://localhost:8080/api/books/${isbn}`).subscribe((book) => whiteboard.searchResult.next(book))
@@ -16,6 +16,11 @@ export class BooksService {
 
   findAllBooks():void{
     this.http.get<Array<Book>>(`http://localhost:8080/api/books`).subscribe((books) => whiteboard.bookList.next(books))
+  }
+  findAllBooksOutsideAngular():void{
+    this.ngZone.runOutsideAngular( () => 
+    this.http.get<Array<Book>>(`http://localhost:8080/api/books`).subscribe((books) => whiteboard.bookList.next(books))
+    )
   }
   create(title:string){
     this.http.post<void>(`http://localhost:8080/api/books/${title}`, {}, {responseType:'text' as 'json'}).subscribe(
