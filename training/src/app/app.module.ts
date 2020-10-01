@@ -8,7 +8,6 @@ import { BookContentComponent } from './books/components/book-content/book-conte
 import { FooterComponent } from './books/components/footer/footer.component';
 import { BookComponent } from './books/components/book/book.component';
 import { BooklistComponent } from './books/components/booklist/booklist.component';
-import { ClockComponent } from './util/components/clock/clock.component';
 import { BookInputComponent } from './books/components/book-input/book-input.component';
 import { BookInputReactiveComponent } from './books/components/book-input-reactive/book-input-reactive.component';
 import { BookSearchComponent } from './books/components/book-search/book-search.component';
@@ -27,7 +26,6 @@ import { WebWorkerComponent } from './demo/components/webworker/web-worker/web-w
     FooterComponent,
     BookComponent,
     BooklistComponent,
-    ClockComponent,
     BookInputComponent,
     BookInputReactiveComponent,
     BookSearchComponent,

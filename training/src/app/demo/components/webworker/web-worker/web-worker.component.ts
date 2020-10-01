@@ -12,7 +12,7 @@ export class WebWorkerComponent implements OnInit {
    ngOnInit() {
     this.webWorker = new Worker('../../../../fibonacci.worker', { type: `module` })
     this.webWorker.onmessage = (data) => {
-      console.log(data)
+      console.log("Helo" + data)
         this.output = data.data
     }
 
@@ -20,7 +20,7 @@ export class WebWorkerComponent implements OnInit {
     
   }    
   calcFib() {
-      this.webWorker.postMessage(this.n)
+    this.webWorker.postMessage(this.n)
   }
 
 
