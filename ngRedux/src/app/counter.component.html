@@ -1,7 +1,9 @@
-<button (click)="increment()">Increment</button>
+<button (click)="uiIncrement()">Increment</button>
 
-<button (click)="decrement()">Decrement</button>
+<button (click)="uiDecrement()">Decrement</button>
 
-<button (click)="reset()">Reset Counter</button>
+<button (click)="uiReset()">Reset Counter</button>
 
-<div>Current Count: {{ count$ | async }}</div>
+<button (click)="uiSet()">Set Counter</button>
+
+<div>Current Count: {{ count | async }}</div>
