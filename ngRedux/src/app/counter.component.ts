@@ -9,10 +9,10 @@ import { increment, decrement, reset } from './counter.actions';
   styleUrls: ['./counter.component.css'],
 })
 export class CounterComponent {
-  count$: Observable<number>;
+  count: Observable<number>;
 
   constructor(private store: Store<{ count: number }>) {
-    this.count$ = store.select('count');
+    this.count = store.select('count');
   }
 
   increment() {
