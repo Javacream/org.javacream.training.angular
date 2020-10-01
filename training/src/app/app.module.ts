@@ -18,6 +18,7 @@ import { ZoneComponent } from './demo/components/zone/zone.component'
 import { DynamicComponentComponent } from './demo/components/dynamic/dynamic-component/dynamic-component.component'
 import { ReversePipe } from './books/pipes/reverse-pipe';
 import { WebWorkerComponent } from './demo/components/webworker/web-worker/web-worker.component'
+import {UtilModule} from '@javacream/util'
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,7 @@ import { WebWorkerComponent } from './demo/components/webworker/web-worker/web-w
     ReversePipe, WebWorkerComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, BookRoutingModule
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, BookRoutingModule, UtilModule
   ],
   providers: [ReversePipe],
   bootstrap: [AppComponent]

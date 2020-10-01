@@ -11,7 +11,7 @@ export class ClockComponent implements OnInit {
   constructor() { 
     setInterval(() => {
       this.actualTime = new Date()
-  }, 5000)
+  }, 1000)
   }
   ngOnInit(): void {
   }

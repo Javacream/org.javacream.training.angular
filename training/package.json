@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~10.0.6",
     "@angular/platform-browser-dynamic": "~10.0.6",
     "@angular/router": "~10.0.6",
+    "@javacream/util": "0.0.1",
     "@types/pubsub-js": "^1.8.0",
     "pubsub-js": "^1.8.0",
     "rxjs": "~6.5.5",
