@@ -6,11 +6,11 @@ describe("TypeScript Types are working", () => {
         let message = "Hugo"
         expect(message).toBe("Hugo")
 
-    }), 
+    })
 
-    it ("types should work"), () => {
+    it ("types should work", () => {
         let result = demo3((p:string):boolean => {return true})   
         expect(result).toBeTrue()
-    }
+    })
 })
 
