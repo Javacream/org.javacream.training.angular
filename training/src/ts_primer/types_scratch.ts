@@ -34,5 +34,6 @@ let demo3 = (cb:(p:string)=> boolean) => {
 
 let result3 = demo3(demo)
 
-let result4 = demo3((p:string):boolean => {return true})
 
+
+export {demo3, message}
