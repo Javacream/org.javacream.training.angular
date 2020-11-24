@@ -9,12 +9,15 @@ import { Person } from '../../model/people';
 export class PeopleListComponent implements OnInit {
 
   @Input() people:Array<Person>
+  detail = true
+  buttonCaption = "Detail off"
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  demo(){
-    console.log("clicked!")
+  switchDetail(){
+    this.detail = !this.detail;
+    this.buttonCaption = this.detail ? "Detail Off" : "Detail On"
   }
 }
