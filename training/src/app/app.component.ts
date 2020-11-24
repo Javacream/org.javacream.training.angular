@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {profile, people} from './people/data/people.data'
+import {profile} from './people/data/people.data'
+import { peopleModel } from './people/model/people';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,9 @@ import {profile, people} from './people/data/people.data'
 export class AppComponent {
   title = 'training';
   profile = profile
-  people = people
+  people = peopleModel.findAll()
+
+  handlePersonCreation(id:number){
+    this.people = peopleModel.findAll()
+  }
 }

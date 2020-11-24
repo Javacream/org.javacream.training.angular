@@ -1,0 +1,4 @@
+<input type="text" [(ngModel)]="id" />
+<button (click)="search()">Search</button>
+<p *ngIf="person">Found Person: {{person.lastname}}</p>
+<p *ngIf="!person">Not found</p>

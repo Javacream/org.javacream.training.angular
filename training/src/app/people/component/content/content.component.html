@@ -1,1 +1,6 @@
 <app-people-list [people] = "people"></app-people-list>
+<hr />
+<app-person-input (personEventEmitter)="handlePersonCreation($event)"></app-person-input>
+<hr />
+<app-person-search></app-person-search>
+<hr />

@@ -8,6 +8,9 @@ import { FooterComponent } from './people/component/footer/footer.component';
 import { ClockComponent } from './util/clock/clock.component';
 import { PeopleListComponent } from './people/component/people-list/people-list.component';
 import { PersonComponent } from './people/component/person/person.component';
+import { PersonInputComponent } from './people/component/person-input/person-input.component';
+import { FormsModule } from '@angular/forms';
+import { PersonSearchComponent } from './people/component/person-search/person-search.component';
 
 @NgModule({
   declarations: [
@@ -17,10 +20,12 @@ import { PersonComponent } from './people/component/person/person.component';
     FooterComponent,
     ClockComponent,
     PeopleListComponent,
-    PersonComponent
+    PersonComponent,
+    PersonInputComponent,
+    PersonSearchComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

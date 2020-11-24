@@ -21,10 +21,12 @@ export class PeopleModel {
         this.counter++;
         const p = new PersonClass(this.counter, lastname, firstname, gender, height);
         this.peopleMap.set(this.counter, p);
+        return this.counter
  
     }
     findById(id: number): Person {
-        return this.peopleMap.get(id);
+        let p =this.peopleMap.get(id) 
+        return p
     }
     findAll(): Array<Person> {
         return Array.from(this.peopleMap.values());
@@ -41,3 +43,6 @@ export class PeopleModel {
         return Array.from(this.peopleMap.values()).filter((person) => person.lastname === lastname)
     }
 }
+
+export let peopleModel = new PeopleModel()
+peopleModel.create("Sawitzki", "Rainer")

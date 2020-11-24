@@ -9,9 +9,11 @@ import { Person } from '../../model/people';
 export class ContentComponent implements OnInit {
   @Input() people:Array<Person>
 
+  @Input() handlePersonCreation: (id:number) => void
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }
