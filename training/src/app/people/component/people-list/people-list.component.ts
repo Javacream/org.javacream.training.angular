@@ -14,4 +14,7 @@ export class PeopleListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  demo(){
+    console.log("clicked!")
+  }
 }
