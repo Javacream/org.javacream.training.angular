@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {profile} from '../../data/people.data'
+import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  appProfile = profile
+  @Input() appProfile
   appHeader = "PEOPLE"
   constructor() { }
 v
