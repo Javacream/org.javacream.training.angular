@@ -1,4 +1,4 @@
 <div class="header">
 <p >{{appHeader}}</p>
-<p class="right">{{appProfile.firstname + " " + appProfile.lastname}}  </p>
+<app-person [detail] = "false" [person]="appProfile" class="right"></app-person>
 </div>
