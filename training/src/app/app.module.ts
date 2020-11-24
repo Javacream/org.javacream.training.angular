@@ -6,6 +6,7 @@ import { HeaderComponent } from './people/component/header/header.component';
 import { ContentComponent } from './people/component/content/content.component';
 import { FooterComponent } from './people/component/footer/footer.component';
 import { ClockComponent } from './util/clock/clock.component';
+import { PeopleListComponent } from './people/component/people-list/people-list.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ClockComponent } from './util/clock/clock.component';
     HeaderComponent,
     ContentComponent,
     FooterComponent,
-    ClockComponent
+    ClockComponent,
+    PeopleListComponent
   ],
   imports: [
     BrowserModule

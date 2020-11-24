@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {profile} from './people/data/people.data'
+import {profile, people} from './people/data/people.data'
 
 @Component({
   selector: 'app-root',
@@ -9,4 +9,5 @@ import {profile} from './people/data/people.data'
 export class AppComponent {
   title = 'training';
   profile = profile
+  people = people
 }
