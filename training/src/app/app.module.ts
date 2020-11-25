@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { PersonSearchComponent } from './people/component/person-search/person-search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LogComponent } from './util/log/log.component';
+import { PeopleServerListComponent } from './people/component/people-server-list/people-server-list.component';
+import {HttpClientModule} from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,10 +26,11 @@ import { LogComponent } from './util/log/log.component';
     PersonComponent,
     PersonInputComponent,
     PersonSearchComponent,
-    LogComponent
+    LogComponent,
+    PeopleServerListComponent
   ],
   imports: [
-    BrowserModule, FormsModule, BrowserAnimationsModule, MatButtonModule
+    BrowserModule, FormsModule, BrowserAnimationsModule, MatButtonModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
