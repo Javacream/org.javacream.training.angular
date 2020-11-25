@@ -12,7 +12,4 @@ export class AppComponent {
   profile = profile
   people = peopleModel.findAll()
 
-  handlePersonCreation(id:number){
-    this.people = peopleModel.findAll()
-  }
 }

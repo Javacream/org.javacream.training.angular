@@ -28,6 +28,6 @@ export class PeopleListComponent implements OnInit, OnDestroy {
   }
 
   handlePersonCreated(topic:string, data:any){
-    console.log("retceived event")
+    console.log("received event")
   }
 }
