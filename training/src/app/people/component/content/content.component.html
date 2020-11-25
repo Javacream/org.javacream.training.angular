@@ -1,7 +1,9 @@
-<app-people-server-list></app-people-server-list>
-<hr />
-<app-person-input></app-person-input>
-<hr />
-<app-person-search></app-person-search>
-<hr />
-<app-people-server-list></app-people-server-list>
+<nav>
+    <ul>
+        <li><a routerLink="/list" routerLinkActive="active">List</a></li>
+        <li><a routerLink="/input" routerLinkActive="active">Input</a></li>
+        <li><a routerLink="/search" routerLinkActive="active">Search</a></li>
+    </ul>
+
+</nav>
+<router-outlet></router-outlet>

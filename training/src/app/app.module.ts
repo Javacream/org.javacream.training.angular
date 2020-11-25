@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LogComponent } from './util/log/log.component';
 import { PeopleServerListComponent } from './people/component/people-server-list/people-server-list.component';
 import {HttpClientModule} from '@angular/common/http'
+import {PeopleRoutingModule} from './people/people-routing/people-routing.module'
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,7 @@ import {HttpClientModule} from '@angular/common/http'
     PeopleServerListComponent
   ],
   imports: [
-    BrowserModule, FormsModule, BrowserAnimationsModule, MatButtonModule, HttpClientModule
+    BrowserModule, FormsModule, BrowserAnimationsModule, MatButtonModule, HttpClientModule, PeopleRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
