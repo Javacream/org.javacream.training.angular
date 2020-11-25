@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Person } from '../../model/people';
+import { PeopleModel, Person } from '../../model/people';
 
 @Component({
   selector: 'app-person',
@@ -7,12 +7,17 @@ import { Person } from '../../model/people';
   styleUrls: ['./person.component.css']
 })
 export class PersonComponent implements OnInit {
-  @Input() person:Person
-  @Input() detail:boolean
+  @Input() person:Person | undefined
+  @Input() detail:boolean | undefined
+  @Input() deleteActive = false
 
-  constructor() { }
+  constructor(readonly peopleModel:PeopleModel) { }
 
   ngOnInit(): void {
+  }
+
+  deletePerson(id:number){
+    this.peopleModel.delete(id)
   }
 
 }

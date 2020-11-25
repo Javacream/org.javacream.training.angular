@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { peopleModel } from '../../model/people';
+import { PeopleModel } from '../../model/people';
 @Component({
   selector: 'app-person-input',
   templateUrl: './person-input.component.html',
@@ -7,16 +7,16 @@ import { peopleModel } from '../../model/people';
 })
 export class PersonInputComponent implements OnInit {
   //@Output() personEventEmitter = new EventEmitter<number>()
-  constructor() { }
+  constructor(readonly peopleModel:PeopleModel) { }
 
   ngOnInit(): void {
   }
 
-  lastname:string
-  firstname:string
+  lastname = ""
+  firstname = ""
 
   save(){
-    let id = peopleModel.create(this.lastname, this. firstname)
+    let id = this.peopleModel.create(this.lastname, this. firstname)
     //this.personEventEmitter.emit(id)
   }
 

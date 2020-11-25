@@ -5,10 +5,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Input() appProfile
+  @Input() appProfile:string | undefined
   appHeader = "PEOPLE"
   constructor() { }
-v
   ngOnInit(): void {
   }
 

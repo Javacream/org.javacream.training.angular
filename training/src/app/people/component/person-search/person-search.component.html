@@ -1,4 +1,4 @@
 <input type="text" [(ngModel)]="id" />
 <button (click)="search()">Search</button>
-<p *ngIf="person">Found Person: {{person.lastname}}</p>
+<div *ngIf="person"><p>Found Person:<app-person [person]="person" [detail]="false"></app-person></p></div>
 <p *ngIf="!person">Not found</p>

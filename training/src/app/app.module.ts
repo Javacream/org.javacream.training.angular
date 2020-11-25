@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {MatButtonModule} from '@angular/material/button'
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './people/component/header/header.component';
 import { ContentComponent } from './people/component/content/content.component';
@@ -12,7 +12,7 @@ import { PersonInputComponent } from './people/component/person-input/person-inp
 import { FormsModule } from '@angular/forms';
 import { PersonSearchComponent } from './people/component/person-search/person-search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { LogComponent } from './util/log/log.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,10 +23,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PeopleListComponent,
     PersonComponent,
     PersonInputComponent,
-    PersonSearchComponent
+    PersonSearchComponent,
+    LogComponent
   ],
   imports: [
-    BrowserModule, FormsModule, BrowserAnimationsModule
+    BrowserModule, FormsModule, BrowserAnimationsModule, MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

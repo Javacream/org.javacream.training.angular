@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import {profile} from './people/data/people.data'
-import { peopleModel } from './people/model/people';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,6 +8,4 @@ import { peopleModel } from './people/model/people';
 export class AppComponent {
   title = 'training';
   profile = profile
-  people = peopleModel.findAll()
-
 }

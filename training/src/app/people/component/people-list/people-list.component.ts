@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { Person } from '../../model/people';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { PeopleModel, Person } from '../../model/people';
 import {subscribe, unsubscribe} from 'pubsub-js'
 @Component({
   selector: 'app-people-list',
@@ -8,18 +8,26 @@ import {subscribe, unsubscribe} from 'pubsub-js'
 })
 export class PeopleListComponent implements OnInit, OnDestroy {
 
-  @Input() people:Array<Person>
+  people:Array<Person>
   detail = true
   buttonCaption = "Detail off"
-  subscriptionId:string
-  constructor() { }
+  subscriptionIdCreate:string | undefined
+  subscriptionIdDelete:string | undefined
+  subscriptionIdUpdate:string | undefined
+  constructor(readonly peopleModel:PeopleModel){
+    this.people = peopleModel.findAll()
+  }
 
   ngOnInit(): void {
-    this.subscriptionId = subscribe("person.created", this.handlePersonCreated)
+    this.subscriptionIdCreate = subscribe("person.create", this.handlePersonCreated)
+    this.subscriptionIdDelete = subscribe("person.delete", this.handlePersonCreated)
+    this.subscriptionIdUpdate = subscribe("person.update", this.handlePersonCreated)
   }
 
   ngOnDestroy(): void {
-    unsubscribe(this.subscriptionId)
+    unsubscribe(this.subscriptionIdCreate)
+    unsubscribe(this.subscriptionIdDelete)
+    unsubscribe(this.subscriptionIdUpdate)
   }
 
   switchDetail(){
@@ -27,7 +35,8 @@ export class PeopleListComponent implements OnInit, OnDestroy {
     this.buttonCaption = this.detail ? "Detail Off" : "Detail On"
   }
 
-  handlePersonCreated(topic:string, data:any){
-    console.log("received event")
+  //Diese Funktion wird als Callback der Subscription verwendet und muss deshalb als TypeSxript Arrow-Funktion formuliert werden
+  handlePersonCreated = (topic:string, data:any) =>{
+    this.people = this.peopleModel.findAll()
   }
 }

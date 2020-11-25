@@ -1,2 +1,6 @@
-<p *ngIf="detail">lastname: {{person.lastname}}, firstname: {{person.firstname}}, gender: {{person.gender}}, height: {{person.height}}</p>
+<div *ngIf="detail">
+    <p >lastname: {{person.lastname}}, firstname: {{person.firstname}}, gender: {{person.gender}}, height: {{person.height}}</p>
+    <button *ngIf="deleteActive" (click)="deletePerson(person.id)">delete</button>
+
+</div>
 <p *ngIf="!detail">{{person.firstname + " " + person.lastname}}  </p>
