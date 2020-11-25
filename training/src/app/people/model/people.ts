@@ -1,3 +1,5 @@
+import {publish} from 'pubsub-js'
+
 export interface Person{
     id:number
     lastname:string
@@ -21,6 +23,8 @@ export class PeopleModel {
         this.counter++;
         const p = new PersonClass(this.counter, lastname, firstname, gender, height);
         this.peopleMap.set(this.counter, p);
+        publish('person.created', this.counter)
+
         return this.counter
  
     }

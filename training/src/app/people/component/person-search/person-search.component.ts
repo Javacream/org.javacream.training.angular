@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { peopleModel, Person } from '../../model/people';
-
 @Component({
   selector: 'app-person-search',
   templateUrl: './person-search.component.html',
