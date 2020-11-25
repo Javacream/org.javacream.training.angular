@@ -1,13 +1,12 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { PeopleModel } from '../../model/people';
+import { PeopleControllerService } from '../../controller/people-controller.service';
 @Component({
   selector: 'app-person-input',
   templateUrl: './person-input.component.html',
   styleUrls: ['./person-input.component.css']
 })
 export class PersonInputComponent implements OnInit {
-  //@Output() personEventEmitter = new EventEmitter<number>()
-  constructor(readonly peopleModel:PeopleModel) { }
+  constructor(readonly peopleController:PeopleControllerService) { }
 
   ngOnInit(): void {
   }
@@ -16,8 +15,9 @@ export class PersonInputComponent implements OnInit {
   firstname = ""
 
   save(){
-    let id = this.peopleModel.create(this.lastname, this. firstname)
-    //this.personEventEmitter.emit(id)
+    let id = this.peopleController.create(this.lastname, this. firstname, () => {
+      console.log("created person")
+    })
   }
 
 }

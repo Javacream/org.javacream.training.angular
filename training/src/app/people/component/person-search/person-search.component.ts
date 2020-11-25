@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {PeopleModel, Person } from '../../model/people';
+import { PeopleControllerService } from '../../controller/people-controller.service';
+import {Person } from '../../model/people';
 @Component({
   selector: 'app-person-search',
   templateUrl: './person-search.component.html',
@@ -8,13 +9,15 @@ import {PeopleModel, Person } from '../../model/people';
 export class PersonSearchComponent implements OnInit {
   id:number|undefined
   person:Person | undefined
-  constructor(readonly peopleModel:PeopleModel) { }
+  constructor(readonly peopleController:PeopleControllerService) { }
 
   ngOnInit(): void {
   }
 
   search(){
-   this.person = this.peopleModel.findById(Number(this.id));
+   this.peopleController.findById(Number(this.id), (person:Person) => {
+     this.person = person
+   });
   }
 
 }

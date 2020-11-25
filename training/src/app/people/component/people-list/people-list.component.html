@@ -1,6 +1,0 @@
-<ul>
-    <li *ngFor="let p of people">
-        <app-person [deleteActive] = "true" [detail] = "detail" [person]="p"></app-person>
-    </li>
-</ul>
-<button mat-raised-button color="primary" (click)="switchDetail()" >{{buttonCaption}}</button>

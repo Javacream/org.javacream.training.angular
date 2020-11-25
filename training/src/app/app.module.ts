@@ -6,7 +6,6 @@ import { HeaderComponent } from './people/component/header/header.component';
 import { ContentComponent } from './people/component/content/content.component';
 import { FooterComponent } from './people/component/footer/footer.component';
 import { ClockComponent } from './util/clock/clock.component';
-import { PeopleListComponent } from './people/component/people-list/people-list.component';
 import { PersonComponent } from './people/component/person/person.component';
 import { PersonInputComponent } from './people/component/person-input/person-input.component';
 import { FormsModule } from '@angular/forms';
@@ -22,7 +21,6 @@ import {HttpClientModule} from '@angular/common/http'
     ContentComponent,
     FooterComponent,
     ClockComponent,
-    PeopleListComponent,
     PersonComponent,
     PersonInputComponent,
     PersonSearchComponent,
