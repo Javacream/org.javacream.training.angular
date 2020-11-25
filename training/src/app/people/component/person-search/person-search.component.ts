@@ -8,7 +8,7 @@ import { peopleModel, Person } from '../../model/people';
 })
 export class PersonSearchComponent implements OnInit {
   id:number
-  person:Person
+  person:Person | undefined
   constructor() { }
 
   ngOnInit(): void {

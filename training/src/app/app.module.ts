@@ -11,6 +11,7 @@ import { PersonComponent } from './people/component/person/person.component';
 import { PersonInputComponent } from './people/component/person-input/person-input.component';
 import { FormsModule } from '@angular/forms';
 import { PersonSearchComponent } from './people/component/person-search/person-search.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { PersonSearchComponent } from './people/component/person-search/person-s
     PersonSearchComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

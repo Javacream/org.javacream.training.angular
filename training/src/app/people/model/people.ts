@@ -24,8 +24,8 @@ export class PeopleModel {
         return this.counter
  
     }
-    findById(id: number): Person {
-        let p =this.peopleMap.get(id) 
+    findById(id: number): Person | undefined {
+        let p =this.peopleMap.get(id)
         return p
     }
     findAll(): Array<Person> {
