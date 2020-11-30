@@ -42,11 +42,14 @@ export class BooksService {
     this.http.get<Book>(`http://localhost:8080/api/books/${isbn}`).subscribe(update)
   }
 
-  create(title:string){
+  create(title:string, update = () => {}){
     this.http.post<void>(`http://localhost:8080/api/books/${title}`, {}, {responseType:'text' as 'json'}).subscribe(
-        () => this.notificationService.notify("books", `created new book using title ${title}`)
+        () => {this.notificationService.notify("books", `created new book using title ${title}`), update()}
         )
-}
+  }
+  delete(isbn:string, update: () => void){
+    this.http.delete<void>(`http://localhost:8080/api/books/${isbn}`, {}).subscribe(() => update())
+  }
 
 
 }

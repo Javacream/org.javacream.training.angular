@@ -14,7 +14,8 @@ import { BookInputReactiveComponent } from './books/components/book-input-reacti
 import { BookSearchComponent } from './books/components/book-search/book-search.component';
 import {BookRoutingModule} from './books/book-routing.module';
 import { LogComponent } from './books/components/log/log.component';
-import { ProfileComponent } from './util/components/profile/profile.component'
+import { ProfileComponent } from './util/components/profile/profile.component';
+import { BookDeleteComponent } from './books/components/book-delete/book-delete.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { ProfileComponent } from './util/components/profile/profile.component'
     BookInputReactiveComponent,
     BookSearchComponent,
     LogComponent,
-    ProfileComponent
+    ProfileComponent,
+    BookDeleteComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, BookRoutingModule
