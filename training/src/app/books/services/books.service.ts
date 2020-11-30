@@ -44,12 +44,18 @@ export class BooksService {
 
   create(title:string, update = () => {}){
     this.http.post<void>(`http://localhost:8080/api/books/${title}`, {}, {responseType:'text' as 'json'}).subscribe(
-        () => {this.notificationService.notify("books", `created new book using title ${title}`), update()}
+        () => {
+                this.notificationService.notify("books.create", `created new book using title ${title}`)
+                update()
+              }
         )
   }
   delete(isbn:string, update: () => void){
-    this.http.delete<void>(`http://localhost:8080/api/books/${isbn}`, {}).subscribe(() => update())
+    this.http.delete<void>(`http://localhost:8080/api/books/${isbn}`, {}).subscribe(
+      () => {
+              this.notificationService.notify("books.delete", `deleted book using isbn ${isbn}`)
+              update()
+      })
   }
-
-
+  
 }
