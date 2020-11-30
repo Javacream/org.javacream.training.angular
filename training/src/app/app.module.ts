@@ -13,7 +13,8 @@ import { BookInputComponent } from './books/components/book-input/book-input.com
 import { BookInputReactiveComponent } from './books/components/book-input-reactive/book-input-reactive.component';
 import { BookSearchComponent } from './books/components/book-search/book-search.component';
 import {BookRoutingModule} from './books/book-routing.module';
-import { LogComponent } from './books/components/log/log.component'
+import { LogComponent } from './books/components/log/log.component';
+import { ProfileComponent } from './util/components/profile/profile.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { LogComponent } from './books/components/log/log.component'
     BookInputComponent,
     BookInputReactiveComponent,
     BookSearchComponent,
-    LogComponent
+    LogComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, BookRoutingModule
