@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { ConfigService } from '../../../services/config.service';
 
 @Component({
   selector: 'app-header',
@@ -6,8 +7,8 @@ import { Component} from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent{
-  headerText = "B O O K S"
+  constructor(private configService: ConfigService){}
   retriveHeaderText(){
-    return this.headerText
+    return this.configService.appName
   }
 }
