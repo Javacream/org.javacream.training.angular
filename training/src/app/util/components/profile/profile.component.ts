@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '../../../services/config.service';
+import { PeopleService } from '../../people/people.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,10 +10,10 @@ import { ConfigService } from '../../../services/config.service';
 export class ProfileComponent implements OnInit {
 
   profile:any 
-  constructor(private configService: ConfigService) {}
+  constructor(private configService: ConfigService, private peopleService: PeopleService) {}
 
   ngOnInit(): void {
-    this.profile = this.configService.profile
+    this.profile = this.peopleService.findProfile((profile) => this.profile = profile)
   }
 
 }
