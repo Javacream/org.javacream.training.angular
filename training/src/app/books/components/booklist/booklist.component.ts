@@ -11,11 +11,14 @@ export class BooklistComponent implements OnInit {
   books: Array<Book>
   constructor(readonly booksService:BooksService) {}
 
-  ngOnInit() {
-    //this.books = await this.booksService.findAllBooksFetch()
-    this.booksService.findAllBooksHttpClient((books:Array<Book>) => {
-      this.books = books
-    })
+  async ngOnInit() {
+      this.books = await this.booksService.findAllBooksFetch()
+//    this.booksService.findAllBooksFetch().then((books:Array<Book>) => {
+//            this.books = books
+//    })
+//    this.booksService.findAllBooksHttpClient((books:Array<Book>) => {
+//      this.books = books
+//    })
 }
 
 

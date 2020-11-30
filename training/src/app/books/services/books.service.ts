@@ -11,9 +11,9 @@ export class BooksService {
   constructor(readonly http: HttpClient, readonly notificationService:NotificationService) { }
 
 
-  async findAllBooksFetch(){
+  async findAllBooksFetch() : Promise<Array<Book>>{
     try{
-      let response:Response = await fetch("http://localhost:8080/api/books")
+      let response = await fetch("http://localhost:8080/api/books")
       let data:Array<Book> = await response.json()
       return data
     }
@@ -37,6 +37,11 @@ export class BooksService {
   findAllBooksHttpClient(update:(books:Array<Book>)=> void):void{
     this.http.get<Array<Book>>(`http://localhost:8080/api/books`).subscribe(update)
   }
+
+  findBookByIsbnHttpClient(isbn:string, update:(book:Book)=> void):void{
+    this.http.get<Book>(`http://localhost:8080/api/books/${isbn}`).subscribe(update)
+  }
+
   create(title:string){
     this.http.post<void>(`http://localhost:8080/api/books/${title}`, {}, {responseType:'text' as 'json'}).subscribe(
         () => this.notificationService.notify("books", `created new book using title ${title}`)
