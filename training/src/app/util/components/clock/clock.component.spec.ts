@@ -22,4 +22,9 @@ describe('ClockComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('contains a paragraph', () => {
+    fixture.debugElement.query
+  });
+
 });

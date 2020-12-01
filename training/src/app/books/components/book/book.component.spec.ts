@@ -1,15 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {HttpClientModule} from '@angular/common/http'
 
 import { BookComponent } from './book.component';
 import { sampleBook } from '../../model/books';
 
-xdescribe('BookComponent', () => {
+describe('BookComponent', () => {
   let component: BookComponent;
   let fixture: ComponentFixture<BookComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookComponent ]
+      declarations: [ BookComponent ], imports: [HttpClientModule]
     })
     .compileComponents();
   }));
@@ -21,8 +22,11 @@ xdescribe('BookComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('deletes a book', () => {
+    expect(component.delete("ISBN1")).not.toThrow());
+  }
 
 });
