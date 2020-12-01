@@ -25,8 +25,12 @@ describe('BookComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('deletes a book', () => {
-    expect(component.delete("ISBN1")).not.toThrow());
-  }
+
+  it('should render a book', () => {
+    component.book = {isbn: "ISBN42", title:"Title32", pages: 19.99, available:false}
+    fixture.detectChanges()
+    let element = fixture.debugElement.nativeElement
+    const p = element.querySelector('p')
+    expect(p.textContent).toEqual('Book: isbn=ISBN42, title=Title32')   });
 
 });
