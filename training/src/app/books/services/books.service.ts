@@ -9,20 +9,6 @@ import { WhiteboardService } from './whiteboard.service';
 export class BooksService {
   counter = 0;
   constructor(readonly http: HttpClient, readonly whiteboard: WhiteboardService) { }
-
-
-  async findAllBooksFetch() : Promise<Array<Book>>{
-    try{
-      let response = await fetch("http://localhost:8080/api/books")
-      let data:Array<Book> = await response.json()
-      return data
-    }
-    catch(error){
-      console.log(error)
-    }
-  
-  }
-
   async findBookByIsbn(isbn:string){
     try{
       let response:Response = await fetch(`http://localhost:8080/api/books/${isbn}`)
@@ -35,12 +21,8 @@ export class BooksService {
   
   }
   findAllBooks():void{
-    this.http.get<Array<Book>>(`http://localhost:8080/api/books`).subscribe(this.whiteboard.bookList)
+    this.http.get<Array<Book>>(`http://localhost:8080/api/books`).subscribe( (books) => this.whiteboard.bookList.next(books))
   }
-  findAllBooksHttpClient(update:(books:Array<Book>)=> void):void{
-    this.http.get<Array<Book>>(`http://localhost:8080/api/books`).subscribe(update)
-  }
-
   findBookByIsbnHttpClient(isbn:string, update:(book:Book)=> void):void{
     this.http.get<Book>(`http://localhost:8080/api/books/${isbn}`).subscribe(update)
   }

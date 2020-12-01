@@ -21,18 +21,12 @@ export class BooklistComponent implements OnInit, OnDestroy {
   books: Array<Book>
   constructor(readonly booksService:BooksService, readonly whiteboard:WhiteboardService) {}
 
-  async ngOnInit() {
-      this.bookCreationSubscription = this.whiteboard.bookCreation.subscribe(async () => this.books = await this.booksService.findAllBooksFetch())
-      this.bookDeletionSubscription = this.whiteboard.bookDeletion.subscribe(async () => this.books = await this.booksService.findAllBooksFetch())
+  ngOnInit() {
+      let updateBooks = () => this.booksService.findAllBooks()
+      this.bookCreationSubscription = this.whiteboard.bookCreation.subscribe(updateBooks)
+      this.bookDeletionSubscription = this.whiteboard.bookDeletion.subscribe(updateBooks)
       this.bookListSubscription = this.whiteboard.bookList.subscribe((books) => this.books = books)
-      this.booksService.findAllBooks()
-      //this.books = await this.booksService.findAllBooksFetch()
+      updateBooks()
   }
 
-
-   handleBookCreation(isbn:string){
-    this.booksService.findAllBooksHttpClient((books:Array<Book>) => {
-        this.books = books
-      })
-  }
 }

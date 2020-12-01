@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../../services/books.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-book-delete',
@@ -8,13 +9,18 @@ import { BooksService } from '../../services/books.service';
 })
 export class BookDeleteComponent implements OnInit {
 
-  isbnInput:string
   constructor(readonly booksService: BooksService) { }
 
   ngOnInit(): void {
   }
 
+  bookForm = new FormGroup( 
+    {
+      isbn: new FormControl('', Validators.compose([Validators.required, Validators.minLength(4)])),
+    }
+  );
+
   delete(){
-    this.booksService.delete(this.isbnInput, () => {})
+    this.booksService.delete(this.bookForm.value.isbn, () => {})
   }
 }

@@ -1,2 +1,6 @@
-<input type="text" [(ngModel)]="isbnInput" />
-<button (click)="delete()">Delete</button>
+<form [formGroup]="bookForm" (ngSubmit)="delete()">
+    <label>Title:
+      <input type="text" formControlName="isbn">
+    </label>
+    <button type="submit" [disabled]="!bookForm.valid">Delete</button>
+</form>

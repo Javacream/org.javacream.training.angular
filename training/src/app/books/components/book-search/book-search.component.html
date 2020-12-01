@@ -1,6 +1,7 @@
-<p>
-    <input type="text" [(ngModel)]="isbn"  />
-    <input type="button" value="Search (Async-Await)" (click)="searchAsyncAwait()" />
-    <input type="button" value="Search (HttpClient)" (click)="searchHttpClient()" />
-    <app-book *ngIf="book" [book]="book"></app-book>
-  </p>
+<form [formGroup]="bookForm" (ngSubmit)="search()">
+    <label>Title:
+      <input type="text" formControlName="isbn">
+    </label>
+    <button type="submit" [disabled]="!bookForm.valid">Search</button>
+</form>
+<app-book *ngIf="book" [book]="book"></app-book>
