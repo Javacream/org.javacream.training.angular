@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookInputReactiveComponent } from './book-input-reactive.component';
 
-describe('BookInputReactiveComponent', () => {
+xdescribe('BookInputReactiveComponent', () => {
   let component: BookInputReactiveComponent;
   let fixture: ComponentFixture<BookInputReactiveComponent>;
 
