@@ -9,11 +9,11 @@ import { PeopleService } from '../../people/people.service';
 })
 export class ProfileComponent implements OnInit {
 
-  profile:any 
+  profile = {lastname: "", firstname: ""}
   constructor(private configService: ConfigService, private peopleService: PeopleService) {}
 
   ngOnInit(): void {
-    this.profile = this.peopleService.findProfile((profile) => this.profile = profile)
+    this.peopleService.findProfile((profile) => this.profile = profile)
   }
 
 }

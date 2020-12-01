@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient}from '@angular/common/http';
 import { Book } from '../model/books';
-import {NotificationService} from './notification.service' 
+import { WhiteboardService } from './whiteboard.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BooksService {
   counter = 0;
-  constructor(readonly http: HttpClient, readonly notificationService:NotificationService) { }
+  constructor(readonly http: HttpClient, readonly whiteboard: WhiteboardService) { }
 
 
   async findAllBooksFetch() : Promise<Array<Book>>{
@@ -45,7 +45,7 @@ export class BooksService {
   create(title:string, update = () => {}){
     this.http.post<void>(`http://localhost:8080/api/books/${title}`, {}, {responseType:'text' as 'json'}).subscribe(
         () => {
-                this.notificationService.notify("books.create", `created new book using title ${title}`)
+                this.whiteboard.bookCreation.next(`created new book using title ${title}`)
                 update()
               }
         )
@@ -53,7 +53,7 @@ export class BooksService {
   delete(isbn:string, update: () => void){
     this.http.delete<void>(`http://localhost:8080/api/books/${isbn}`, {}).subscribe(
       () => {
-              this.notificationService.notify("books.delete", `deleted book using isbn ${isbn}`)
+        this.whiteboard.bookDeletion.next(`deleted book using isbn ${isbn}`)
               update()
       })
   }

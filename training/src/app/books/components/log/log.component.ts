@@ -1,24 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import {NotificationService} from '../../services/notification.service' 
+import { WhiteboardService } from '../../services/whiteboard.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-log',
   templateUrl: './log.component.html',
   styleUrls: ['./log.component.css']
 })
 export class LogComponent implements OnInit {
- 
+  subscription: Subscription
   message: string
   registrationToken:string
-  constructor(readonly notificationService:NotificationService){} 
+  constructor(readonly whiteboard:WhiteboardService){} 
 
   ngOnInit(): void {
-    this.registrationToken = this.notificationService.register("books", this.updateLog)
+    this.subscription = this.whiteboard.log.subscribe(this.updateLog)
   }
   ngOnDestroy(): void {
-    this.notificationService.unregister(this.registrationToken)
+    this.subscription.unsubscribe()
   }
 
-  updateLog = (topic:string, logMessage) => {
+  updateLog = (logMessage) => {
     this.message = logMessage;
   }
 
