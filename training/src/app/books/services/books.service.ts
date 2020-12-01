@@ -34,6 +34,9 @@ export class BooksService {
     }
   
   }
+  findAllBooks():void{
+    this.http.get<Array<Book>>(`http://localhost:8080/api/books`).subscribe(this.whiteboard.bookList)
+  }
   findAllBooksHttpClient(update:(books:Array<Book>)=> void):void{
     this.http.get<Array<Book>>(`http://localhost:8080/api/books`).subscribe(update)
   }

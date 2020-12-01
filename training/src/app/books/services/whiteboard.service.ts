@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject, ReplaySubject } from 'rxjs';
+import { Subject, ReplaySubject, BehaviorSubject } from 'rxjs';
 import { books } from '../model/books';
 
 @Injectable({
@@ -9,6 +9,7 @@ export class WhiteboardService {
 
   bookCreation = new Subject()
   bookDeletion = new Subject()
+  bookList = new BehaviorSubject([])
   log = new ReplaySubject(5)
   constructor() { 
     this.bookCreation.subscribe(this.log)
