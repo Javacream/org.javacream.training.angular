@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
+import { ProfileComponent } from '../../../util/components/profile/profile.component';
+import { Component } from '@angular/core';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -8,7 +10,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      declarations: [ HeaderComponent, ProfileStubComponent]
     })
     .compileComponents();
   }));
@@ -23,3 +25,6 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+@Component({selector: 'app-profile', template: '<p>HUGO MEIER</p>'})
+class ProfileStubComponent{}

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Subject, ReplaySubject, BehaviorSubject } from 'rxjs';
-import { books } from '../model/books';
 
 @Injectable({
   providedIn: 'root'

@@ -1,14 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FooterComponent } from './footer.component';
+import { Component } from '@angular/core';
 
-xdescribe('FooterComponent', () => {
+describe('FooterComponent', () => {
   let component: FooterComponent;
   let fixture: ComponentFixture<FooterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FooterComponent ]
+      declarations: [ FooterComponent, ClockStubComponent, LogStubComponent ]
     })
     .compileComponents();
   }));
@@ -23,3 +24,13 @@ xdescribe('FooterComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+@Component({selector: 'app-clock', template: ''})
+class ClockStubComponent{
+
+}
+
+@Component({selector: 'app-log', template: ''})
+class LogStubComponent{
+
+}

@@ -2,7 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {HttpClientModule} from '@angular/common/http'
 
 import { BookComponent } from './book.component';
-import { sampleBook } from '../../model/books';
 
 describe('BookComponent', () => {
   let component: BookComponent;
@@ -18,7 +17,7 @@ describe('BookComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BookComponent);
     component = fixture.componentInstance;
-    component.book = sampleBook
+    component.book = {isbn: "ISBN42", title:"Title32", pages: 19.99, available:false}
     fixture.detectChanges();
   });
 
