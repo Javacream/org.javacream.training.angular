@@ -14,7 +14,9 @@ import { BookSearchComponent } from './books/components/book-search/book-search.
 import {BookRoutingModule} from './books/book-routing.module';
 import { LogComponent } from './books/components/log/log.component';
 import { ProfileComponent } from './util/components/profile/profile.component';
-import { BookDeleteComponent } from './books/components/book-delete/book-delete.component'
+import { BookDeleteComponent } from './books/components/book-delete/book-delete.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import {MatButtonModule} from '@angular/material/button'
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,7 @@ import { BookDeleteComponent } from './books/components/book-delete/book-delete.
     BookDeleteComponent
   ],
   imports: [
-    BrowserModule, ReactiveFormsModule, HttpClientModule, BookRoutingModule
+    BrowserModule, ReactiveFormsModule, HttpClientModule, BookRoutingModule, BrowserAnimationsModule, MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
