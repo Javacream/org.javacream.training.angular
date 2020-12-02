@@ -1,14 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BooklistComponent } from './booklist.component';
+import { BooksService } from '../../services/books.service';
 
-xdescribe('BooklistComponent', () => {
+describe('BooklistComponent', () => {
   let component: BooklistComponent;
   let fixture: ComponentFixture<BooklistComponent>;
+  let booksServiceMock = jasmine.createSpyObj(BooksService, ["findAllBooks"])
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BooklistComponent ]
+      declarations: [ BooklistComponent ], providers: [{provide: BooksService, useValue: booksServiceMock}]
     })
     .compileComponents();
   }));

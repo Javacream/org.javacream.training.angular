@@ -13,7 +13,10 @@ export class ProfileComponent implements OnInit {
   constructor(private configService: ConfigService, private peopleService: PeopleService) {}
 
   ngOnInit(): void {
-    this.peopleService.findProfile((profile) => this.profile = profile)
+    this.peopleService.findProfile(this.up)
   }
 
+  up = (profile) => {
+    this.profile = profile
+  }
 }

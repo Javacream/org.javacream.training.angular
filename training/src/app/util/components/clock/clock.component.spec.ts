@@ -24,7 +24,7 @@ describe('ClockComponent', () => {
   });
 
   it('contains a paragraph', () => {
-    fixture.debugElement.query
+    expect(fixture.nativeElement.querySelector('p')).toBeTruthy()
   });
 
 });

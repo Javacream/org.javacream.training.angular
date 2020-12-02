@@ -22,7 +22,7 @@ export class BookSearchComponent implements OnInit {
     }
   ); 
   search(){
-    this.booksService.findBookByIsbnHttpClient(this.bookForm.value.isbn, (book) => {
+    this.booksService.findBookByIsbn(this.bookForm.value.isbn, (book) => {
       this.book = book
     })
   }

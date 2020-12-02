@@ -1,14 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookDeleteComponent } from './book-delete.component';
+import { BooksService } from '../../services/books.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
-xdescribe('BookDeleteComponent', () => {
+describe('BookDeleteComponent', () => {
   let component: BookDeleteComponent;
   let fixture: ComponentFixture<BookDeleteComponent>;
-
+  let booksServiceMock = jasmine.createSpyObj(BooksService, ['delete'])
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookDeleteComponent ]
+      declarations: [ BookDeleteComponent ], providers: [{provide: BooksService, useValue: booksServiceMock}], imports: [ReactiveFormsModule]
     })
     .compileComponents();
   }));
