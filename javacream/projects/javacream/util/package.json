@@ -1,0 +1,16 @@
+{
+  "name": "@javacream/util",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/common": "^11.0.1",
+    "@angular/core": "^11.0.1"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }, 
+  "private": false,
+
+  "publishConfig": {
+    "registry": "http://10.28.4.1:8081/repository/npm-hosted/"
+  }
+}

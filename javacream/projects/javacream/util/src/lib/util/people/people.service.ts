@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {ConfigService} from '../../services/config.service'
 
 
 @Injectable({
@@ -8,10 +7,10 @@ import {ConfigService} from '../../services/config.service'
 })
 export class PeopleService {
 
-constructor(readonly http:HttpClient, readonly config: ConfigService) { }
+constructor(readonly http:HttpClient) { }
 
 findProfile(update: (person:Person) => void ){
-  this.http.get<Person>(this.config.peopleEndpoint + "/6").subscribe(update)
+  this.http.get<Person>("http://h2908727.stratoserver.net:8080/people/6").subscribe(update)
 }
 }
 
