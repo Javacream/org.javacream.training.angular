@@ -17,6 +17,7 @@ import { ProfileComponent } from './util/components/profile/profile.component';
 import { BookDeleteComponent } from './books/components/book-delete/book-delete.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {MatButtonModule} from '@angular/material/button'
+import {MatCardModule} from '@angular/material/card'
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,7 @@ import {MatButtonModule} from '@angular/material/button'
     BookDeleteComponent
   ],
   imports: [
-    BrowserModule, ReactiveFormsModule, HttpClientModule, BookRoutingModule, BrowserAnimationsModule, MatButtonModule
+    BrowserModule, ReactiveFormsModule, HttpClientModule, BookRoutingModule, BrowserAnimationsModule, MatButtonModule, MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
