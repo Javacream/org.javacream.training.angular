@@ -1,36 +1,30 @@
-//Vars und Const
-
-//Type Inference
-
-let message = "Hello"
-//let message = "Hello"
-let message2 = "Hello";
-message = "Hello World!"
-const message3 = "Hello"
-//message3 = "Hello World!"
-
-//Types
-let char = message.charAt(0)
-//message = 42
-
-//Type-Deklaration
-
-let message4:any
-let messagea5:string = "Hugo"
-
-message4 = "Hugo"
-message4 = 42
-
-function simple(p1:string, p2:number){
-    if (p2 > 5){
-        return "OK"
-    }else{
-        return false
-    }
+//classic
+function simple(p:string):boolean{
+    return true
 }
 
-function simpleWithDefaultParams(p1 = "Hugo", p2 = 42){
-
+//functional
+let simpleFunctionReference = function(p:string):boolean{
+    return true
 }
 
-let result = simple("Hugo", 43)
+//arrow (bevorzugte Variante insbesondere bei Funktions-Referenzen als Parameter)
+
+let simpleFunctionReferenceWithArrow = (p:string):boolean => {
+    return true
+}
+
+function fnWithCallback(callbackFn){
+    return callbackFn("Hugo")
+}
+let result = fnWithCallback((p) => { return true})
+
+
+let typedSimpleFunctionReferenceWithArrow:(x:string) => number = (p:string):number => {
+    return 42
+}
+
+function typedFnWithCallback(callbackFn:(x:string)=>boolean){
+    return callbackFn("Hugo")
+}
+let result2 = typedFnWithCallback((p:string) => { return true})
