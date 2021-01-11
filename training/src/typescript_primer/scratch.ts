@@ -19,8 +19,11 @@ function fnWithCallback(callbackFn){
 }
 let result = fnWithCallback((p) => { return true})
 
+let message:string = "Hello"
+let typedSimpleFunctionReferenceWithArrow:(x:string) => number
 
-let typedSimpleFunctionReferenceWithArrow:(x:string) => number = (p:string):number => {
+
+typedSimpleFunctionReferenceWithArrow = (p:string):number => {
     return 42
 }
 
