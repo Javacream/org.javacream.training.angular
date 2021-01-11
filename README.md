@@ -33,8 +33,8 @@
 
 * Beispiele
   * https://github.com/Javacream/org.javacream.training.angular
-    * Branch telekom_11.1.2021
+    * Branch arburg_11.1.2021
 
 * Digitales Flipchart
-  * https://docs.google.com/presentation/d/1oAA_m1ndB67iKiEqYgkirnK8xFCbSGTyJZzRiZPC-oQ/edit?usp=sharing
+  * https://docs.google.com/presentation/d/14VIpv2wWwkGBlJgxli7vG9TJRgwXzncX49x1KiyEj5c
 
