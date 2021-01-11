@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {profile} from './model/people.data'
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'training';
+
+  profileGreeting(){
+    return `Hello ${profile.firstname} ${profile.lastname}`
+  }
 }
 
