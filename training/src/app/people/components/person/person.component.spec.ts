@@ -16,6 +16,7 @@ describe('PersonComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PersonComponent);
     component = fixture.componentInstance;
+    component.person = {id:1, lastname:"l", firstname:"f", height:1, gender:"n"}
     fixture.detectChanges();
   });
 

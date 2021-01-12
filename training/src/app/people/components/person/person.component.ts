@@ -13,6 +13,6 @@ export class PersonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @Input() person:Person
+  @Input() person:Person|undefined
 
 }
