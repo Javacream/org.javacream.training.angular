@@ -1,7 +1,7 @@
 <ul>
 <li *ngFor="let p of peopleList">
-    <app-person [person]="p" [detail]="true"></app-person>
+    <app-person [person]="p" [detail]="detail"></app-person>
 </li>
 
 </ul>
-<button (click) = "demo()">Click Me</button>
+<button (click) = "switchDetail()">{{detailButtonCaption}}</button>

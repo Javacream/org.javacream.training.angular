@@ -7,6 +7,8 @@ import {people} from '../../model/people.data'
 })
 export class PeopleListComponent implements OnInit {
 
+  detail = true;
+  detailButtonCaption = "Detail Off"
   constructor() { }
 
   ngOnInit(): void {
@@ -14,8 +16,9 @@ export class PeopleListComponent implements OnInit {
 
   peopleList = Array.from(people.values())
 
-  demo(){
-    console.log("click!")
+  switchDetail(){
+    this.detail = !this.detail
+    this.detailButtonCaption = this.detail?"Detail Off":"Detail On"
   }
 
 }
