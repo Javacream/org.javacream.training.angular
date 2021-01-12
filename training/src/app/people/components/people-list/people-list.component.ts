@@ -14,4 +14,8 @@ export class PeopleListComponent implements OnInit {
 
   peopleList = Array.from(people.values())
 
+  demo(){
+    console.log("click!")
+  }
+
 }

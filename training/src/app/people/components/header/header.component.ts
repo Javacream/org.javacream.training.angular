@@ -8,8 +8,6 @@ import { profile, config } from 'src/app/people/model/people.data';
 })
 export class HeaderComponent{
   appName = config.appName
-  profileGreeting(){
-    return `Hello ${profile.firstname} ${profile.lastname}`
-  }
-
+  profile=profile
+  
 }
