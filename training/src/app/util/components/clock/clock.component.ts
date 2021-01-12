@@ -10,7 +10,7 @@ export class ClockComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    setInterval(() => this.time = new Date(), 5000)
+    setInterval(() => this.time = new Date(), 1000)
   }
 
   time = new Date()

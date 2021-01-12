@@ -6,4 +6,4 @@ appName: "P E O P L E",
 company: "Javacream"
 }
 
-setTimeout(() => {profile.firstname = "Klaus"; console.log("Changed firstname: " + profile.firstname)}, 1000)
+//setTimeout(() => {profile.firstname = "Klaus"; console.log("Changed firstname: " + profile.firstname)}, 1000)
