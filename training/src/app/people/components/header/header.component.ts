@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { profile, appName } from 'src/app/model/people.data';
+import { profile, config } from 'src/app/people/model/people.data';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +7,7 @@ import { profile, appName } from 'src/app/model/people.data';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent{
-  appName = appName
+  appName = config.appName
   profileGreeting(){
     return `Hello ${profile.firstname} ${profile.lastname}`
   }

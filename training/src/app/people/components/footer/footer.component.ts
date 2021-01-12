@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {company} from '../../../model/people.data'
+import {config} from '../../model/people.data'
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -12,6 +12,6 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  company = company
+  company = config.company
 
 }
