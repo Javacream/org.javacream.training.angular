@@ -14,10 +14,12 @@ import { PersonCreateComponent } from './people/components/person-create/person-
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './people/components/home/home.component';
+import { InfoComponent } from './people/components/info/info.component';
 
 const routes:Routes = [
   {path: "home", component: HomeComponent},
   {path: "people", component: ContentComponent},
+  {path: "info", component: InfoComponent},
 
 ]
 @NgModule({
@@ -31,7 +33,8 @@ const routes:Routes = [
     PersonComponent,
     PersonSearchComponent,
     PersonCreateComponent,
-    HomeComponent
+    HomeComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot(routes)
