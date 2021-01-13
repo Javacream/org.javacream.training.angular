@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Person } from '../../model/people.model';
 import { PeopleService } from '../../people.service';
 @Component({
   selector: 'app-people-list',
@@ -7,14 +8,15 @@ import { PeopleService } from '../../people.service';
 })
 export class PeopleListComponent implements OnInit {
 
+  @Input() peopleList:Array<Person>
   detail = true;
   detailButtonCaption = "Detail Off"
-  constructor(private peopleService:PeopleService) { }
+  constructor() {
+   }
 
   ngOnInit(): void {
   }
 
-  peopleList = this.peopleService.peopleList()
 
   switchDetail(){
     this.detail = !this.detail

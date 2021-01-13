@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PeopleService } from '../../people.service';
 
 @Component({
   selector: 'app-content',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
+  peopleList
+  constructor(private peopleService:PeopleService) { 
+    this.peopleList = peopleService.peopleList()
+  }
 
-  constructor() { }
 
   ngOnInit(): void {
   }
