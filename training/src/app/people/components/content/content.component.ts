@@ -8,23 +8,9 @@ import { PeopleService } from '../../people.service';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
-  peopleList
-  constructor(private peopleService:PeopleService) { 
-    peopleService.peopleList(this.update)
-  }
-
 
   ngOnInit(): void {
   }
 
-  update = (people: Array<Person>) => {
-    this.peopleList = people
-  }
-  handlePersonCreated(createdPersonId:number){
-    this.peopleService.peopleList(this.update)
-  }
-  handlePersonDeleted(){
-    this.peopleService.peopleList(this.update)
-  }
 
 }

@@ -18,8 +18,7 @@ export class PersonComponent implements OnInit {
   @Input() detail
 
 delete(id:number){
-  this.peopleService.deleteById(id, () => {this.deletePersonEventEmitter.emit()})
+  this.peopleService.deleteById(id)
 }
 
-@Output() deletePersonEventEmitter = new EventEmitter<void>()
 }

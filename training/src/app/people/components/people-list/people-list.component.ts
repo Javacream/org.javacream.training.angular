@@ -8,11 +8,15 @@ import { PeopleService } from '../../people.service';
 })
 export class PeopleListComponent implements OnInit {
 
-  @Input() peopleList:Array<Person>
+  peopleList:Array<Person>
   detail = true;
   detailButtonCaption = "Detail Off"
-  constructor() {
-   }
+  constructor(private peopleService:PeopleService) {
+    peopleService.peopleListObservable.subscribe((people) => this.peopleList = people)
+    peopleService.personCreatedObservable.subscribe((person) => this.peopleService.peopleList())
+    peopleService.personDeletedObservable.subscribe((person) => this.peopleService.peopleList())
+    peopleService.peopleList() 
+  }
 
   ngOnInit(): void {
   }
@@ -23,9 +27,5 @@ export class PeopleListComponent implements OnInit {
     this.detailButtonCaption = this.detail?"Detail Off":"Detail On"
   }
 
-  @Output() handlePersonDeletionEventEmitter = new EventEmitter<void>()
-  handlePersonDeletion(){
-    this.handlePersonDeletionEventEmitter.emit()
-  }
 
 }
