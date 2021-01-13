@@ -11,6 +11,7 @@ import { PersonComponent } from './people/components/person/person.component';
 import { FormsModule } from '@angular/forms';
 import { PersonSearchComponent } from './people/components/person-search/person-search.component';
 import { PersonCreateComponent } from './people/components/person-create/person-create.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { PersonCreateComponent } from './people/components/person-create/person-
     PersonCreateComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

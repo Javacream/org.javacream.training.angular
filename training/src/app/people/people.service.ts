@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Person } from './model/people.model';
 
@@ -6,7 +7,7 @@ import { Person } from './model/people.model';
 })
 export class PeopleService {
 
-  constructor() { 
+  constructor(private httpClient:HttpClient) { 
 
     this.people = new Map()
     this.people.set (100, create(100, "Sawitzki", "Rainer", "m", 183))
@@ -27,7 +28,8 @@ export class PeopleService {
   findById(id:number):Person|undefined{
     return this.people.get(id)
   }
-  peopleList(){
+  peopleList(updateFn: (x:Array<Person>)=> void){
+    this.httpClient.get<Array<Person>>('http://localhost:8080/people').subscribe(updateFn)
     return Array.from(this.people.values())
   }
 

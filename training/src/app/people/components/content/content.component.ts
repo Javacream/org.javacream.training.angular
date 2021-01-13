@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Person } from '../../model/people.model';
 import { PeopleService } from '../../people.service';
 
 @Component({
@@ -9,15 +10,18 @@ import { PeopleService } from '../../people.service';
 export class ContentComponent implements OnInit {
   peopleList
   constructor(private peopleService:PeopleService) { 
-    this.peopleList = peopleService.peopleList()
+    peopleService.peopleList(this.update)
   }
 
 
   ngOnInit(): void {
   }
 
+  update = (people: Array<Person>) => {
+    this.peopleList = people
+  }
   handlePersonCreated(createdPersonId:number){
-    this.peopleList = this.peopleService.peopleList()
+    this.peopleService.peopleList(this.update)
   }
 
 }
