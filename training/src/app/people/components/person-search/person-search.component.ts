@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { people } from '../../model/people.data';
 import { Person } from '../../model/people.model';
-
+import {PeopleService} from '../../people.service'
 @Component({
   selector: 'app-person-search',
   templateUrl: './person-search.component.html',
@@ -9,7 +9,7 @@ import { Person } from '../../model/people.model';
 })
 export class PersonSearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(readonly peopleService:PeopleService) { }
 
   ngOnInit(): void {
   }
@@ -20,6 +20,5 @@ export class PersonSearchComponent implements OnInit {
   searchPerson(){
     console.log(people)
     this.person=people.get(Number(this.searchId))
-
   }
 }
