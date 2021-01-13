@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ConfigService } from './config.service';
 import { Person } from './model/people.model';
 
 @Injectable({
@@ -7,41 +8,26 @@ import { Person } from './model/people.model';
 })
 export class PeopleService {
 
-  constructor(private httpClient:HttpClient) { 
-
-    this.people = new Map()
-    this.people.set (100, create(100, "Sawitzki", "Rainer", "m", 183))
-    this.people.set (101, create(101, "Meier", "Hannelore", "f", 175))
-    this.people.set (102, create(102, "Meier", "Franz", "m", 186))
-    this.people.set (103, create(103, "Metzger", "Johann", "m", 122))
-    this.people.set (104, create(104, "Schneider", "Erna", "f", 199))
-    
+  constructor(private httpClient:HttpClient, private config:ConfigService) { 
   }
 
-  people: Map<number, Person>
+  idCounter = 100
   
-  idCounter = 0
-  
-  deleteById(id:number){
-    this.people.delete(id)
+  deleteById(id:number, updateFn: () => void){
+    this.httpClient.delete(`${this.config.endpoint}/${id}`).subscribe(updateFn)
   }
-  findById(id:number):Person|undefined{
-    return this.people.get(id)
+  findById(id:number, updateFn: (x:Person)=> void){
+    this.httpClient.get<Person>(`${this.config.endpoint}/${id}`).subscribe(updateFn)
   }
   peopleList(updateFn: (x:Array<Person>)=> void){
-    this.httpClient.get<Array<Person>>('http://localhost:8080/people').subscribe(updateFn)
-    return Array.from(this.people.values())
+    this.httpClient.get<Array<Person>>(this.config.endpoint).subscribe(updateFn)
   }
 
-  create(lastname:string, firstname:string){
+  create(lastname:string, firstname:string, updateFn: (x:number) => void){
     this.idCounter++
     let newPerson = {id:this.idCounter, lastname, firstname, height: 180, gender:"d"}
-    this.people.set(this.idCounter, newPerson)
+    this.httpClient.post(this.config.endpoint, newPerson).subscribe(() => updateFn(this.idCounter))
     return this.idCounter
   }
 }
 
-
-function create(id:number, lastname:string, firstname:string, gender:string, height:number){
-    return {id, lastname, firstname, gender, height}
-}

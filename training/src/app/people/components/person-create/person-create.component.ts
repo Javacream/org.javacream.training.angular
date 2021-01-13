@@ -17,8 +17,9 @@ export class PersonCreateComponent implements OnInit {
   firstname:string
 
   save(){
-    let newId = this.peopleService.create(this.lastname, this.firstname)
-    this.createdPersonEventEmitter.emit(newId)
+    this.peopleService.create(this.lastname, this.firstname, (newId:number) => {
+      this.createdPersonEventEmitter.emit(newId)
+    })
   }
 
 
