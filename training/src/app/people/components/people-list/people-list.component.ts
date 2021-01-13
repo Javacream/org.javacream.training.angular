@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { Person } from '../../model/people.model';
 import { PeopleService } from '../../people.service';
 @Component({
@@ -21,6 +21,11 @@ export class PeopleListComponent implements OnInit {
   switchDetail(){
     this.detail = !this.detail
     this.detailButtonCaption = this.detail?"Detail Off":"Detail On"
+  }
+
+  @Output() handlePersonDeletionEventEmitter = new EventEmitter<void>()
+  handlePersonDeletion(){
+    this.handlePersonDeletionEventEmitter.emit()
   }
 
 }

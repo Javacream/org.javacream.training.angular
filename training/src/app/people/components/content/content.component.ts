@@ -23,5 +23,8 @@ export class ContentComponent implements OnInit {
   handlePersonCreated(createdPersonId:number){
     this.peopleService.peopleList(this.update)
   }
+  handlePersonDeleted(){
+    this.peopleService.peopleList(this.update)
+  }
 
 }
