@@ -16,4 +16,8 @@ export class ContentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  handlePersonCreated(createdPersonId:number){
+    this.peopleList = this.peopleService.peopleList()
+  }
+
 }

@@ -9,11 +9,11 @@ export class PeopleService {
   constructor() { 
 
     this.people = new Map()
-    this.people.set (1, create(1, "Sawitzki", "Rainer", "m", 183))
-    this.people.set (2, create(2, "Meier", "Hannelore", "f", 175))
-    this.people.set (3, create(3, "Meier", "Franz", "m", 186))
-    this.people.set (4, create(4, "Metzger", "Johann", "m", 122))
-    this.people.set (5, create(5, "Schneider", "Erna", "f", 199))
+    this.people.set (100, create(100, "Sawitzki", "Rainer", "m", 183))
+    this.people.set (101, create(101, "Meier", "Hannelore", "f", 175))
+    this.people.set (102, create(102, "Meier", "Franz", "m", 186))
+    this.people.set (103, create(103, "Metzger", "Johann", "m", 122))
+    this.people.set (104, create(104, "Schneider", "Erna", "f", 199))
     
   }
 
@@ -35,6 +35,7 @@ export class PeopleService {
     this.idCounter++
     let newPerson = {id:this.idCounter, lastname, firstname, height: 180, gender:"d"}
     this.people.set(this.idCounter, newPerson)
+    return this.idCounter
   }
 }
 
