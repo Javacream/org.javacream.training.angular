@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { people } from '../../model/people.data';
 import { Person } from '../../model/people.model';
 import {PeopleService} from '../../people.service'
 @Component({
@@ -18,7 +17,6 @@ export class PersonSearchComponent implements OnInit {
   person:Person | undefined
 
   searchPerson(){
-    console.log(people)
-    this.person=people.get(Number(this.searchId))
+    this.person=this.peopleService.findById(Number(this.searchId))
   }
 }

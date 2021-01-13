@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {people} from '../../model/people.data'
+import { PeopleService } from '../../people.service';
 @Component({
   selector: 'app-people-list',
   templateUrl: './people-list.component.html',
@@ -9,12 +9,12 @@ export class PeopleListComponent implements OnInit {
 
   detail = true;
   detailButtonCaption = "Detail Off"
-  constructor() { }
+  constructor(private peopleService:PeopleService) { }
 
   ngOnInit(): void {
   }
 
-  peopleList = Array.from(people.values())
+  peopleList = this.peopleService.peopleList()
 
   switchDetail(){
     this.detail = !this.detail
