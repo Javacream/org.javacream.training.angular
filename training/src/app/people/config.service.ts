@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConfigService {
+  appName= "P E O P L E"
+  company= "Javacream"
 
   constructor() { }
-  appName: "P E O P L E"
-  company: "Javacream"
 }
