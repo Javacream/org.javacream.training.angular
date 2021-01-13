@@ -8,6 +8,8 @@ import { ContentComponent } from './people/components/content/content.component'
 import { ClockComponent } from './util/components/clock/clock.component';
 import { PeopleListComponent } from './people/components/people-list/people-list.component';
 import { PersonComponent } from './people/components/person/person.component';
+import { FormsModule } from '@angular/forms';
+import { PersonSearchComponent } from './people/components/person-search/person-search.component';
 
 @NgModule({
   declarations: [
@@ -17,10 +19,11 @@ import { PersonComponent } from './people/components/person/person.component';
     ContentComponent,
     ClockComponent,
     PeopleListComponent,
-    PersonComponent
+    PersonComponent,
+    PersonSearchComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
