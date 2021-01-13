@@ -12,7 +12,14 @@ import { FormsModule } from '@angular/forms';
 import { PersonSearchComponent } from './people/components/person-search/person-search.component';
 import { PersonCreateComponent } from './people/components/person-create/person-create.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './people/components/home/home.component';
 
+const routes:Routes = [
+  {path: "home", component: HomeComponent},
+  {path: "people", component: ContentComponent},
+
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,10 +30,11 @@ import { HttpClientModule } from '@angular/common/http';
     PeopleListComponent,
     PersonComponent,
     PersonSearchComponent,
-    PersonCreateComponent
+    PersonCreateComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule, FormsModule, HttpClientModule
+    BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
