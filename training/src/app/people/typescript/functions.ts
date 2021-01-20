@@ -43,6 +43,15 @@ demoLiteral2 = function (p1:string, p2:boolean){
 
 //Arrow-Syntax
 
+
 let demoArray = (p1:string, p2:boolean) => {
+    return 42
+}
+
+let demoArray2 = (p1:string, p2:boolean):number => {
+    return 42
+}
+
+let demoArray3: (x:string, y:boolean) => number = (p1:string, p2:boolean) => {
     return 42
 }
