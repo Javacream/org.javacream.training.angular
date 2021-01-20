@@ -12,4 +12,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  appTitle:string = "P E O P L E"
+
+  profileInfo():string{
+    return "User: Rainer Sawitzki"
+  }
+
 }
