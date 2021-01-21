@@ -14,5 +14,6 @@ export class PersonComponent implements OnInit {
   }
 
   @Input() person:Person | undefined
+  @Input() detail = false
 
 }

@@ -16,6 +16,9 @@ export class PeoplelistComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  detail = false
+  switchDetail(){
+    this.detail = !this.detail
+  }
 
 }
