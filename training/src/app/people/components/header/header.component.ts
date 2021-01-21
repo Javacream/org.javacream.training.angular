@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from '../../model/config.service';
+import { ProfileService } from '../../model/profile.service';
 
 @Component({
   selector: 'app-header',
@@ -7,15 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private configService:ConfigService, private profileService:ProfileService) { 
+    this.appTitle = configService.appTitle
+  }
 
   ngOnInit(): void {
   }
 
-  appTitle:string = "P E O P L E"
+  appTitle:string
 
   profileInfo():string{
-    return "User: Rainer Sawitzki"
+    let profile =this.profileService.getActualProfile()
+    return `User: ${profile.firstname} ${profile.lastname}`
   }
 
 }
