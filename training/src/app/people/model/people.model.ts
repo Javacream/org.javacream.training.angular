@@ -1,3 +1,5 @@
+import { Injectable } from '@angular/core';
+
 export interface Person{
     id:number
     lastname:string
@@ -5,7 +7,12 @@ export interface Person{
     gender:string
     height:number
 }
-export class PeopleController {
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PeopleService {
 
   constructor() { 
 

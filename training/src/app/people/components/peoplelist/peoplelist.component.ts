@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PeopleController, Person } from '../../model/people.model';
+import { PeopleService, Person } from '../../model/people.model';
 
 @Component({
   selector: 'app-peoplelist',
@@ -9,10 +9,9 @@ import { PeopleController, Person } from '../../model/people.model';
 export class PeoplelistComponent implements OnInit {
 
   peopleList:Array<Person>
-  constructor() { 
+  constructor(private peopleService:PeopleService) { 
 
-    let peopleController:PeopleController = new PeopleController()
-    this.peopleList = peopleController.findAll()
+    this.peopleList = peopleService.findAll()
   }
 
   ngOnInit(): void {
