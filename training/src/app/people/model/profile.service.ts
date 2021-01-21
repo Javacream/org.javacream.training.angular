@@ -9,6 +9,11 @@ export class ProfileService {
   constructor() { }
   
   getActualProfile():Person{
-    return {id:1000, lastname:"Sawitzki", firstname:"Rainer", gender:"m", height:183}
+    let person = {id:1000, lastname:"Sawitzki", firstname:"Rainer", gender:"m", height:183}
+    setTimeout(() => {
+      person.lastname = "SAWITZKI"
+      console.log(person.lastname)
+    }, 1000)
+    return person
   }
 }

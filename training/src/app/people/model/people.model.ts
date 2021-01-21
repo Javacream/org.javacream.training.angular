@@ -22,7 +22,12 @@ export class PeopleService {
     this.people.set (3, create(3, "Meier", "Franz", "m", 186))
     this.people.set (4, create(4, "Metzger", "Johann", "m", 122))
     this.people.set (5, create(5, "Schneider", "Erna", "f", 199))
-    
+    setTimeout(() => {
+      
+      this.people.set(6, create(6, "XXX", "YYY", "f", 199))
+      console.log(this.people)  
+    }
+      , 1000)
   }
 
   people: Map<number, Person>
