@@ -11,7 +11,7 @@ export class PeoplelistComponent implements OnInit {
   peopleList:Array<Person>
   constructor() { 
 
-    let peopleController:PeopleController
+    let peopleController:PeopleController = new PeopleController()
     this.peopleList = peopleController.findAll()
   }
 
