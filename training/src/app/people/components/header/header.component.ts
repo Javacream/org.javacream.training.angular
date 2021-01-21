@@ -9,7 +9,7 @@ import { ProfileService } from '../../model/profile.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private configService:ConfigService, private profileService:ProfileService) { 
+  constructor(private configService:ConfigService, readonly profileService:ProfileService) { 
     this.appTitle = configService.appTitle
   }
 
@@ -17,10 +17,5 @@ export class HeaderComponent implements OnInit {
   }
 
   appTitle:string
-
-  profileInfo():string{
-    let profile =this.profileService.getActualProfile()
-    return `User: ${profile.firstname} ${profile.lastname}`
-  }
 
 }

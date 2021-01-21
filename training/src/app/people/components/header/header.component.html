@@ -1,4 +1,4 @@
 <div>
     <h2>{{appTitle}}</h2>
-    <p class="right">{{profileInfo()}}</p>
+    <p class="right"><app-person [person]="profileService.getActualProfile()"></app-person></p>
 </div>
