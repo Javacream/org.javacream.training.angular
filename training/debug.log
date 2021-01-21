@@ -1,1 +1,5 @@
 [0121/091216.103:ERROR:directory_reader_win.cc(43)] FindFirstFile: Das System kann den angegebenen Pfad nicht finden. (0x3)
+[0121/103155.818:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\RAINER~1\AppData\Local\Temp\karma-29662931\Crashpad\attachments\840e5726-340c-4fb2-a6cb-8b03792bac66: Das System kann den angegebenen Pfad nicht finden. (0x3)
+[0121/103155.887:ERROR:process_reader_win.cc(151)] SuspendThread: Zugriff verweigert (0x5)
+[0121/103156.321:ERROR:process_reader_win.cc(151)] SuspendThread: Zugriff verweigert (0x5)
+[0121/103156.322:ERROR:process_reader_win.cc(151)] SuspendThread: Zugriff verweigert (0x5)
