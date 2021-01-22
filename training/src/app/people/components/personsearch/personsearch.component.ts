@@ -8,13 +8,15 @@ import { PeopleService, Person } from '../../model/people.model';
 })
 export class PersonsearchComponent implements OnInit {
 
-  constructor(readonly peopleService:PeopleService) { }
+  constructor(readonly peopleService:PeopleService) {
+    peopleService.personSearchSubject.subscribe((person) => this.searchResult = person )
+   }
 
   ngOnInit(): void {
   }
   idInput:string
   searchResult:Person | undefined
   searchPerson(){
-    this.peopleService.findById(Number(this.idInput), (person) => this.searchResult = person )
+    this.peopleService.findById(Number(this.idInput))
   }
 }

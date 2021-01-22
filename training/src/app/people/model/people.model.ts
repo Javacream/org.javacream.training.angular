@@ -22,22 +22,26 @@ export class PeopleService {
   
   idCounter = 0
   
-  deleteById(id:number, updateFn: () => void){
-    this.httpClient.delete(`${this.configService.endpoint}/${id}`).subscribe(updateFn)
+  deleteById(id:number){
+    this.httpClient.delete(`${this.configService.endpoint}/${id}`).subscribe(() => this.personDeletedSubject.next(id))
   
   }
-  findById(id:number, updateFn: (x:Person)=> void){
-    this.httpClient.get<Person>(`${this.configService.endpoint}/${id}`).subscribe(updateFn)
+  findById(id:number){
+    this.httpClient.get<Person>(`${this.configService.endpoint}/${id}`).subscribe((person) => this.personSearchSubject.next(person))
   }
   
-  findAll(updateFn: (x:Array<Person>) => void){
-    this.httpClient.get<Array<Person>>(this.configService.endpoint).subscribe((people) => updateFn(people))
+  findAll(){
+    this.httpClient.get<Array<Person>>(this.configService.endpoint).subscribe((people) => this.peopleListSubject.next(people))
   }
 
   create(lastname:string, firstname:string){
     let newPerson = {id:this.idCounter, lastname, firstname, height: 180, gender:"d"}
-    this.httpClient.post<number>(this.configService.endpoint, newPerson).subscribe((result) => this.personCreatedSubject.next(this.idCounter))
+    this.httpClient.post(this.configService.endpoint, newPerson).subscribe(() => this.personCreatedSubject.next(this.idCounter))
   }
 
   personCreatedSubject = new Subject<number>()
+  peopleListSubject = new Subject<Array<Person>>()
+  personDeletedSubject = new Subject<number>()
+  personSearchSubject = new Subject<Person>()
+
 }

@@ -11,8 +11,11 @@ export class PeoplelistComponent implements OnInit {
   peopleList:Array<Person>
   constructor(private peopleService:PeopleService) { 
 
-     peopleService.findAll((people) => this.peopleList = people)
-     peopleService.personCreatedSubject.subscribe((id) => peopleService.findAll((people) => this.peopleList = people))
+    peopleService.peopleListSubject.subscribe((people) => this.peopleList = people)
+    peopleService.personCreatedSubject.subscribe((id) => peopleService.findAll())
+    peopleService.personDeletedSubject.subscribe((id) => peopleService.findAll())
+    peopleService.findAll()
+
   }
 
   ngOnInit(): void {

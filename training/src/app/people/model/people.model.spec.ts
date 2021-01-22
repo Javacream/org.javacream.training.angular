@@ -26,7 +26,7 @@ describe('PeopleService', () => {
   });
 
   xit('should create a person', () => {
-    expect(() => service.create("TEST", "TEST", (id) => console.log(id))).not.toThrow();
+    expect(() => service.create("TEST", "TEST")).not.toThrow();
   });
 });
 
