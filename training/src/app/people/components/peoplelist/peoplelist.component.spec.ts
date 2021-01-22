@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { PersonComponent } from '../person/person.component';
 
 import { PeoplelistComponent } from './peoplelist.component';
 
@@ -8,7 +10,7 @@ describe('PeoplelistComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PeoplelistComponent ]
+      declarations: [ PeoplelistComponent, PersonComponent ], imports: [HttpClientModule]
     })
     .compileComponents();
   });
