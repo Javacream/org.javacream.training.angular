@@ -1,0 +1,5 @@
+<div>
+    <input type="text" [(ngModel)]="idInput"/>
+    <button (click)="searchPerson()">Search</button>
+    <app-person *ngIf="searchResult" [person]="searchResult" [detail]="true"></app-person>
+</div>

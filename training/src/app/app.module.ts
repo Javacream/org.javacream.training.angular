@@ -10,6 +10,7 @@ import { PersonComponent } from './people/components/person/person.component';
 import { ClockComponent } from './people/components/clock/clock.component';
 import { FormsModule } from '@angular/forms';
 import { PersoninputComponent } from './people/components/personinput/personinput.component';
+import { PersonsearchComponent } from './people/components/personsearch/personsearch.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PersoninputComponent } from './people/components/personinput/personinpu
     PeoplelistComponent,
     PersonComponent,
     ClockComponent,
-    PersoninputComponent
+    PersoninputComponent,
+    PersonsearchComponent
   ],
   imports: [
     BrowserModule, FormsModule
