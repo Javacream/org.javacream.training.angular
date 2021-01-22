@@ -8,17 +8,21 @@ import { PeopleService, Person } from '../../model/people.model';
   styleUrls: ['./peoplelist.component.css']
 })
 export class PeoplelistComponent implements OnInit, OnDestroy {
-  subscription:Subscription
+  peopleListSubscription:Subscription
+  personCreatedSubscription:Subscription
+  personDeletedubscription:Subscription
   ngOnDestroy(): void {
-    this.subscription.unsubscribe()
+    this.peopleListSubscription.unsubscribe()
+    this.personCreatedSubscription.unsubscribe()
+    this.personDeletedubscription.unsubscribe()
   }  
 
   peopleList:Array<Person>
   constructor(private peopleService:PeopleService) { 
 
-    peopleService.peopleListSubject.subscribe((people) => this.peopleList = people)
-    peopleService.personCreatedSubject.subscribe((id) => peopleService.findAll())
-    peopleService.personDeletedSubject.subscribe((id) => peopleService.findAll())
+    this.peopleListSubscription = peopleService.peopleListSubject.subscribe((people) => this.peopleList = people)
+    this.personCreatedSubscription = peopleService.personCreatedSubject.subscribe((id) => peopleService.findAll())
+    this.personDeletedubscription = peopleService.personDeletedSubject.subscribe((id) => peopleService.findAll())
     peopleService.findAll()
 
   }
