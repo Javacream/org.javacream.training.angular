@@ -8,6 +8,8 @@ import { ContentComponent } from './people/components/content/content.component'
 import { PeoplelistComponent } from './people/components/peoplelist/peoplelist.component';
 import { PersonComponent } from './people/components/person/person.component';
 import { ClockComponent } from './people/components/clock/clock.component';
+import { FormsModule } from '@angular/forms';
+import { PersoninputComponent } from './people/components/personinput/personinput.component';
 
 @NgModule({
   declarations: [
@@ -17,10 +19,11 @@ import { ClockComponent } from './people/components/clock/clock.component';
     ContentComponent,
     PeoplelistComponent,
     PersonComponent,
-    ClockComponent
+    ClockComponent,
+    PersoninputComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

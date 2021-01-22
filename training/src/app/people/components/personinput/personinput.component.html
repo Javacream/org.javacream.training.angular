@@ -1,0 +1,8 @@
+<div>
+    <input type="text" [(ngModel)]="lastname"/>
+    <input type="text" [(ngModel)]="firstname"/>
+    <button (click)="createPerson()">Save</button>
+    <p *ngIf="output">{{output}}</p>
+
+
+</div>

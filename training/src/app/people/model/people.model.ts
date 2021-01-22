@@ -44,7 +44,7 @@ export class PeopleService {
     return Array.from(this.people.values())
   }
 
-  create(lastname:string, firstname:string, gender:"d", height:50){
+  create(lastname:string, firstname:string, gender="d", height=50){
     this.idCounter++
     let newPerson = {id:this.idCounter, lastname, firstname, gender, height}
     this.people.set(this.idCounter, newPerson)
