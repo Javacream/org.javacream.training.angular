@@ -1,5 +1,8 @@
-<app-peoplelist></app-peoplelist>
-<hr />
-<app-personinput></app-personinput>
-<hr />
-<app-personsearch></app-personsearch>
+<nav>
+    <ul>
+        <li><a routerLink="/list" routerLinkActive="true>">People List</a></li>
+        <li><a routerLink="/input" routerLinkActive="true>">Person Input</a></li>
+        <li><a routerLink="/search" routerLinkActive="true>">Person Search</a></li>
+    </ul>
+</nav>
+<router-outlet></router-outlet>
