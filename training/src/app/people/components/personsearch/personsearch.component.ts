@@ -15,6 +15,6 @@ export class PersonsearchComponent implements OnInit {
   idInput:string
   searchResult:Person | undefined
   searchPerson(){
-    this.searchResult = this.peopleService.findById(Number(this.idInput))
+    this.peopleService.findById(Number(this.idInput), (person) => this.searchResult = person )
   }
 }

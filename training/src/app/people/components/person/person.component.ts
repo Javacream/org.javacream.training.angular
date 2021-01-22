@@ -18,6 +18,6 @@ export class PersonComponent implements OnInit {
   @Input() deleteEnabled = false
 
   delete(id:number){
-    this.peopleService.deleteById(id)
+    this.peopleService.deleteById(id, () => {})
   }
 }

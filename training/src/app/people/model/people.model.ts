@@ -16,45 +16,26 @@ export interface Person{
 })
 export class PeopleService {
 
-  constructor(readonly httpClient:HttpClient, readonly configService:ConfigService) { 
-
-    this.people = new Map()
-    this.people.set (101, create(101, "Sawitzki", "Rainer", "m", 183))
-    this.people.set (102, create(102, "Meier", "Hannelore", "f", 175))
-    this.people.set (103, create(103, "Meier", "Franz", "m", 186))
-    this.people.set (104, create(104, "Metzger", "Johann", "m", 122))
-    this.people.set (105, create(105, "Schneider", "Erna", "f", 199))
-    setTimeout(() => {
-      
-      this.people.set(6, create(6, "XXX", "YYY", "f", 199))
-      console.log(this.people)  
-    }
-      , 1000)
-  }
+  constructor(readonly httpClient:HttpClient, readonly configService:ConfigService) {}
 
   people: Map<number, Person>
   
   idCounter = 0
   
-  deleteById(id:number){
-    this.people.delete(id)
+  deleteById(id:number, updateFn: () => void){
+    this.httpClient.delete(`${this.configService.endpoint}/${id}`).subscribe(updateFn)
+  
   }
-  findById(id:number):Person|undefined{
-    return this.people.get(id)
+  findById(id:number, updateFn: (x:Person)=> void){
+    this.httpClient.get<Person>(`${this.configService.endpoint}/${id}`).subscribe(updateFn)
   }
+  
   findAll(updateFn: (x:Array<Person>) => void){
     this.httpClient.get<Array<Person>>(this.configService.endpoint).subscribe((people) => updateFn(people))
   }
 
-  create(lastname:string, firstname:string, gender="d", height=50){
-    this.idCounter++
-    let newPerson = {id:this.idCounter, lastname, firstname, gender, height}
-    this.people.set(this.idCounter, newPerson)
-    return this.idCounter
+  create(lastname:string, firstname:string, updateFn: (x:number) => void){
+    let newPerson = {id:this.idCounter, lastname, firstname, height: 180, gender:"d"}
+    this.httpClient.post(this.configService.endpoint, newPerson).subscribe((result) => updateFn(this.idCounter))
   }
-}
-
-
-function create(id:number, lastname:string, firstname:string, gender:string, height:number){
-    return {id, lastname, firstname, gender, height}
 }

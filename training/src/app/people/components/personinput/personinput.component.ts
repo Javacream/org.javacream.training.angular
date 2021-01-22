@@ -17,7 +17,6 @@ export class PersoninputComponent implements OnInit {
   firstname:string
   output:string
   createPerson(){
-    let id = this.peopleService.create(this.lastname, this.firstname)
-    this.output = `created person with id ${id}`
+    this.peopleService.create(this.lastname, this.firstname, (id) => this.output = `created person with id ${id}`)
   }
 }
