@@ -48,6 +48,7 @@ export class PeopleService {
     this.idCounter++
     let newPerson = {id:this.idCounter, lastname, firstname, gender, height}
     this.people.set(this.idCounter, newPerson)
+    return this.idCounter
   }
 }
 
