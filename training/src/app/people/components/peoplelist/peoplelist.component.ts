@@ -11,7 +11,7 @@ export class PeoplelistComponent implements OnInit {
   peopleList:Array<Person>
   constructor(private peopleService:PeopleService) { 
 
-    this.peopleList = peopleService.findAll()
+     peopleService.findAll((people) => this.peopleList = people)
   }
 
   ngOnInit(): void {

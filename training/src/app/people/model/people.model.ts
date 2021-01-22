@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ConfigService } from './config.service';
 
 export interface Person{
     id:number
@@ -15,7 +16,7 @@ export interface Person{
 })
 export class PeopleService {
 
-  constructor(readonly httpClient:HttpClient) { 
+  constructor(readonly httpClient:HttpClient, readonly configService:ConfigService) { 
 
     this.people = new Map()
     this.people.set (101, create(101, "Sawitzki", "Rainer", "m", 183))
@@ -41,13 +42,8 @@ export class PeopleService {
   findById(id:number):Person|undefined{
     return this.people.get(id)
   }
-  findAll(){
-    this.findAllServerPeople()
-    return Array.from(this.people.values())
-  }
-
-  findAllServerPeople(){
-    this.httpClient.get<Array<Person>>("http://h2908727.stratoserver.net:8080/people").subscribe((people) => console.log(people))
+  findAll(updateFn: (x:Array<Person>) => void){
+    this.httpClient.get<Array<Person>>(this.configService.endpoint).subscribe((people) => updateFn(people))
   }
 
   create(lastname:string, firstname:string, gender="d", height=50){
