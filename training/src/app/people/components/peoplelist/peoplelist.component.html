@@ -1,4 +1,4 @@
 <ul>
-    <li *ngFor="let p of peopleList"><app-person [person]="p" [detail]="detail"></app-person></li>
+    <li *ngFor="let p of peopleList"><app-person [person]="p" [detail]="detail" [deleteEnabled]="detail"></app-person></li>
     <button (click)="switchDetail()">Switch detail</button>
 </ul>
