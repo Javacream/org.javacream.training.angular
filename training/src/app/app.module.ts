@@ -11,6 +11,7 @@ import { ClockComponent } from './people/components/clock/clock.component';
 import { FormsModule } from '@angular/forms';
 import { PersoninputComponent } from './people/components/personinput/personinput.component';
 import { PersonsearchComponent } from './people/components/personsearch/personsearch.component';
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { PersonsearchComponent } from './people/components/personsearch/personse
     PersonsearchComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
