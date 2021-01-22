@@ -12,7 +12,13 @@ import { FormsModule } from '@angular/forms';
 import { PersoninputComponent } from './people/components/personinput/personinput.component';
 import { PersonsearchComponent } from './people/components/personsearch/personsearch.component';
 import { HttpClientModule} from '@angular/common/http';
+import { HomeComponent } from './people/components/home/home.component';
+import { RouterModule, Routes } from '@angular/router';
+const routes:Routes = [
+  {path: "home", component: HomeComponent},
+  {path: "people", component: ContentComponent},
 
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,10 +29,11 @@ import { HttpClientModule} from '@angular/common/http';
     PersonComponent,
     ClockComponent,
     PersoninputComponent,
-    PersonsearchComponent
+    PersonsearchComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule, FormsModule, HttpClientModule
+    BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
