@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { PeopleService, Person } from '../../model/people.model';
 
 @Component({
@@ -6,7 +7,11 @@ import { PeopleService, Person } from '../../model/people.model';
   templateUrl: './peoplelist.component.html',
   styleUrls: ['./peoplelist.component.css']
 })
-export class PeoplelistComponent implements OnInit {
+export class PeoplelistComponent implements OnInit, OnDestroy {
+  subscription:Subscription
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+  }  
 
   peopleList:Array<Person>
   constructor(private peopleService:PeopleService) { 

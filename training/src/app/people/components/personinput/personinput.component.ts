@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { PeopleService } from '../../model/people.model';
 
 @Component({
@@ -6,12 +7,14 @@ import { PeopleService } from '../../model/people.model';
   templateUrl: './personinput.component.html',
   styleUrls: ['./personinput.component.css']
 })
-export class PersoninputComponent implements OnInit {
-
+export class PersoninputComponent implements OnInit, OnDestroy {
+  subscription:Subscription
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+  }  
   constructor(readonly peopleService:PeopleService) { 
-    peopleService.personCreatedSubject.subscribe((id) => this.output = `created person with id ${id}`)
+    this.subscription = peopleService.personCreatedSubject.subscribe((id) => this.output = `created person with id ${id}`)
   }
-
   ngOnInit(): void {
   }
 

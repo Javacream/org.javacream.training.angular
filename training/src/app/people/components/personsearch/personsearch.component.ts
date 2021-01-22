@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { PeopleService, Person } from '../../model/people.model';
 
 @Component({
@@ -6,11 +7,14 @@ import { PeopleService, Person } from '../../model/people.model';
   templateUrl: './personsearch.component.html',
   styleUrls: ['./personsearch.component.css']
 })
-export class PersonsearchComponent implements OnInit {
-
+export class PersonsearchComponent implements OnInit, OnDestroy {
+  subscription:Subscription
   constructor(readonly peopleService:PeopleService) {
-    peopleService.personSearchSubject.subscribe((person) => this.searchResult = person )
+    this.subscription = peopleService.personSearchSubject.subscribe((person) => this.searchResult = person )
    }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+  }
 
   ngOnInit(): void {
   }
