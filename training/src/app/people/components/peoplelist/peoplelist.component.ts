@@ -12,6 +12,7 @@ export class PeoplelistComponent implements OnInit {
   constructor(private peopleService:PeopleService) { 
 
      peopleService.findAll((people) => this.peopleList = people)
+     peopleService.personCreatedSubject.subscribe((id) => peopleService.findAll((people) => this.peopleList = people))
   }
 
   ngOnInit(): void {

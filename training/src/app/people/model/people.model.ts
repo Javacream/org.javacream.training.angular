@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ConfigService } from './config.service';
-
+import {Subject} from 'rxjs'
 export interface Person{
     id:number
     lastname:string
@@ -34,8 +34,10 @@ export class PeopleService {
     this.httpClient.get<Array<Person>>(this.configService.endpoint).subscribe((people) => updateFn(people))
   }
 
-  create(lastname:string, firstname:string, updateFn: (x:number) => void){
+  create(lastname:string, firstname:string){
     let newPerson = {id:this.idCounter, lastname, firstname, height: 180, gender:"d"}
-    this.httpClient.post(this.configService.endpoint, newPerson).subscribe((result) => updateFn(this.idCounter))
+    this.httpClient.post<number>(this.configService.endpoint, newPerson).subscribe((result) => this.personCreatedSubject.next(this.idCounter))
   }
+
+  personCreatedSubject = new Subject<number>()
 }

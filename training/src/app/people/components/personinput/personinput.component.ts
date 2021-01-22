@@ -8,7 +8,9 @@ import { PeopleService } from '../../model/people.model';
 })
 export class PersoninputComponent implements OnInit {
 
-  constructor(readonly peopleService:PeopleService) { }
+  constructor(readonly peopleService:PeopleService) { 
+    peopleService.personCreatedSubject.subscribe((id) => this.output = `created person with id ${id}`)
+  }
 
   ngOnInit(): void {
   }
@@ -17,6 +19,6 @@ export class PersoninputComponent implements OnInit {
   firstname:string
   output:string
   createPerson(){
-    this.peopleService.create(this.lastname, this.firstname, (id) => this.output = `created person with id ${id}`)
+    this.peopleService.create(this.lastname, this.firstname)
   }
 }
