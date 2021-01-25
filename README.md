@@ -35,5 +35,4 @@
   * https://github.com/Javacream/org.javacream.training.angular
 
 * Digitales Flipchart
-  * https://docs.google.com/presentation/d/18BMN8dlDdN1diP8d7bDIJqKdp29sS8BLUk0_wU2vb0w/edit?usp=sharing
-
+  * https://docs.google.com/presentation/d/1gN8HAG__fkaXqOuXhGx88zJdbergTItiisOQP8J32YM/edit?usp=sharing
