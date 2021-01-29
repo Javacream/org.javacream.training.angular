@@ -26,6 +26,7 @@
   * Anlegen eines Test-Projekts 
     * In einem beliebigen Verzeichnis  
       * ng new first
+      * cd first
       * ng serve --open
         * Im Standard-Browser des Systes wird eine Seite angezeigt
 
