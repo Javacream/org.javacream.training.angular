@@ -26,8 +26,10 @@
   * Anlegen eines Test-Projekts 
     * In einem beliebigen Verzeichnis  
       * ng new first
+        * Falls Abfragen kommen bitte Routing=No, CSS, No Strict TypeChecks
+      * cd first
       * ng serve --open
-        * Im Standard-Browser des Systes wird eine Seite angezeigt
+        * Im Standard-Browser des Systems wird eine Seite angezeigt
 
 ## Durchführung des Seminars
 
