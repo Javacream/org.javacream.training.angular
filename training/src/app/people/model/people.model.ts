@@ -14,7 +14,14 @@ import { Injectable } from '@angular/core';
 export class PeopleService {
   people = new Map<number, Person>()
   counter = 100
-  constructor() {}
+  constructor() {
+    this.create("Meier", "Hans", "m")
+    this.create("Schneider", "Brunhilde", "f")
+    this.create("Metzger", "Georg", "m")
+    this.create("Hoffman", "Hanna", "f")
+
+
+  }
 
   create(lastname:string, firstname:string, gender= "d", height=50){
     this.counter++

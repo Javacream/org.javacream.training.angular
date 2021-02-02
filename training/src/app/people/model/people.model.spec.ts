@@ -28,8 +28,9 @@ describe('PeopleService', () => {
   expect(service.findById(id)).toBeUndefined();
 });
 it('should contain a created person in findAll', () => {
+    let length = service.findAll().length
     let id = service.create("Eg", "Al")
-  expect(service.findAll().length).toBe(1);
+  expect(service.findAll().length).toBe((length + 1));
 });
 
 });
