@@ -16,8 +16,8 @@ export class PersonCreateComponent implements OnInit {
 
   personInputForm = new FormGroup(
     {
-      lastname: new FormControl('Eg', Validators.compose([Validators.required, Validators.minLength(2)])),
-      firstname: new FormControl('Al', Validators.compose([Validators.required, Validators.minLength(2)]))
+      lastname: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
+      firstname: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)]))
     }
   )
   save(){
