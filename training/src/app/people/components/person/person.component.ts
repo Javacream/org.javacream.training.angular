@@ -8,6 +8,8 @@ import { Person } from '../../model/people.model';
 })
 export class PersonComponent implements OnInit {
   @Input() person:Person
+  @Input() details = false
+
   constructor() { }
 
   ngOnInit(): void {
