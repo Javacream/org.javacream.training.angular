@@ -17,5 +17,6 @@ export class PeopleListComponent implements OnInit {
   }
   switchDetails(){
     this.showPersonDetail = !this.showPersonDetail
+    this.peopleList = this.peopleService.findAll()
   }
 }

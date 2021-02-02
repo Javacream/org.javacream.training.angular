@@ -8,8 +8,9 @@ import { FooterComponent } from './people/components/footer/footer.component';
 import { ClockComponent } from './util/components/clock/clock.component';
 import { PeopleListComponent } from './people/components/people-list/people-list.component';
 import { PersonComponent } from './people/components/person/person.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PersonSearchComponent } from './people/components/person-search/person-search.component';
+import { PersonCreateComponent } from './people/components/person-create/person-create.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +21,11 @@ import { PersonSearchComponent } from './people/components/person-search/person-
     ClockComponent,
     PeopleListComponent,
     PersonComponent,
-    PersonSearchComponent
+    PersonSearchComponent,
+    PersonCreateComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
