@@ -1,1 +1,2 @@
-<p *ngFor="let p of peopleList"><app-person [person]="p" [details]="true"></app-person></p>
+<p *ngFor="let p of peopleList"><app-person [person]="p" [details]="showPersonDetail"></app-person></p>
+<button (click)="switchDetails()">Details on|off</button>
