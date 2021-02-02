@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class Config{
     appTitle = "P E O P L E" 
-    company = "Javacream"    
+    company = "javacream"    
 
 }
 

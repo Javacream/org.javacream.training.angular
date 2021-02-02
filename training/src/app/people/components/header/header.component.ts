@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Person} from '../../model/people.model'
 import {Config} from '../../model/config'
+import {ProfileService} from '../../model/profile.service'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,9 +9,10 @@ import {Config} from '../../model/config'
 })
 export class HeaderComponent implements OnInit {
   appTitle:string
-  profile:Person = {id:1000, lastname:"Sawitzki", firstname: "Rainer", gender: "m", height:183}
-  constructor(config:Config) { 
+  profile:Person
+  constructor(config:Config, profileService:ProfileService) { 
     this.appTitle = config.appTitle
+    this.profile = profileService.profile
   }
   ngOnInit(): void {
   }
