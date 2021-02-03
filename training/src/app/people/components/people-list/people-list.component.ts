@@ -10,13 +10,13 @@ export class PeopleListComponent implements OnInit {
   peopleList:Array<Person>
   showPersonDetail = true
   constructor(readonly peopleService:PeopleService) {
-    this.peopleList = peopleService.findAll()
+    peopleService.findAll((people:Array<Person>) => this.peopleList = people)
    }
 
   ngOnInit(): void {
   }
   switchDetails(){
     this.showPersonDetail = !this.showPersonDetail
-    this.peopleList = this.peopleService.findAll()
+    this.peopleService.findAll((people:Array<Person>) => this.peopleList = people)
   }
 }

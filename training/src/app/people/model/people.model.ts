@@ -1,3 +1,7 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+
 export interface Person{
     id:number
     lastname:string
@@ -6,7 +10,6 @@ export interface Person{
     gender:string
 }
 
-import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +17,12 @@ import { Injectable } from '@angular/core';
 export class PeopleService {
   people = new Map<number, Person>()
   counter = 100
-  constructor() {
+  constructor(readonly httpClient:HttpClient) {
     this.create("Meier", "Hans", "m")
     this.create("Schneider", "Brunhilde", "f")
     this.create("Metzger", "Georg", "m")
     this.create("Hoffman", "Hanna", "f")
-
+    
 
   }
 
@@ -28,8 +31,9 @@ export class PeopleService {
     this.people.set(this.counter, {id:this.counter, lastname, firstname, gender, height})
     return this.counter
   }
-  findAll(){
-      return Array.from(this.people.values())
+  findAll(update: (_:Array<Person>)=> void){
+      this.httpClient.get<Array<Person>>("http://h2908727.stratoserver.net:8080/people").subscribe(update)
+      //return Array.from(this.people.values())
   }
 
   findById(id:number){
