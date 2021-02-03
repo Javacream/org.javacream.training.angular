@@ -10,13 +10,13 @@ import { PeopleService, Person } from '../../model/people.model';
 export class PeopleListComponent implements OnInit, OnDestroy {
   peopleList:Array<Person>
   showPersonDetail = true
-  peopleSubjectSubscription: Subscription
+  peopleSubscription: Subscription
   constructor(readonly peopleService:PeopleService) {
-    this.peopleSubjectSubscription = peopleService.peopleSubject.subscribe((people:Array<Person>) => this.peopleList = people)
+    this.peopleSubscription = peopleService.peopleSubject.subscribe((people:Array<Person>) => this.peopleList = people)
     peopleService.findAll()
    }
   ngOnDestroy(): void {
-    this.peopleSubjectSubscription.unsubscribe()
+    this.peopleSubscription.unsubscribe()
   }
 
   ngOnInit(): void {

@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PersonSearchComponent } from './people/components/person-search/person-search.component';
 import { PersonCreateComponent } from './people/components/person-create/person-create.component';
 import {HttpClientModule} from '@angular/common/http';
+import { ActionLogComponent } from './util/components/action-log/action-log.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {HttpClientModule} from '@angular/common/http';
     PeopleListComponent,
     PersonComponent,
     PersonSearchComponent,
-    PersonCreateComponent
+    PersonCreateComponent,
+    ActionLogComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule

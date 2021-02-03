@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { WhiteboardService } from 'src/app/util/model/whiteboard.service';
 import { Config } from './config';
 
 
@@ -20,8 +21,9 @@ export class PeopleService {
   people = new Map<number, Person>()
   counter = 100
   peopleSubject = new Subject<Array<Person>>()
+  personSearchSubject = new Subject<Person>()
   
-  constructor(readonly httpClient:HttpClient, readonly config:Config) {
+  constructor(readonly httpClient:HttpClient, readonly config:Config, readonly whiteboard:WhiteboardService) {
     this.create("Meier", "Hans", "m")
     this.create("Schneider", "Brunhilde", "f")
     this.create("Metzger", "Georg", "m")
@@ -39,10 +41,11 @@ export class PeopleService {
       this.httpClient.get<Array<Person>>(this.config.endpoint).subscribe((people) => this.peopleSubject.next(people))
   }
 
-  findById(id:number, update: (_:Person)=> void){
-    this.httpClient.get<Person>(`${this.config.endpoint}/${id}`).subscribe(update)  }
+  findById(id:number){
+    this.httpClient.get<Person>(`${this.config.endpoint}/${id}`).subscribe((person) => {this.personSearchSubject.next(person), this.whiteboard.actionsSubject.next("search")})
+  }  
   
-    deleteById(id:number){
+  deleteById(id:number){
     return this.people.delete(id)
   }
   saveOrUpdate(person:Person){
