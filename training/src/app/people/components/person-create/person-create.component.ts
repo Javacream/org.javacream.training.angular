@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PeopleService } from '../../model/people.model';
 
@@ -7,9 +7,11 @@ import { PeopleService } from '../../model/people.model';
   templateUrl: './person-create.component.html',
   styleUrls: ['./person-create.component.css']
 })
-export class PersonCreateComponent implements OnInit {
-  result = ""
+export class PersonCreateComponent implements OnInit, OnDestroy {
   constructor(readonly peopleService:PeopleService) { }
+  ngOnDestroy(): void {
+    
+  }
 
   ngOnInit(): void {
   }
@@ -23,8 +25,7 @@ export class PersonCreateComponent implements OnInit {
   save(){
     const lastname = this.personInputForm.value.lastname
     const firstname = this.personInputForm.value.firstname
-    const newId = this.peopleService.create(lastname, firstname)
-    this.result = `created person with id ${newId}`
+    this.peopleService.create(lastname, firstname)
   }
 
 }

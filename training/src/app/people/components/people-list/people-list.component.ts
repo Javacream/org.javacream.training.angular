@@ -12,14 +12,17 @@ export class PeopleListComponent implements OnInit, OnDestroy {
   showPersonDetail = true
   peopleSubscription: Subscription
   personDeleteSubscription: Subscription
+  personCreateSubscription: Subscription
   constructor(readonly peopleService:PeopleService) {
     this.peopleSubscription = peopleService.peopleSubject.subscribe((people:Array<Person>) => this.peopleList = people)
     this.personDeleteSubscription = peopleService.personDeleteSubject.subscribe((id:number) => this.peopleService.findAll())
+    this.personCreateSubscription = peopleService.personCreateSubject.subscribe(() => this.peopleService.findAll())
     peopleService.findAll()
    }
   ngOnDestroy(): void {
     this.peopleSubscription.unsubscribe()
     this.personDeleteSubscription.unsubscribe()
+    this.personCreateSubscription.unsubscribe()
   }
 
   ngOnInit(): void {
