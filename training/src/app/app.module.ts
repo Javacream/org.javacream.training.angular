@@ -13,6 +13,13 @@ import { PersonSearchComponent } from './people/components/person-search/person-
 import { PersonCreateComponent } from './people/components/person-create/person-create.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ActionLogComponent } from './util/components/action-log/action-log.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes:Routes = [
+  {path:"list", component: PeopleListComponent}, 
+  {path:"search", component: PersonSearchComponent}, 
+
+]
 
 @NgModule({
   declarations: [
@@ -28,7 +35,7 @@ import { ActionLogComponent } from './util/components/action-log/action-log.comp
     ActionLogComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

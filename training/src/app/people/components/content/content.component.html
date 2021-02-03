@@ -1,5 +1,10 @@
-<app-people-list></app-people-list>
-<hr />
-<app-person-search></app-person-search>
-<hr />
-<app-person-create></app-person-create>
+<nav>
+    <ul>
+        <li><a routerLink="/" routerLinkActive="true">Home</a></li>
+        <li><a routerLink="/list" routerLinkActive="true">List</a></li>
+        <li><a routerLink="/search" routerLinkActive="true">Search</a></li>
+    </ul>
+
+</nav>
+
+<router-outlet></router-outlet>
