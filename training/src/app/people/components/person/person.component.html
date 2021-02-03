@@ -1,3 +1,3 @@
 <p *ngIf="!details">{{person.firstname}} {{person.lastname}}</p>
-<div *ngIf="details"><span *ngFor="let attribute of person | keyvalue">{{attribute.key}}={{attribute.value}}, </span></div>
+<div *ngIf="details"><span *ngFor="let attribute of person | keyvalue">{{attribute.key}}={{attribute.value}}, </span><span *ngIf="showDelete"><button (click)="delete(person.id)">Del</button></span></div>
 

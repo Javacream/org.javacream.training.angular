@@ -22,6 +22,7 @@ export class PeopleService {
   counter = 100
   peopleSubject = new Subject<Array<Person>>()
   personSearchSubject = new Subject<Person>()
+  personDeleteSubject = new Subject<number>()
   
   constructor(readonly httpClient:HttpClient, readonly config:Config, readonly whiteboard:WhiteboardService) {
     this.create("Meier", "Hans", "m")
@@ -46,7 +47,7 @@ export class PeopleService {
   }  
   
   deleteById(id:number){
-    return this.people.delete(id)
+    this.httpClient.delete(`${this.config.endpoint}/${id}`).subscribe(() => {this.personDeleteSubject.next(id), this.whiteboard.actionsSubject.next("delete")})
   }
   saveOrUpdate(person:Person){
     return this.people.set(person.id, person)

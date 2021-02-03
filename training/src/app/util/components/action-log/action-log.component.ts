@@ -10,13 +10,13 @@ export class ActionLogComponent implements OnInit, OnDestroy {
   lastAction:string|undefined
   actionsSubscription: Subscription
   constructor(readonly whiteboard:WhiteboardService) {
-    this.actionsSubscription = whiteboard.actionsSubject.subscribe((action) => this.lastAction = action)
    }
   ngOnDestroy(): void {
     this.actionsSubscription.unsubscribe()
   }
 
   ngOnInit(): void {
+    this.actionsSubscription = this.whiteboard.actionsSubject.subscribe((action) => this.lastAction = action)
   }
 
 }
