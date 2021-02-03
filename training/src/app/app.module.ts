@@ -15,6 +15,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { ActionLogComponent } from './util/components/action-log/action-log.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileDetailComponent } from './people/components/profile-detail/profile-detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes:Routes = [
   {path:"list", component: PeopleListComponent}, 
@@ -39,7 +40,7 @@ const routes:Routes = [
     ProfileDetailComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes)
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes), BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
