@@ -16,7 +16,7 @@ import { ActionLogComponent } from './util/components/action-log/action-log.comp
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileDetailComponent } from './people/components/profile-detail/profile-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {MatButtonModule} from '@angular/material/button'
 const routes:Routes = [
   {path:"list", component: PeopleListComponent}, 
   {path:"search", component: PersonSearchComponent}, 
@@ -40,7 +40,7 @@ const routes:Routes = [
     ProfileDetailComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes), BrowserAnimationsModule
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes), BrowserAnimationsModule, MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
