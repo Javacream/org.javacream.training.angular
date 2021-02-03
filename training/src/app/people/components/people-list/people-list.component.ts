@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { PeopleService, Person } from '../../model/people.model';
 
 @Component({
@@ -6,17 +7,21 @@ import { PeopleService, Person } from '../../model/people.model';
   templateUrl: './people-list.component.html',
   styleUrls: ['./people-list.component.css']
 })
-export class PeopleListComponent implements OnInit {
+export class PeopleListComponent implements OnInit, OnDestroy {
   peopleList:Array<Person>
   showPersonDetail = true
+  peopleSubjectSubscription: Subscription
   constructor(readonly peopleService:PeopleService) {
-    peopleService.findAll((people:Array<Person>) => this.peopleList = people)
+    this.peopleSubjectSubscription = peopleService.peopleSubject.subscribe((people:Array<Person>) => this.peopleList = people)
+    peopleService.findAll()
    }
+  ngOnDestroy(): void {
+    this.peopleSubjectSubscription.unsubscribe()
+  }
 
   ngOnInit(): void {
   }
   switchDetails(){
     this.showPersonDetail = !this.showPersonDetail
-    this.peopleService.findAll((people:Array<Person>) => this.peopleList = people)
   }
 }
