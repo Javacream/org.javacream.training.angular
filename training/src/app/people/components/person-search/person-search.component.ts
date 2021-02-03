@@ -15,7 +15,7 @@ export class PersonSearchComponent implements OnInit {
   }
 
   search(){
-    this.personResult = this.peopleService.findById(this.searchId)
+    this.peopleService.findById(this.searchId, (person:Person) => this.personResult = person)
   }
 
 }

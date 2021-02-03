@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Config } from './config';
 
 
 export interface Person{
@@ -17,7 +18,7 @@ export interface Person{
 export class PeopleService {
   people = new Map<number, Person>()
   counter = 100
-  constructor(readonly httpClient:HttpClient) {
+  constructor(readonly httpClient:HttpClient, readonly config:Config) {
     this.create("Meier", "Hans", "m")
     this.create("Schneider", "Brunhilde", "f")
     this.create("Metzger", "Georg", "m")
@@ -32,14 +33,14 @@ export class PeopleService {
     return this.counter
   }
   findAll(update: (_:Array<Person>)=> void){
-      this.httpClient.get<Array<Person>>("http://h2908727.stratoserver.net:8080/people").subscribe(update)
+      this.httpClient.get<Array<Person>>(this.config.endpoint).subscribe(update)
       //return Array.from(this.people.values())
   }
 
-  findById(id:number){
-    return this.people.get(id)
-  }
-  deleteById(id:number){
+  findById(id:number, update: (_:Person)=> void){
+    this.httpClient.get<Person>(`${this.config.endpoint}/${id}`).subscribe(update)  }
+  
+    deleteById(id:number){
     return this.people.delete(id)
   }
   saveOrUpdate(person:Person){
