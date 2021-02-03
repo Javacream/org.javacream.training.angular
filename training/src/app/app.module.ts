@@ -14,10 +14,13 @@ import { PersonCreateComponent } from './people/components/person-create/person-
 import {HttpClientModule} from '@angular/common/http';
 import { ActionLogComponent } from './util/components/action-log/action-log.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ProfileDetailComponent } from './people/components/profile-detail/profile-detail.component';
 
 const routes:Routes = [
   {path:"list", component: PeopleListComponent}, 
   {path:"search", component: PersonSearchComponent}, 
+  {path:"create", component: PersonCreateComponent}, 
+  {path:"profile", component: ProfileDetailComponent}, 
 
 ]
 
@@ -32,7 +35,8 @@ const routes:Routes = [
     PersonComponent,
     PersonSearchComponent,
     PersonCreateComponent,
-    ActionLogComponent
+    ActionLogComponent,
+    ProfileDetailComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes)
