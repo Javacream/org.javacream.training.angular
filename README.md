@@ -34,7 +34,7 @@
 Falls Sie die obige Installation nicht auf Ihrem Arbeitsrechner durchführen können oder wollen steht Ihnen ein Integrata-Rechner zur Verfügung:
 
 * Aufruf im Browser mit https://rdweb.integrata-cegos.de/rdweb/webclient
-* Anmeldung mit student_m040<i>@integrata-cegos.de (i = 2 - 12), Password wird im Kurs mitgeteilt
+* Anmeldung mit student_m040<i>i</i>@integrata-cegos.de (i = 2 - 12), Password wird im Kurs mitgeteilt
  * Die Zuordnung der Nummern an die Teilnehmer wird im Seminar durchgeführt
  * BM = 2, SG = 3, JH = 4, AF = 5, K = 6
 * Anschließend Anmeldung am Linux-Rechner, User root, Password wird im Kurs mitgeteilt
