@@ -1,4 +1,4 @@
-interface Person{
+export interface Person{
 	id:number
 	lastname:string
 	firstname:string
@@ -6,7 +6,7 @@ interface Person{
     gender: string
 }
 
-class PeopleModel{
+export class PeopleModel{
 
     counter = 1000
     people = new Map<number, Person>()
