@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {ConfigService} from '../../model/config.service'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(configService:ConfigService) { 
+    this.appTitle = configService.appName
+  }
 
   ngOnInit(): void {
   }
 
-  appTitle = "P E O P L E"
+  appTitle: string
 
 }
