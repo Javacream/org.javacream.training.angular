@@ -23,6 +23,9 @@ export class PeopleListComponent implements OnInit {
     }else{
       this.buttonCaption = "Details On"
     }
+
+    //HACK
+    this.people = this.peopleModel.findAll()
   }
 
 }
