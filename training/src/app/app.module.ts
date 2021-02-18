@@ -6,6 +6,7 @@ import { HeaderComponent } from './people/components/header/header.component';
 import { ContentComponent } from './people/components/content/content.component';
 import { FooterComponent } from './people/components/footer/footer.component';
 import { PeopleListComponent } from './people/components/people-list/people-list.component';
+import { ProfileComponent } from './people/components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { PeopleListComponent } from './people/components/people-list/people-list
     HeaderComponent,
     ContentComponent,
     FooterComponent,
-    PeopleListComponent
+    PeopleListComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule
