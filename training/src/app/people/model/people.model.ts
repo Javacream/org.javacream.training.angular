@@ -1,3 +1,5 @@
+import { Injectable } from "@angular/core"
+
 export interface Person{
 	id:number
 	lastname:string
@@ -5,7 +7,9 @@ export interface Person{
 	height:number
     gender: string
 }
-
+@Injectable({
+    providedIn: 'root'
+  })
 export class PeopleModel{
 
     counter = 1000

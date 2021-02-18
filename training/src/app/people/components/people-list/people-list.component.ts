@@ -7,8 +7,7 @@ import {PeopleModel, Person} from '../../model/people.model'
 })
 export class PeopleListComponent implements OnInit {
   people: Array<Person>
-  constructor() { 
-    const peopleModel = new PeopleModel()
+  constructor(readonly peopleModel:PeopleModel) { 
     this.people = peopleModel.findAll()
   }
 
