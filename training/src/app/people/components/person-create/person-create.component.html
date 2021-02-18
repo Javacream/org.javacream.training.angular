@@ -1,4 +1,4 @@
-<input type=”text” [(ngModel)]="lastname" />
-<input type=”text” [(ngModel)]="firstname" />
+<label>Lastname<input type=”text” [(ngModel)]="lastname" /></label>
+<label>Firstname<input type=”text” [(ngModel)]="firstname" /></label>
 <button (click)="save()">Save</button>
 <p *ngIf="newId">Created person id={{newId}}</p> 

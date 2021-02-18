@@ -12,6 +12,7 @@ import { ClockComponent } from './util/components/clock/clock.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PersonCreateComponent } from './people/components/person-create/person-create.component';
 import { PersonCreateReactiveComponent } from './people/components/person-create-reactive/person-create-reactive.component';
+import { PersonSearchComponent } from './people/components/person-search/person-search.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PersonCreateReactiveComponent } from './people/components/person-create
     PersonComponent,
     ClockComponent,
     PersonCreateComponent,
-    PersonCreateReactiveComponent
+    PersonCreateReactiveComponent,
+    PersonSearchComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule
