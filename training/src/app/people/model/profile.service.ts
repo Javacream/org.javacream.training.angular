@@ -5,7 +5,9 @@ import {Person} from '../model/people.model'
 })
 export class ProfileService {
   profile:Person = {id: 0, lastname: "Sawitzki", firstname:"Rainer", gender:"m", height:183}
-  constructor() { }
+  constructor() { 
+    setTimeout(() => {this.profile.lastname="Meier"; console.log(this.profile)}, 5000)
+  }
 
   getProfile():Person{
     return this.profile

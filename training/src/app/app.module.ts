@@ -8,6 +8,7 @@ import { FooterComponent } from './people/components/footer/footer.component';
 import { PeopleListComponent } from './people/components/people-list/people-list.component';
 import { ProfileComponent } from './people/components/profile/profile.component';
 import { PersonComponent } from './people/components/person/person.component';
+import { ClockComponent } from './util/components/clock/clock.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PersonComponent } from './people/components/person/person.component';
     FooterComponent,
     PeopleListComponent,
     ProfileComponent,
-    PersonComponent
+    PersonComponent,
+    ClockComponent
   ],
   imports: [
     BrowserModule
