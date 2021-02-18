@@ -1,2 +1,5 @@
 <p *ngIf="!details">{{person.firstname}} {{person.lastname}}</p>
-<p *ngIf="details">id={{person.id}}, lastname={{person.lastname}}, firstname={{person.firstname}}, gender={{person.gender}}, height={{person.height}}</p>
+<span *ngIf="details">
+<span [ngClass]="style">id={{person.id}}, lastname={{person.lastname}}, firstname={{person.firstname}}, gender={{person.gender}}, height={{person.height}}</span>
+<button *ngIf="!style" (click)="decorate()">Decorate</button>
+</span>

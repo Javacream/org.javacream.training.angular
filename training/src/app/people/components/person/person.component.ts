@@ -14,4 +14,9 @@ export class PersonComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  style=""
+  decorate(){
+    this.style="decorated"
+  }
+
 }

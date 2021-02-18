@@ -14,4 +14,15 @@ export class PeopleListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  details=true
+  buttonCaption = "Details Off"
+  switchDetail(){
+    this.details = !this.details
+    if (this.details){
+      this.buttonCaption = "Details Off"
+    }else{
+      this.buttonCaption = "Details On"
+    }
+  }
+
 }
