@@ -1,3 +1,4 @@
+import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
 
 export interface Person{
@@ -15,7 +16,7 @@ export class PeopleModel{
     counter = 1000
     people = new Map<number, Person>()
 
-    constructor(){
+    constructor(readonly httpClient:HttpClient){
         this.create("Sawitzki", "Rainer", "m", 183)
         this.create("Mustermann", "Hans")
         this.create("Schneider", "Hanna", "f")
