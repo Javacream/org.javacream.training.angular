@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
+import { Subject } from "rxjs"
 import { ConfigService } from "./config.service"
 
 export interface Person{
@@ -42,8 +43,10 @@ export class PeopleModel{
 	deleteById(id:number):void{
         this.people.delete(id)
     }
-	findAllWithSubscription(update:(_:Array<Person>) => void):void{
-        this.httpClient.get<Array<Person>>(this.config.endpoint).subscribe((people) => update(people))
+	findAllWithSubscription():void{
+        this.httpClient.get<Array<Person>>(this.config.endpoint).subscribe((people) => this.subjectForPeopleList.next(people))
     }
+
+    subjectForPeopleList = new Subject<Array<Person>>()
 
 }
