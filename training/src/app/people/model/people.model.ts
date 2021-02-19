@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
+import { ConfigService } from "./config.service"
 
 export interface Person{
 	id:number
@@ -16,7 +17,7 @@ export class PeopleModel{
     counter = 1000
     people = new Map<number, Person>()
 
-    constructor(readonly httpClient:HttpClient){
+    constructor(readonly httpClient:HttpClient, readonly config:ConfigService){
         this.create("Sawitzki", "Rainer", "m", 183)
         this.create("Mustermann", "Hans")
         this.create("Schneider", "Hanna", "f")
@@ -40,6 +41,9 @@ export class PeopleModel{
     }
 	deleteById(id:number):void{
         this.people.delete(id)
+    }
+	findAllWithSubscription(update:(_:Array<Person>) => void):void{
+        this.httpClient.get<Array<Person>>(this.config.endpoint).subscribe((people) => update(people))
     }
 
 }

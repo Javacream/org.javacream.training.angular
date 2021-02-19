@@ -8,7 +8,7 @@ import {PeopleModel, Person} from '../../model/people.model'
 export class PeopleListComponent implements OnInit {
   people: Array<Person>
   constructor(readonly peopleModel:PeopleModel) { 
-    this.people = peopleModel.findAll()
+    peopleModel.findAllWithSubscription((people) => this.people = people)
   }
 
   ngOnInit(): void {
