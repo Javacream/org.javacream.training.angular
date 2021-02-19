@@ -9,7 +9,7 @@ import {ProfileService} from '../../model/profile.service'
 export class ProfileComponent implements OnInit {
   profile:Person
   constructor(readonly profileService:ProfileService) { 
-    this.profile = profileService.getProfile()
+    profileService.getProfile((profile) => this.profile = profile)
   }
 
   ngOnInit(): void {

@@ -1,15 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Person} from '../model/people.model'
+import { ConfigService } from './config.service';
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
-  profile:Person = {id: 0, lastname: "Sawitzki", firstname:"Rainer", gender:"m", height:183}
-  constructor() { 
-    setTimeout(() => {this.profile.lastname="Meier"; console.log(this.profile)}, 5000)
+  constructor(readonly httpClient:HttpClient, readonly config:ConfigService) { 
   }
 
-  getProfile():Person{
-    return this.profile
+  getProfile(update:(_:Person) => void):void{
+    this.httpClient.get<Person>(`${this.config.endpoint}/6`).subscribe((person) => update(person))
   }
 }
