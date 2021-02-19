@@ -15,6 +15,14 @@ import { PersonCreateComponent } from './people/components/person-create/person-
 import { PersonCreateReactiveComponent } from './people/components/person-create-reactive/person-create-reactive.component';
 import { PersonSearchComponent } from './people/components/person-search/person-search.component';
 import { LogComponent } from './util/components/log/log.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes:Routes = [
+  {path:"list", component:PeopleListComponent},
+  {path:"create", component:PersonCreateComponent},
+  {path:"create-reactive", component:PersonCreateReactiveComponent},
+  {path:"search", component:PersonSearchComponent},
+]
 
 @NgModule({
   declarations: [
@@ -32,7 +40,7 @@ import { LogComponent } from './util/components/log/log.component';
     LogComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

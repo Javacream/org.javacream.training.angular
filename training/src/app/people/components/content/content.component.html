@@ -1,8 +1,14 @@
-<app-people-list></app-people-list>
-<hr />
-<app-person-create></app-person-create> 
-<app-person-create-reactive></app-person-create-reactive> 
-<hr />
-<app-person-search></app-person-search> 
+<nav>
+    <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/list">List</a></li>
+        <li><a routerLink="/create">Create</a></li>
+        <li><a routerLink="/create-reacive">Create reactive</a></li>
+        <li><a routerLink="/search">Search</a></li>
+    </ul>
+
+</nav>
+
+<router-outlet></router-outlet>
 
 
