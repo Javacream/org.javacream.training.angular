@@ -17,7 +17,8 @@ import { PersonSearchComponent } from './people/components/person-search/person-
 import { LogComponent } from './util/components/log/log.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileDetailComponent } from './people/components/profile-detail/profile-detail.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button'
 const routes:Routes = [
   {path:"list", component:PeopleListComponent},
   {path:"create", component:PersonCreateComponent},
@@ -43,7 +44,7 @@ const routes:Routes = [
     ProfileDetailComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes)
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes), BrowserAnimationsModule, MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
