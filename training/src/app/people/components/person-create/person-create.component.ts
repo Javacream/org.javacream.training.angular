@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { PeopleModel } from '../../model/people.model';
 
 @Component({
@@ -6,8 +7,14 @@ import { PeopleModel } from '../../model/people.model';
   templateUrl: './person-create.component.html',
   styleUrls: ['./person-create.component.css']
 })
-export class PersonCreateComponent implements OnInit {
-  constructor(readonly peopleModel:PeopleModel){}
+export class PersonCreateComponent implements OnInit, OnDestroy {
+  subscriptionForCreate: Subscription;
+  constructor(readonly peopleModel:PeopleModel){
+    this.subscriptionForCreate = peopleModel.subjectForPersonCreation.subscribe((id) => this.newId = id)
+  }
+  ngOnDestroy(): void {
+    this.subscriptionForCreate.unsubscribe()
+  }
 
   ngOnInit(): void {
   }
@@ -15,6 +22,6 @@ export class PersonCreateComponent implements OnInit {
   firstname:string
   newId:number
   save(){
-    this.newId= this.peopleModel.create(this.lastname, this.firstname)
+    this.peopleModel.create(this.lastname, this.firstname)
   }
 }

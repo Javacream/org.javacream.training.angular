@@ -24,29 +24,39 @@ export class PeopleModel{
         this.create("Schneider", "Hanna", "f")
  
     }
-	create(lastname:string, firstname:string, gender="d", height=50):number{
+	create(lastname:string, firstname:string, gender="d", height=50){
         const id = this.counter++
         const newPerson:Person = {id, lastname, firstname, gender, height}
         this.people.set(id, newPerson)
-        return id
-    }
-	findById(id:number):Person | undefined{
-        return this.people.get(id)
-    }
-	findAll():Array<Person>{
-        return Array.from(this.people.values())
-    }
-	update(person):void{
-        this.people.set(person.id, person)
+        this.subjectForPersonCreation.next(id)
+        this.subjectForLastAction.next("create")
 
     }
-	deleteById(id:number):void{
-        this.people.delete(id)
+    subjectForPersonCreation = new Subject<number>()
+	findById(id:number){
+        this.subjectForPersonSearch.next(this.people.get(id))
+        this.subjectForLastAction.next("findById")
     }
-	findAllWithSubscription():void{
+    subjectForPersonSearch = new Subject<Person | undefined>()
+
+
+	update(person:Person){
+        this.people.set(person.id, person)
+        this.subjectForPersonUpdate.next(person)
+
+    }
+    subjectForPersonUpdate= new Subject<Person>()
+	deleteById(id:number){
+        this.people.delete(id)
+        this.subjectForPersonDeletion.next(id)
+        this.subjectForLastAction.next("deleteById")
+    }
+    subjectForPersonDeletion = new Subject<number>()
+	findAll():void{
         this.httpClient.get<Array<Person>>(this.config.endpoint).subscribe((people) => this.subjectForPeopleList.next(people))
     }
 
     subjectForPeopleList = new Subject<Array<Person>>()
 
+    subjectForLastAction = new Subject<string>()
 }

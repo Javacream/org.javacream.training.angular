@@ -11,7 +11,7 @@ export class PeopleListComponent implements OnInit, OnDestroy {
   subscriptionForPeopleList:Subscription
   constructor(readonly peopleModel:PeopleModel) { 
     this.subscriptionForPeopleList = this.peopleModel.subjectForPeopleList.subscribe((people) => this.people = people)
-    peopleModel.findAllWithSubscription()
+    peopleModel.findAll()
   }
   ngOnDestroy(): void {
     this.subscriptionForPeopleList.unsubscribe()
@@ -29,9 +29,6 @@ export class PeopleListComponent implements OnInit, OnDestroy {
     }else{
       this.buttonCaption = "Details On"
     }
-
-    //HACK
-    this.people = this.peopleModel.findAll()
   }
 
 }
