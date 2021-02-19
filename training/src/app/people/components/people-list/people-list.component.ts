@@ -11,16 +11,19 @@ export class PeopleListComponent implements OnInit, OnDestroy {
   subscriptionForPeopleList:Subscription
   subscriptionForPersonDelete:Subscription
   subscriptionForPersonCreate:Subscription
+  subscriptionForPersonUpdate:Subscription
   constructor(readonly peopleController:PeopleController) { 
     this.subscriptionForPeopleList = this.peopleController.subjectForPeopleList.subscribe((people) => this.people = people)
-    this.subscriptionForPersonCreate = this.peopleController.subjectForPersonCreation.subscribe((id) => peopleController.findAll())
-    this.subscriptionForPersonDelete = this.peopleController.subjectForPersonDeletion.subscribe((id) => peopleController.findAll())
+    this.subscriptionForPersonCreate = this.peopleController.subjectForPersonCreation.subscribe(this.refresh)
+    this.subscriptionForPersonDelete = this.peopleController.subjectForPersonDeletion.subscribe(this.refresh)
+    this.subscriptionForPersonUpdate = this.peopleController.subjectForPersonUpdate.subscribe(this.refresh)
     peopleController.findAll()
   }
   ngOnDestroy(): void {
     this.subscriptionForPeopleList.unsubscribe()
     this.subscriptionForPersonCreate.unsubscribe()
     this.subscriptionForPersonDelete.unsubscribe()
+    this.subscriptionForPersonUpdate.unsubscribe()
   }
 
   ngOnInit(): void {
@@ -37,4 +40,7 @@ export class PeopleListComponent implements OnInit, OnDestroy {
     }
   }
 
+  refresh = (p:any) => {
+    this.peopleController.findAll()
+  }
 }
