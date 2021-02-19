@@ -20,8 +20,9 @@ export class PersonCreateComponent implements OnInit, OnDestroy {
   }
   lastname:string
   firstname:string
+  height:number
   newId:number
   save(){
-    this.peopleController.create(this.lastname, this.firstname)
+    this.peopleController.create(this.lastname, this.firstname, 'd', this.height)
   }
 }

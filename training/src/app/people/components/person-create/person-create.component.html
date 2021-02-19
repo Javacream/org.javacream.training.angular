@@ -1,4 +1,5 @@
 <label>Lastname<input type=”text” [(ngModel)]="lastname" /></label>
 <label>Firstname<input type=”text” [(ngModel)]="firstname" /></label>
+<label>Height<mat-slider min="50" step="1" max="250" [(ngModel)]=height ></mat-slider></label>
 <button (click)="save()">Save</button>
 <p *ngIf="newId">Created person id={{newId}}</p> 

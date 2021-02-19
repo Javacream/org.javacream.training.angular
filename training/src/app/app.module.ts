@@ -19,6 +19,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProfileDetailComponent } from './people/components/profile-detail/profile-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button'
+import {MatSliderModule} from '@angular/material/slider'
 const routes:Routes = [
   {path:"list", component:PeopleListComponent},
   {path:"create", component:PersonCreateComponent},
@@ -44,7 +45,7 @@ const routes:Routes = [
     ProfileDetailComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes), BrowserAnimationsModule, MatButtonModule
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes), BrowserAnimationsModule, MatButtonModule, MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
