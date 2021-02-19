@@ -2,4 +2,5 @@
 <span *ngIf="details">
 <span [ngClass]="style">id={{person.id}}, lastname={{person.lastname}}, firstname={{person.firstname}}, gender={{person.gender}}, height={{person.height}}</span>
 <button *ngIf="!style" (click)="decorate()">Decorate</button>
+<button *ngIf="showDelete" (click)="delete(person.id)">Delete</button>
 </span>

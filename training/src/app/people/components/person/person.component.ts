@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Person } from '../../model/people.model';
+import { PeopleController, Person } from '../../model/people.model';
 
 @Component({
   selector: 'app-person',
@@ -9,7 +9,8 @@ import { Person } from '../../model/people.model';
 export class PersonComponent implements OnInit {
   @Input() person:Person
   @Input() details = false
-  constructor() { }
+  @Input() showDelete = false
+  constructor(readonly peopleController:PeopleController) { }
 
   ngOnInit(): void {
   }
@@ -19,4 +20,7 @@ export class PersonComponent implements OnInit {
     this.style="decorated"
   }
 
+  delete(id:number){
+    this.peopleController.deleteById(id)
+  }
 }

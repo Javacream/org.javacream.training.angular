@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { PeopleModel } from 'src/app/people/model/people.model';
+import { PeopleController } from 'src/app/people/model/people.model';
 
 @Component({
   selector: 'app-log',
@@ -10,7 +10,7 @@ import { PeopleModel } from 'src/app/people/model/people.model';
 export class LogComponent implements OnInit, OnDestroy {
   lastAction = ""
   subscriptionForLastAction: Subscription;
-  constructor(readonly peopleModel:PeopleModel){
+  constructor(readonly peopleModel:PeopleController){
     this.subscriptionForLastAction = peopleModel.subjectForLastAction.subscribe((action) => this.lastAction = action)
   }
   ngOnDestroy(): void {

@@ -13,44 +13,44 @@ export interface Person{
 @Injectable({
     providedIn: 'root'
   })
-export class PeopleModel{
+export class PeopleController{
 
-    counter = 1000
-    people = new Map<number, Person>()
+    counter = 100
 
-    constructor(readonly httpClient:HttpClient, readonly config:ConfigService){
-        this.create("Sawitzki", "Rainer", "m", 183)
-        this.create("Mustermann", "Hans")
-        this.create("Schneider", "Hanna", "f")
- 
-    }
+    constructor(readonly httpClient:HttpClient, readonly config:ConfigService){}
 	create(lastname:string, firstname:string, gender="d", height=50){
         const id = this.counter++
         const newPerson:Person = {id, lastname, firstname, gender, height}
-        this.people.set(id, newPerson)
-        this.subjectForPersonCreation.next(id)
-        this.subjectForLastAction.next("create")
+        this.httpClient.post<number>(this.config.endpoint, newPerson).subscribe((id) => {
+            this.subjectForPersonCreation.next(id)
+            this.subjectForLastAction.next("create")
+    
+        }) 
 
     }
     subjectForPersonCreation = new Subject<number>()
 	findById(id:number){
-        this.subjectForPersonSearch.next(this.people.get(id))
-        this.subjectForLastAction.next("findById")
+        this.httpClient.get<Person | undefined>(`${this.config.endpoint}/${id}`).subscribe((person) => {
+            this.subjectForPersonSearch.next(person)
+            this.subjectForLastAction.next("findById")
+    
+        })
     }
     subjectForPersonSearch = new Subject<Person | undefined>()
 
 
 	update(person:Person){
-        this.people.set(person.id, person)
-        this.subjectForPersonUpdate.next(person)
-
+        this.httpClient.put<number>(this.config.endpoint, person).subscribe((id) => {
+            this.subjectForPersonUpdate.next(person)
+        })
     }
     subjectForPersonUpdate= new Subject<Person>()
 	deleteById(id:number){
-        this.people.delete(id)
-        this.subjectForPersonDeletion.next(id)
+        this.httpClient.delete(`${this.config.endpoint}/${id}`).subscribe(() => {
+            this.subjectForPersonDeletion.next(id)
         this.subjectForLastAction.next("deleteById")
-    }
+    })
+}
     subjectForPersonDeletion = new Subject<number>()
 	findAll():void{
         this.httpClient.get<Array<Person>>(this.config.endpoint).subscribe((people) => this.subjectForPeopleList.next(people))

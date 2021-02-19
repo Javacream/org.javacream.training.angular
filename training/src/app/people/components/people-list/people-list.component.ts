@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import {PeopleModel, Person} from '../../model/people.model'
+import {PeopleController, Person} from '../../model/people.model'
 @Component({
   selector: 'app-people-list',
   templateUrl: './people-list.component.html',
@@ -9,12 +9,18 @@ import {PeopleModel, Person} from '../../model/people.model'
 export class PeopleListComponent implements OnInit, OnDestroy {
   people: Array<Person>
   subscriptionForPeopleList:Subscription
-  constructor(readonly peopleModel:PeopleModel) { 
-    this.subscriptionForPeopleList = this.peopleModel.subjectForPeopleList.subscribe((people) => this.people = people)
-    peopleModel.findAll()
+  subscriptionForPersonDelete:Subscription
+  subscriptionForPersonCreate:Subscription
+  constructor(readonly peopleController:PeopleController) { 
+    this.subscriptionForPeopleList = this.peopleController.subjectForPeopleList.subscribe((people) => this.people = people)
+    this.subscriptionForPersonCreate = this.peopleController.subjectForPersonCreation.subscribe((id) => peopleController.findAll())
+    this.subscriptionForPersonDelete = this.peopleController.subjectForPersonDeletion.subscribe((id) => peopleController.findAll())
+    peopleController.findAll()
   }
   ngOnDestroy(): void {
     this.subscriptionForPeopleList.unsubscribe()
+    this.subscriptionForPersonCreate.unsubscribe()
+    this.subscriptionForPersonDelete.unsubscribe()
   }
 
   ngOnInit(): void {

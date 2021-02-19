@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { PeopleModel } from '../../model/people.model';
+import { PeopleController } from '../../model/people.model';
 
 @Component({
   selector: 'app-person-create',
@@ -9,8 +9,8 @@ import { PeopleModel } from '../../model/people.model';
 })
 export class PersonCreateComponent implements OnInit, OnDestroy {
   subscriptionForCreate: Subscription;
-  constructor(readonly peopleModel:PeopleModel){
-    this.subscriptionForCreate = peopleModel.subjectForPersonCreation.subscribe((id) => this.newId = id)
+  constructor(readonly peopleController:PeopleController){
+    this.subscriptionForCreate = peopleController.subjectForPersonCreation.subscribe((id) => this.newId = id)
   }
   ngOnDestroy(): void {
     this.subscriptionForCreate.unsubscribe()
@@ -22,6 +22,6 @@ export class PersonCreateComponent implements OnInit, OnDestroy {
   firstname:string
   newId:number
   save(){
-    this.peopleModel.create(this.lastname, this.firstname)
+    this.peopleController.create(this.lastname, this.firstname)
   }
 }

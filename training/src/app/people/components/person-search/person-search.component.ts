@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { PeopleModel, Person } from '../../model/people.model';
+import { PeopleController, Person } from '../../model/people.model';
 
 @Component({
   selector: 'app-person-search',
@@ -9,8 +9,8 @@ import { PeopleModel, Person } from '../../model/people.model';
 })
 export class PersonSearchComponent implements OnInit, OnDestroy {
   subscriptionForSearch: Subscription;
-  constructor(readonly peopleModel:PeopleModel){
-    this.subscriptionForSearch = peopleModel.subjectForPersonSearch.subscribe((person) => this.searchResult = person)
+  constructor(readonly peopleController:PeopleController){
+    this.subscriptionForSearch = peopleController.subjectForPersonSearch.subscribe((person) => this.searchResult = person)
   }
   ngOnDestroy(): void {
     this.subscriptionForSearch.unsubscribe()
@@ -20,6 +20,6 @@ export class PersonSearchComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
   }
   search(){
-    this.peopleModel.findById(Number(this.searchId))
+    this.peopleController.findById(Number(this.searchId))
   }
 }
