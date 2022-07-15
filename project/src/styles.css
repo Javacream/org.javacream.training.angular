@@ -18,6 +18,9 @@ html {
 }
 
 :root {
+  --app-bg: lightblue;
+  --library-bg: lightgreen;
+  --library-content-bg: darkgreen;
   --machine-bg: silver;
   --display-bg: black;
   --display-color: white;
@@ -35,4 +38,11 @@ html {
   --list-item-bg-no-action: var(--action-bg-default);
   --list-item-bg-disabled: var(--action-bg-disabled);
   --list-item-bg-hover: var(--action-bg-hover);
+}
+
+button {
+  font-size: large;
+}
+input[type='text'] {
+  font-size: large;
 }
