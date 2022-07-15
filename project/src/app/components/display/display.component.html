@@ -1,0 +1,8 @@
+<div id="kitty-app" class="machine-display text-default">
+      <ng-container [ngSwitch]="currentView">
+        <app-account-view *ngSwitchCase="'account'" (changeView)="changeView($event)"></app-account-view>
+        <app-history-view *ngSwitchCase="'history'" (changeView)="changeView($event)"></app-history-view>
+        <app-level-view *ngSwitchCase="'level'" (changeView)="changeView($event)"></app-level-view>
+        <app-main-view *ngSwitchDefault (changeView)="changeView($event)"></app-main-view>
+      </ng-container>
+</div>

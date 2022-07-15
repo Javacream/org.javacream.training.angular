@@ -1,0 +1,32 @@
+.machine-display-items>* {
+  display: flex;
+  padding: 10px;
+  color: var(--list-item-color-default);
+  background: var(--list-item-bg-default);
+  margin: 8px 0;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.machine-display-items>*.no-action,
+.machine-display-items>*:hover.no-action {
+  cursor: default;
+  color: var(--list-item-color-no-action);
+  background-color: var(--list-item-bg-no-action);
+}
+
+.machine-display-items>*.disabled,
+.machine-display-items>*:hover.disabled {
+  color: var(--list-item-color-disabled);
+  background: var(--list-item-bg-disabled);
+  cursor: default;
+}
+
+.machine-display-items>*>* {
+  flex: 1;
+}
+
+.machine-display-items>*:hover {
+  color: var(--list-item-color-hover);
+  background: var(--list-item-bg-hover);
+}

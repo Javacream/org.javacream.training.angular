@@ -1,0 +1,17 @@
+<ul class="machine-display-items">
+  <ng-container *ngFor="let item of items" [ngSwitch]="item.type">
+    <li *ngSwitchCase="itemType.execute" (click)="item?.action()">
+      <span *ngFor="let text of item.columns">{{ text }}</span>
+    </li>
+    <li *ngSwitchCase="itemType.noexecute" class="no-action">
+      <time>{{ item.dateToString() }}</time>
+      <span *ngFor="let text of item.columns">{{ text }}</span>
+    </li>
+    <p *ngSwitchCase="itemType.display" class="disabled">
+      <span *ngFor="let text of item.columns">{{ text }}</span>
+    </p>
+  </ng-container>
+  <p *ngIf="items.length === 0" class="disabled">
+      <span>Es sind keine Einträge vorhanden.</span>
+    </p>
+</ul>

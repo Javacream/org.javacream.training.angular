@@ -1,0 +1,38 @@
+@import url(reset.css);
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+html {
+  font-size: 16px;
+}
+
+.text-title {
+  font-family: 'Raleway', 'Segoe UI', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.text-default {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --machine-bg: silver;
+  --display-bg: black;
+  --display-color: white;
+  --action-color-default: var(--display-color);
+  --action-color-hover: var(--action-color-default);
+  --action-color-disabled: var(--action-color-default);
+  --action-bg-default: rgba(255, 255, 255, 0.15);
+  --action-bg-hover: rgba(255, 255, 255, 0.4);
+  --action-bg-disabled: transparent;
+  --list-item-color-default: var(--display-color);
+  --list-item-color-no-action: var(--display-color);
+  --list-item-color-disabled: var(--display-color);
+  --list-item-color-hover: var(--action-color-hover);
+  --list-item-bg-default: var(--action-bg-default);
+  --list-item-bg-no-action: var(--action-bg-default);
+  --list-item-bg-disabled: var(--action-bg-disabled);
+  --list-item-bg-hover: var(--action-bg-hover);
+}

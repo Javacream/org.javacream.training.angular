@@ -1,0 +1,31 @@
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4vh;
+  padding: 0.5vh;
+  overflow: hidden;
+}
+
+.actions>* {
+  text-decoration: none;
+  color: var(--action-color-default);
+  cursor: pointer;
+  background: var(--action-bg-default);
+  padding: 1vh;
+  border-radius: 3px;
+  flex: 1;
+  margin: 5px;
+  text-align: center;
+}
+
+.actions>*:hover {
+  color: var(--action-color-hover);
+  background: var(--action-bg-hover);
+}
+
+.actions .action-disabled {
+  color: var(--action-color-disabled);
+  background: var(--action-bg-disabled);
+  cursor: default;
+}

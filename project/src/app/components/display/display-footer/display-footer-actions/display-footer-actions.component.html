@@ -1,0 +1,6 @@
+<section class="actions">
+    <ng-container *ngFor="let action of actions">
+        <span *ngIf="action.isForDisplaying" class="action-disabled">{{action.actionName}}</span>
+        <a *ngIf="!action.isForDisplaying" (click)="action?.action()">{{action.actionName}}</a>
+    </ng-container>
+</section>
