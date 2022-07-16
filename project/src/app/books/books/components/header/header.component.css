@@ -1,5 +1,4 @@
-#header {
-    background-color: chartreuse;
-    text-align: center;
-}
-
+.library-header {
+    height: 10vh;
+  }
+  

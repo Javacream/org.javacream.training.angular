@@ -1,0 +1,16 @@
+
+#library-actions ul {
+  font-size: 30px;
+  list-style: none outside none;
+  margin: 0px 0px 0px -0.8125em;
+  padding-left: 0px;
+  padding-bottom: 40px;
+  text-align: left;
+  width: 100%;
+}
+
+#library-actions li {
+  display: inline;
+  position: relative;
+  padding-left: 30px;
+}
