@@ -4,10 +4,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoffeeModule } from './coffee/coffee.module'
 import { AppComponent } from './app.component';
 import { BooksModule } from './books/books.module';
-
+import {AppRoutingModule} from './app-routing-module'
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, HttpClientModule, CoffeeModule, BooksModule],
+  imports: [BrowserModule, HttpClientModule, CoffeeModule, BooksModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

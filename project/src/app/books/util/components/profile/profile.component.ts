@@ -9,7 +9,7 @@ import { PeopleService } from '../../people/people.service';
 })
 export class ProfileComponent implements OnInit {
 
-  profile = {lastname: "", firstname: ""}
+  profile = {name: "", username: ""}
   constructor(private configService: ConfigService, private peopleService: PeopleService) {}
 
   ngOnInit(): void {

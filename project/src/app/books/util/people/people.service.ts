@@ -17,8 +17,6 @@ findProfile(update: (person:Person) => void ){
 
 type Person = {
   id:number
-  lastname:string
-  firstname:string
-  gender:string
-  height:number
+  name:string
+  username:string
 }

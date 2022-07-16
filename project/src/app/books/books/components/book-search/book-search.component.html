@@ -1,5 +1,5 @@
 <form [formGroup]="bookForm" (ngSubmit)="search()">
-    <label>Title:
+    <label>Isbn:
       <input type="text" formControlName="isbn">
     </label>
     <button type="submit" [disabled]="!bookForm.valid">Search</button>

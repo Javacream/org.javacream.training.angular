@@ -34,7 +34,6 @@ import { BookDeleteComponent } from './books/components/book-delete/book-delete.
     BrowserModule, ReactiveFormsModule, HttpClientModule, BookRoutingModule
   ],
   providers: [],
-  exports: [BooksComponent],
-  bootstrap: [BooksComponent]
+  exports: [BooksComponent]
 })
 export class BooksModule { } 
