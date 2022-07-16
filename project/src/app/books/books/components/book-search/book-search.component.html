@@ -1,0 +1,7 @@
+<form [formGroup]="bookForm" (ngSubmit)="search()">
+    <label>Title:
+      <input type="text" formControlName="isbn">
+    </label>
+    <button type="submit" [disabled]="!bookForm.valid">Search</button>
+</form>
+<app-book *ngIf="book" [book]="book"></app-book>

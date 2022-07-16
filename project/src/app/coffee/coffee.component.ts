@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-coffee-root',
+  selector: 'app-coffee',
   templateUrl: './coffee.component.html',
   styleUrls: ['./coffee.component.css']
 })
