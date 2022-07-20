@@ -1,14 +1,15 @@
+import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BooklistComponent } from './booklist.component';
 
-xdescribe('BooklistComponent', () => {
+describe('BooklistComponent', () => {
   let component: BooklistComponent;
   let fixture: ComponentFixture<BooklistComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BooklistComponent ]
+      declarations: [ BooklistComponent ], imports: [HttpClientModule]
     })
     .compileComponents();
   }));
