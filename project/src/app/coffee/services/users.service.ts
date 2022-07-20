@@ -9,6 +9,22 @@ import { User } from '../entities/user';
 export class UsersService {
   constructor(private http: HttpClient) {}
 
+  getUserByIdFetchPromiseApi(id: number): Promise<User> {
+    let response: Promise<Response> = fetch('https://jsonplaceholder.typicode.com/users/1')
+    return response.then((response) => response.json());
+  }
+
+  async getUserByIdFetchAsyncAwaitApi(id: number): Promise<User> {
+    let response: Response = await fetch('https://jsonplaceholder.typicode.com/users/1')
+    let data = await response.json();
+    return data;
+  }
+
+  getUserByIdHttpClient(): Observable<User> {
+    return this.http.get<User>('https://jsonplaceholder.typicode.com/users/1');
+  }
+
+
   getUsers$(): Observable<User[]> {
     return this.http.get<User[]>('https://jsonplaceholder.typicode.com/users');
   }
