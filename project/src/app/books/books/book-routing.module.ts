@@ -5,6 +5,7 @@ import { BookInputReactiveComponent } from './components/book-input-reactive/boo
 import { BookSearchComponent } from './components/book-search/book-search.component';
 import { BookDeleteComponent } from './components/book-delete/book-delete.component';
 import { BooksComponent } from '../books.component';
+import { InfoComponent } from '../info/info.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
       { path: 'input', component: BookInputReactiveComponent },
       { path: 'search', component: BookSearchComponent },
       { path: 'delete', component: BookDeleteComponent },
+      { path: 'info', component: InfoComponent },
     ]
   }
 ];
