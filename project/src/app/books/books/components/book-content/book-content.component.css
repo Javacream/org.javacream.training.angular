@@ -1,11 +1,5 @@
-.app {
-  display: flex;
-  justify-content: center;
-  background: var(--app-bg);
-  padding: 1.5rem 0;
-}
 
-#app-actions ul {
+#library-actions ul {
   font-size: 30px;
   list-style: none outside none;
   margin: 0px 0px 0px -0.8125em;
@@ -15,7 +9,8 @@
   width: 100%;
 }
 
-#app-actions li {
+#library-actions li {
+  display: inline;
   position: relative;
-  padding-top: 30px;
+  padding-left: 30px;
 }
