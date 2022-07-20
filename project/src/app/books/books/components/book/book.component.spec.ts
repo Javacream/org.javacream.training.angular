@@ -30,7 +30,8 @@ describe('BookComponent', () => {
     component.book = {isbn: "ISBN42", title:"Title32", pages: 19.99, available:false}
     fixture.detectChanges()
     let element = fixture.debugElement.nativeElement
-    const p = element.querySelector('p')
-    expect(p.textContent).toEqual('Book: isbn=ISBN42, title=Title32')   });
-
+    const span = element.querySelector('span')
+    //expect(div.textContent.endsWith('Book: isbn=ISBN42, title=Title32')).toBeTrue() });
+    expect(span.textContent).toEqual('Book: isbn=ISBN42, title=Title32')
+  });
 });

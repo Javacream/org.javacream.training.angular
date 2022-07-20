@@ -16,9 +16,9 @@ export class BookSearchComponent implements OnInit {
   }
 
 
-  bookForm = new FormGroup( 
+  bookForm:FormGroup = new FormGroup( 
     {
-      isbn: new FormControl('', Validators.compose([Validators.required, Validators.minLength(4)])),
+      isbn: new FormControl<string>('', Validators.compose([Validators.required, Validators.minLength(4)])),
     }
   ); 
   search(){

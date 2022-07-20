@@ -7,7 +7,7 @@ import { StorageService } from './storage.service';
   providedIn: 'root',
 })
 export class BeansService {
-  readonly storageKey = 'kittyBeans';
+  readonly storageKey = 'javacreamBeans';
 
   constructor(
     private storageSvc: StorageService,

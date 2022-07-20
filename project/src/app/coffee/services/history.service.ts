@@ -9,7 +9,7 @@ import { StorageService } from './storage.service';
   providedIn: 'root',
 })
 export class HistoryService {
-  readonly storageKey = 'kittyHistory';
+  readonly storageKey = 'javacreamHistory';
 
   constructor(
     private storageSvc: StorageService,

@@ -8,7 +8,7 @@ import { StorageService } from './storage.service';
   providedIn: 'root',
 })
 export class AccountService {
-  readonly storageKey = 'kittyAccount';
+  readonly storageKey = 'javacreamAccount';
 
   constructor(
     private storageSvc: StorageService,

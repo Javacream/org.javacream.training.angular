@@ -1,3 +1,4 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LevelViewComponent } from './level-view.component';
@@ -8,7 +9,7 @@ describe('LevelViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LevelViewComponent ]
+      declarations: [ LevelViewComponent ], imports:[HttpClientModule]
     })
     .compileComponents();
   });

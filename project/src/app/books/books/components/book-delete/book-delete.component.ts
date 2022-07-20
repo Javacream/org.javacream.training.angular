@@ -14,9 +14,9 @@ export class BookDeleteComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  bookForm = new FormGroup( 
+  bookForm:FormGroup = new FormGroup( 
     {
-      isbn: new FormControl('', Validators.compose([Validators.required, Validators.minLength(4)])),
+      isbn: new FormControl<string>('', Validators.compose([Validators.required, Validators.minLength(4)])),
     }
   );
 

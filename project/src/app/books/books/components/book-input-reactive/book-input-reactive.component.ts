@@ -12,9 +12,9 @@ export class BookInputReactiveComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  bookForm = new FormGroup( 
+  bookForm:FormGroup = new FormGroup( 
     {
-      title: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
+      title: new FormControl<string>('', Validators.compose([Validators.required, Validators.minLength(2)])),
     }
   );
   save(){
