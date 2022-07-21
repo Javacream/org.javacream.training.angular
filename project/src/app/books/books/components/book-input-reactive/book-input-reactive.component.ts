@@ -19,7 +19,6 @@ export class BookInputReactiveComponent implements OnInit {
   );
   save(){
     let title = this.bookForm.value.title
-    console.log(`created new book using title ${title}`)
     this.booksService.create(title)
  }
   

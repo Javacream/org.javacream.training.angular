@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConsoleloggerService } from './services/consolelogger.service';
 
 @Component({
   selector: 'app-books',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BooksComponent implements OnInit {
 
-  constructor() { }
+  constructor(readonly log: ConsoleloggerService) { }
 
   ngOnInit(): void {
   }
