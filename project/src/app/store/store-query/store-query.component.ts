@@ -7,16 +7,18 @@ import { StoreService } from '../services/store.service';
   styleUrls: ['./store-query.component.css']
 })
 export class StoreQueryComponent implements OnInit {
-  stock: number
+  stock: string
   constructor(readonly storeService: StoreService) { }
 
   ngOnInit(): void {
   }
   request(){
+    console.log("CALLING")
     this.storeService.getStock("books", "ISBN1", this.update)
   }
 
-  update(stock: number){
+  update(stock: string){
+    console.log("UPDATE" + stock)
     this.stock = stock
   }
 }
