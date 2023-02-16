@@ -5,7 +5,7 @@ import { PersonIF } from '../model/people.model';
   providedIn: 'root'
 })
 export class PeopleService {
-
+  id = 0
   constructor() { }
 
   people:Array<PersonIF> = [
@@ -13,4 +13,11 @@ export class PeopleService {
     {id:1001, lastname:"Sawitzki", firstname:"Martha", gender:"w", height:193},
     {id:1002, lastname:"Mustermann", firstname:"Andrea", gender:"x", height:173},
   ]
+
+  savePerson(lastname:string, firstname:string, gender="x", height=155):PersonIF{
+    const id = ++this.id
+    const p = {id, lastname, firstname, gender, height}
+    this.people.push(p)
+    return p
+  }
 }

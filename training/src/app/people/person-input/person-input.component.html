@@ -1,4 +1,6 @@
-<input type="text" [(ngModel)]="lastname"/>
-<input type="text" [(ngModel)]="firstname"/>
+<label for="lastname">Lastname:</label>
+<input type="text" id="lastname" [(ngModel)]="lastname"/>
+<label for="fn">Firstname:</label>
+<input type="text" [(ngModel)]="firstname" id="fn"/>
 <button (click)="save()">Save</button>
-<p>{{saveResult}}</p>
+<p><app-person [person]="createdPerson"></app-person></p>

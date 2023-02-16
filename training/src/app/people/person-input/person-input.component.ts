@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PersonIF } from '../model/people.model';
+import { PeopleService } from '../services/people.service';
 
 @Component({
   selector: 'app-person-input',
@@ -6,10 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./person-input.component.css']
 })
 export class PersonInputComponent {
+  constructor(readonly peopleService:PeopleService){}
   lastname:string = ""
   firstname:string =""
-  saveResult:string = ""
+  createdPerson?:PersonIF
   save(){
-    this.saveResult = this.lastname
+    this.createdPerson = this.peopleService.savePerson(this.lastname, this.firstname)
   }
 }
