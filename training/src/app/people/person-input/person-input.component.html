@@ -1,6 +1,10 @@
-<label for="lastname">Lastname:</label>
-<input type="text" id="lastname" [(ngModel)]="lastname"/>
-<label for="fn">Firstname:</label>
-<input type="text" [(ngModel)]="firstname" id="fn"/>
-<button (click)="save()">Save</button>
+<form [formGroup]="personInputForm" (ngSubmit)="save()">
+    <label for="lastname">Lastname:</label>
+    <input type="text" id="lastname" formControlName="lastname"/>
+    <label for="fn">Firstname:</label>
+    <input type="text" formControlName="firstname" id="fn"/>
+    <button>Save</button>
+</form>
+
+
 <p><app-person [person]="createdPerson"></app-person></p>
