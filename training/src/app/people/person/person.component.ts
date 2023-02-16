@@ -9,5 +9,6 @@ import { PersonIF } from '../model/people.model';
 export class PersonComponent {
 
   @Input() person?:PersonIF
+  @Input() detail = false
 
 }
