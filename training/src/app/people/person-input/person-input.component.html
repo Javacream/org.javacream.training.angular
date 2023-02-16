@@ -3,7 +3,7 @@
     <input type="text" id="lastname" formControlName="lastname"/>
     <label for="fn">Firstname:</label>
     <input type="text" formControlName="firstname" id="fn"/>
-    <button>Save</button>
+    <button [disabled]="!personInputForm.valid">Save</button>
 </form>
 
 
