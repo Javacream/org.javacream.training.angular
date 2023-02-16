@@ -1,3 +1,3 @@
 <ul>
-    <li *ngFor="let p of peopleList">{{p.lastname}}</li>
+    <li *ngFor="let p of peopleList"><app-person [person]="p"></app-person></li>
 </ul>
