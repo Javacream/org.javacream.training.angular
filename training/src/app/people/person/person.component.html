@@ -1,2 +1,4 @@
 <span *ngIf="person && !detail">{{person.firstname}} {{person.lastname}}</span>
-<span *ngIf="person && detail">id={{person.id}}, lastname={{person.lastname}}, lastname={{person.firstname}}, height={{person.height}}, gender={{person.gender}}</span>
+<span *ngIf="person && detail">id={{person.id}}, lastname={{person.lastname}}, lastname={{person.firstname}}, height={{person.height}}, gender={{person.gender}}
+    <button (click)="delete(person.id)">d</button>
+</span>

@@ -26,6 +26,6 @@ export class PeopleService {
   }
 
   deletePersonById(id:number){
-    return this.people.delete(id)
+    console.log(this.people.delete(id))
   }
 }
