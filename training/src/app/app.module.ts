@@ -9,6 +9,7 @@ import { PeopleListComponent } from './people/people-list/people-list.component'
 import { PersonComponent } from './people/person/person.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PersonInputComponent } from './people/person-input/person-input.component';
+import { PersonSearchComponent } from './people/person-search/person-search.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PersonInputComponent } from './people/person-input/person-input.compone
     ContentComponent,
     PeopleListComponent,
     PersonComponent,
-    PersonInputComponent
+    PersonInputComponent,
+    PersonSearchComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule

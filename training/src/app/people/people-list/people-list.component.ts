@@ -10,7 +10,7 @@ import { PeopleService } from '../services/people.service';
 export class PeopleListComponent {
   peopleList: Array<Person>
   constructor(readonly peopleService: PeopleService){
-    this.peopleList =  peopleService.people
+    this.peopleList =  Array.from(peopleService.people.values())
   }
 
 

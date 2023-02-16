@@ -1,0 +1,4 @@
+<label for="id">Id:</label>
+<input type="text" id="id" [(ngModel)]="id"/>
+<button (click)="search()">Search</button>
+<p><app-person [person]="searchResult"></app-person></p>
