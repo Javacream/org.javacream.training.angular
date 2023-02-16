@@ -6,6 +6,5 @@ import { Injectable } from '@angular/core';
 export class ConfigService {
   title="People Application"
   company="Javacream"
-  demo= "Hugo";
   constructor() { }
 }
