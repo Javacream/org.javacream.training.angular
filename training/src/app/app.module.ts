@@ -7,6 +7,8 @@ import { FooterComponent } from './people/footer/footer.component';
 import { ContentComponent } from './people/content/content.component';
 import { PeopleListComponent } from './people/people-list/people-list.component';
 import { PersonComponent } from './people/person/person.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PersonInputComponent } from './people/person-input/person-input.component';
 
 @NgModule({
   declarations: [
@@ -15,10 +17,11 @@ import { PersonComponent } from './people/person/person.component';
     FooterComponent,
     ContentComponent,
     PeopleListComponent,
-    PersonComponent
+    PersonComponent,
+    PersonInputComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, FormsModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
