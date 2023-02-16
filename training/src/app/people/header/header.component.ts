@@ -8,6 +8,8 @@ import { ConfigService } from 'src/app/services/config/config.service';
 })
 export class HeaderComponent {
   constructor(readonly configService: ConfigService){
-    console.log(configService.title)
+    this.headerText = configService.title
   }
+
+  headerText:string
 }

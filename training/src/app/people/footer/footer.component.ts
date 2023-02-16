@@ -7,8 +7,6 @@ import { ConfigService } from 'src/app/services/config/config.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
-  constructor(readonly configService: ConfigService){
-    console.log(configService.company)
-  }
+  constructor(readonly configService: ConfigService){}
 }
 
