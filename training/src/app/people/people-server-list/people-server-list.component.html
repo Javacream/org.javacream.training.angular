@@ -1,1 +1,3 @@
-<p>people-server-list works!</p>
+<ul>
+    <li *ngFor="let p of people"><app-person [person]="p" [detail]="true"></app-person></li>
+</ul>
