@@ -1,6 +1,13 @@
 <div class="app-content">
-    <app-people-list></app-people-list>
-    <app-person-input></app-person-input>
-    <app-person-search></app-person-search>
-    <app-people-server-list></app-people-server-list>
+<nav>
+    <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/list">List</a></li>
+        <li><a routerLink="/input">Input</a></li>
+        <li><a routerLink="/search">Search</a></li>
+        <li><a routerLink="/serverlist">Server List</a></li>
+    </ul>
+    <hr />
+    <router-outlet></router-outlet>
+</nav>
 </div>

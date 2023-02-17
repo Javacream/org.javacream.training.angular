@@ -14,7 +14,16 @@ import { ClockComponent } from './util/clock/clock.component';
 import { LogComponent } from './util/log/log.component';
 import { PeopleServerListComponent } from './people/people-server-list/people-server-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { Routes, RouterModule } from '@angular/router';
 
+const routes:Routes = [
+  {path: "list", component:PeopleListComponent}, 
+  {path: "input", component:PersonInputComponent},
+  {path: "search", component:PersonSearchComponent},
+  {path: "serverlist", component:PeopleServerListComponent},
+
+
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
     PeopleServerListComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
