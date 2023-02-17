@@ -5,7 +5,8 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class WhiteboardService {
-  personCreation = new Subject()
+  personCreation = new Subject<number>()
+  personDeletion = new Subject<number>()
 
   constructor() {}
 }

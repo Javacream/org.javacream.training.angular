@@ -28,6 +28,8 @@ export class PeopleService {
   }
 
   deletePersonById(id:number){
-    console.log(this.people.delete(id))
+    this.people.delete(id)
+    this.whiteboard.personDeletion.next(id)
+
   }
 }

@@ -15,14 +15,19 @@ export class PeopleListComponent implements OnInit, OnDestroy{
     this.peopleList =  Array.from(peopleService.people.values())
   }
 
-  subscription?:Subscription
+  createSubscription?:Subscription
+  deleteSubscription?:Subscription
   ngOnDestroy(): void {
-    this.subscription?.unsubscribe()
+    this.createSubscription?.unsubscribe()
+    this.deleteSubscription?.unsubscribe()
   }
   ngOnInit(): void {
-    let subscription = this.whiteboard.personCreation.subscribe( (id) => {
+    this.createSubscription = this.whiteboard.personCreation.subscribe( (id) => {
       this.peopleList =  Array.from(this.peopleService.people.values())
    })
-  }
+   this.deleteSubscription = this.whiteboard.personDeletion.subscribe( (id) => {
+    this.peopleList =  Array.from(this.peopleService.people.values())
+ })
+}
 
 }
