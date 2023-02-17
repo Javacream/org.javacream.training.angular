@@ -9,7 +9,7 @@ export class ClockComponent implements OnInit, OnDestroy{
   actualTime = new Date()
   interval?: any
   ngOnInit(): void {
-    this.interval = setInterval(() => this.actualTime = new Date())
+    this.interval = setInterval(() => this.actualTime = new Date(), 1000)
   }
   ngOnDestroy(): void {
     clearInterval(this.interval)
