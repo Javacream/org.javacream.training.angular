@@ -15,12 +15,16 @@ import { LogComponent } from './util/log/log.component';
 import { PeopleServerListComponent } from './people/people-server-list/people-server-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
+import { WelcomeComponent } from './people/welcome/welcome.component';
+import { ContactComponent } from './people/contact/contact.component';
 
 const routes:Routes = [
+  {path: "", component:WelcomeComponent}, 
   {path: "list", component:PeopleListComponent}, 
   {path: "input", component:PersonInputComponent},
   {path: "search", component:PersonSearchComponent},
   {path: "serverlist", component:PeopleServerListComponent},
+  {path: "contact", component:ContactComponent}, 
 
 
 ]
@@ -36,7 +40,9 @@ const routes:Routes = [
     PersonSearchComponent,
     ClockComponent,
     LogComponent,
-    PeopleServerListComponent
+    PeopleServerListComponent,
+    WelcomeComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes)
