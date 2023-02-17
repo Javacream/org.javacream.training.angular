@@ -2,14 +2,13 @@ import { Component } from '@angular/core';
 import { PersonIF } from '../model/people.model';
 import { PeopleService } from '../services/people.service';
 import {FormGroup, FormControl, Validators} from '@angular/forms'
-import { WhiteboardService } from 'src/app/util/services/whiteboard.service';
 @Component({
   selector: 'app-person-input',
   templateUrl: './person-input.component.html',
   styleUrls: ['./person-input.component.css']
 })
 export class PersonInputComponent {
-  constructor(readonly peopleService:PeopleService, readonly whiteboard: WhiteboardService){}
+  constructor(readonly peopleService:PeopleService){}
   createdPerson?:PersonIF
 
   personInputForm = new FormGroup({
@@ -18,6 +17,5 @@ export class PersonInputComponent {
   })
   save(){
     this.createdPerson = this.peopleService.savePerson(this.personInputForm.value.lastname!, this.personInputForm.value.firstname!)
-    this.whiteboard.demo.next(this.createdPerson.id)
   }
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { WhiteboardService } from 'src/app/util/services/whiteboard.service';
 import { PersonIF } from '../model/people.model';
 
 @Injectable({
@@ -6,7 +7,7 @@ import { PersonIF } from '../model/people.model';
 })
 export class PeopleService {
   id = 0
-  constructor() { }
+  constructor(readonly whiteboard: WhiteboardService) { }
 
   people:Map<number, PersonIF> = new Map([
       [1000, {id:1000, lastname:"Sawitzki", firstname:"Rainer", gender:"m", height:183}],
@@ -19,6 +20,7 @@ export class PeopleService {
     const id = ++this.id
     const p = {id, lastname, firstname, gender, height}
     this.people.set(id, p)
+    this.whiteboard.personCreation.next(p.id)
     return p
   }
   findPersonById(id:number): PersonIF | undefined{
