@@ -7,7 +7,7 @@ import { PersonIF } from 'src/app/people/model/people.model';
 export class ConfigService {
   title="P E O P L E"
   company="Javacream"
-  user:PersonIF = {id:0, lastname:"Tester", firstname:"Maria", gender:"f", height:155}
+  endpoint="http://javacream.eu:8080/people"
 
   constructor() { }
 }
