@@ -11,6 +11,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PersonInputComponent } from './people/person-input/person-input.component';
 import { PersonSearchComponent } from './people/person-search/person-search.component';
 import { ClockComponent } from './util/clock/clock.component';
+import { LogComponent } from './util/log/log.component';
+import { PeopleServerListComponent } from './people/people-server-list/people-server-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,10 +25,12 @@ import { ClockComponent } from './util/clock/clock.component';
     PersonComponent,
     PersonInputComponent,
     PersonSearchComponent,
-    ClockComponent
+    ClockComponent,
+    LogComponent,
+    PeopleServerListComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
