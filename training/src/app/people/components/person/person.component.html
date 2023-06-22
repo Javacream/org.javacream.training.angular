@@ -1,1 +1,7 @@
-<p>{{person?.firstname}} {{person?.lastname}}</p>
+<span *ngIf="!detail">
+{{person?.firstname}} {{person?.lastname}}
+</span>
+
+<span *ngIf ="detail">
+    id: {{person?.id}}, lastname: {{person?.lastname}}, firstname: {{person?.firstname}}, height: {{person?.height}}, gender: {{person?.gender}}
+    </span>

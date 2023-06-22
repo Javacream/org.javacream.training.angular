@@ -9,5 +9,7 @@ import { Person } from '../../schema/person';
 export class PersonComponent {
   @Input()
   person?:Person
+  @Input()
+  detail:boolean = false
 
 }
