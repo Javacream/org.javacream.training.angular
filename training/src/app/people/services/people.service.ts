@@ -9,6 +9,9 @@ export class PeopleService {
   peopleMap: Map<number, Person>
   constructor() {
     this.peopleMap = new Map()
+    this.peopleMap.set(1000, {id: 1000, lastname:"Sawitzki", firstname: "Rainer"})
+    this.peopleMap.set(1001, {id: 1002, lastname:"Mustermann", firstname: "Hannah"})
+    this.peopleMap.set(1002, {id: 1003, lastname:"Schneider", firstname: "Andrea"})
   }
   
   createPerson(lastname:string, firstname:string):number{
