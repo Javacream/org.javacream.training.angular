@@ -23,6 +23,11 @@ describe('PeopleService', () => {
     let result = service.findPersonById(id)
     expect(result?.lastname).toBe("Hu")
   })
+  it ('deletes a created person', () => {
+    let id = service.createPerson("Hu", "Go")
+    let result = service.deletePersonById(id)
+    expect(result).toBe(void 0)
+  })
   it ('searching unknown id retrieves undefined', () => {
     let result = service.findPersonById(47)
     expect(result).toBeUndefined()
