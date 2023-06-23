@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { PeopleDeleteComponent } from './people-delete.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('PeopleDeleteComponent', () => {
   let component: PeopleDeleteComponent;
@@ -8,7 +10,8 @@ describe('PeopleDeleteComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PeopleDeleteComponent]
+      declarations: [PeopleDeleteComponent], 
+      imports: [HttpClientTestingModule, FormsModule, ReactiveFormsModule]
     });
     fixture = TestBed.createComponent(PeopleDeleteComponent);
     component = fixture.componentInstance;

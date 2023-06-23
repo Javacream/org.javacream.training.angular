@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PeopleSearchComponent } from './people-search.component';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PersonComponent } from '../person/person.component';
 
 describe('PeopleSearchComponent', () => {
   let component: PeopleSearchComponent;
@@ -8,7 +11,7 @@ describe('PeopleSearchComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PeopleSearchComponent]
+      declarations: [PeopleSearchComponent, PersonComponent], imports: [HttpClientTestingModule, FormsModule, ReactiveFormsModule]
     });
     fixture = TestBed.createComponent(PeopleSearchComponent);
     component = fixture.componentInstance;
