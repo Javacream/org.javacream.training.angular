@@ -30,7 +30,7 @@ export class PeopleService {
     this.whiteboard.personDeleted.next(id)
   }
 
-  findAllPeopleFromServer(){
-    this.httpClient.get('javacream.eu:8080/people/6').subscribe((person) => console.log(person))
+  getApplicationUser(){
+    this.httpClient.get('http://javacream.eu:8080/people/6').subscribe((person) => this.whiteboard.user.next(person as Person))
   }
 }

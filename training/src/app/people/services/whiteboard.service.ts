@@ -11,4 +11,5 @@ export class WhiteboardService {
   personCreated = new Subject<Person>()
   personDeleted = new Subject<number>()
   personSearchResult = new Subject<Person|undefined>()
+  user = new Subject<Person>()
 }
