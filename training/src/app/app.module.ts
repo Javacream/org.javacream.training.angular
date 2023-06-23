@@ -13,6 +13,15 @@ import { PeopleInputComponent } from './people/components/people-input/people-in
 import { ClockComponent } from './util/components/clock/clock.component';
 import { PeopleDeleteComponent } from './people/components/people-delete/people-delete.component';
 import {HttpClientModule} from '@angular/common/http'
+import { Routes, RouterModule } from '@angular/router';
+const routes:Routes = [
+  {path: "list", component:PeopleListComponent}, 
+  {path: "input", component:PeopleInputComponent},
+  {path: "search", component:PeopleSearchComponent},
+  {path: "delete", component:PeopleDeleteComponent},
+
+
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +36,7 @@ import {HttpClientModule} from '@angular/common/http'
     PeopleDeleteComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule,HttpClientModule
+    BrowserModule, FormsModule, ReactiveFormsModule,HttpClientModule, RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
