@@ -12,7 +12,7 @@ import { PeopleSearchComponent } from './people/components/people-search/people-
 import { PeopleInputComponent } from './people/components/people-input/people-input.component';
 import { ClockComponent } from './util/components/clock/clock.component';
 import { PeopleDeleteComponent } from './people/components/people-delete/people-delete.component';
-
+import {HttpClientModule} from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +27,7 @@ import { PeopleDeleteComponent } from './people/components/people-delete/people-
     PeopleDeleteComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule
+    BrowserModule, FormsModule, ReactiveFormsModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
