@@ -19,7 +19,7 @@ export class PeopleService {
     this.counter++
     let p:Person = {id:this.counter, lastname, firstname, height: 177, gender: 'd'}
     this.peopleMap.set(p.id, p)
-    this.whiteboard.personCreated.next(p.id)
+    this.whiteboard.personCreated.next(p)
   }
 
   findPersonById(id:number):void{
@@ -27,5 +27,6 @@ export class PeopleService {
   }
   deletePersonById(id:number){
     this.peopleMap.delete(id)
+    this.whiteboard.personDeleted.next(id)
   }
 }

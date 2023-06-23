@@ -8,6 +8,7 @@ export class WhiteboardService {
 
   constructor() { }
 
-  personCreated = new Subject<number>()
+  personCreated = new Subject<Person>()
+  personDeleted = new Subject<number>()
   personSearchResult = new Subject<Person|undefined>()
 }
