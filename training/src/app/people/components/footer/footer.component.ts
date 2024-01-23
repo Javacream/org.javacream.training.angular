@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ConfigService } from '../../services/config.service';
+import { ClockComponent } from '../../../util/components/clock/clock.component';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [],
+  imports: [ClockComponent],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
