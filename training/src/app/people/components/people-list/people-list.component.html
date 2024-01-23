@@ -1,6 +1,6 @@
 <h3>People List</h3>
 <ul>
-    <li *ngFor = "let p of peopleList">
+    <li *ngFor = "let p of peopleMap.values()">
         <app-person [person] = "p"></app-person>
     </li>
 </ul>

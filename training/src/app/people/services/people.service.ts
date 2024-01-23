@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Person } from '../model/people';
+import { Person, PersonClass } from '../model/people';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +7,7 @@ import { Person } from '../model/people';
 export class PeopleService {
   user:Person  = {id: 1000, lastname:'Mustermann', firstname: 'Max'}
   peopleMap: Map<number, Person>
+  counter = 0
   constructor() { 
     this.peopleMap = new Map()
     this.peopleMap.set(100, {id: 100, lastname: 'Sawitzki', firstname: 'Rainer'})
@@ -18,5 +19,10 @@ export class PeopleService {
   }
   findAll():Array<Person>{
     return Array.from(this.peopleMap.values())
+  }
+  create(lastname:string, firstname:string){
+    let newPerson = new PersonClass(this.counter, lastname, firstname)
+    this.peopleMap.set(newPerson.id, newPerson)
+    this.counter += 1
   }
 }
