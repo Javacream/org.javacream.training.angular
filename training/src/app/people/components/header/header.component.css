@@ -1,5 +1,12 @@
 .app-header{
+    background-color: lightgreen;
+}
+
+.app-name{
     text-align: center;
     font-size: large;
-    background-color: lightgreen;
+}
+
+.app-user{
+    text-align: right;
 }

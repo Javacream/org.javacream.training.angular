@@ -5,5 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class ConfigService {
   appName = "P E O P L E"
+  company = "Javacream"
   constructor() { }
 }
