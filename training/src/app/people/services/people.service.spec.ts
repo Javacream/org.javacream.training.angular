@@ -13,4 +13,8 @@ describe('PeopleService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it ('should contain 3 people', () => {
+    expect(service.findAll().length).toBe(3)
+  })
 });
