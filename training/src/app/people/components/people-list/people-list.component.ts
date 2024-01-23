@@ -15,8 +15,5 @@ export class PeopleListComponent {
   peopleList:Array<Person>
   constructor(readonly peopleService:PeopleService){
     this.peopleList = peopleService.findAll()
-    setTimeout(() => {
-      this.peopleList[0].lastname="CHANGED"
-    },     5000 )
   }
 }
