@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  appName = "P E O P L E"
 
 }

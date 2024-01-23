@@ -12,5 +12,4 @@ import { HeaderComponent } from './people/components/header/header.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title:any = demoFunction()
 }
