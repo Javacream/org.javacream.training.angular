@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { config } from '../../model/config';
+import { ConfigService } from '../../services/config.service';
 
 @Component({
   selector: 'app-header',
@@ -10,5 +11,6 @@ import { config } from '../../model/config';
 })
 export class HeaderComponent {
   appName = config.appName
+  constructor(readonly configService:ConfigService ){}
 
 }
