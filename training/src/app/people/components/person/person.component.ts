@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { PeopleService } from '../../services/people.service';
 import { Person } from '../../model/people';
 
@@ -10,9 +10,7 @@ import { Person } from '../../model/people';
   styleUrl: './person.component.css'
 })
 export class PersonComponent {
-  person: Person
-  constructor(readonly peopleService:PeopleService){
-    this.person = peopleService.getUser()
-  }
+  @Input()
+  person?: Person
 
 }

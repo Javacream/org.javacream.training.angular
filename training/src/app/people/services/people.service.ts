@@ -5,7 +5,7 @@ import { Person } from '../model/people';
   providedIn: 'root'
 })
 export class PeopleService {
-  user:Person = {id: 1000, lastname:'Mustermann', firstname: 'Max'}
+  user:Person  = {id: 1000, lastname:'Mustermann', firstname: 'Max'}
   constructor() { }
   getUser():Person {
     return this.user
