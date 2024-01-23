@@ -4,7 +4,7 @@ export class Demo{
 
 export let demoString:string = 'Hello World' // type inference, demoString wird als string erkannt und deklariert
 
-demoString = "Hugo"
+demoString = "Hello World"
 //demoString = 42
 
 export function demoFunction(){
