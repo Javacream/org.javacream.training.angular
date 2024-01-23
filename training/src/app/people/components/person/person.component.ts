@@ -11,6 +11,6 @@ import { Person } from '../../model/people';
 })
 export class PersonComponent {
   @Input()
-  person?: Person
-
+  person: Person = {id: -999, lastname:'', firstname:''}
+ 
 }
