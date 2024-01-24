@@ -13,9 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class PeopleListComponent {
   peopleList:Array<Person>
-  peopleMap: Map<number, Person>
   constructor(readonly peopleService:PeopleService){
     this.peopleList = peopleService.findAll()
-    this.peopleMap = peopleService.peopleMap
   }
 }
