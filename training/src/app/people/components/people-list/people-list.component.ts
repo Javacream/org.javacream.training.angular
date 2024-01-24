@@ -16,15 +16,7 @@ export class PeopleListComponent {
   peopleList:Array<Person>
   constructor(readonly peopleService:PeopleService, readonly whiteBoardService: WhiteboardService){
     this.peopleList = peopleService.findAll()
-    //whiteBoardService.personCreated_channel.subscribe(this.handlePersonCreated)
-    //this.handlePersonCreated = this.handlePersonCreated.bind(this)
     whiteBoardService.personCreated_channel.subscribe(p => this.peopleList = this.peopleService.findAll())
-  }
-  handlePersonCreatedNotWorking(p:Person){
-    this.peopleList = this.peopleService.findAll()
-  }
-  handlePersonCreated = (p:Person) => {
-    this.peopleList = this.peopleService.findAll()
   }
 
 }
