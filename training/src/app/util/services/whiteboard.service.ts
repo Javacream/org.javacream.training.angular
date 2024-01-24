@@ -11,6 +11,9 @@ export class WhiteboardService {
   personDeleted_channel = new Subject<number>()
   peopleChanged_channel = new Subject<number>()
   logs_channel = new BehaviorSubject<string>('nothing')
+  people_channel = new BehaviorSubject<Array<Person>>([])
+  createdPerson_channel = new Subject<Person>()
+  user_channel =  new BehaviorSubject<Person>({id: 999, lastname:'', firstname:''})
   
   constructor() { 
     this.personCreated_channel.subscribe(id => this.logs_channel.next("person created"))

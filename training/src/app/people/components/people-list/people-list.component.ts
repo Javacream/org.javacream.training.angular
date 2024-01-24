@@ -14,19 +14,22 @@ import { Subscription } from 'rxjs';
   styleUrl: './people-list.component.css'
 })
 export class PeopleListComponent implements OnInit, OnDestroy {
-  peopleList:Array<Person>
+  peopleList?:Array<Person>
   peopleChangeSubscription?:Subscription
-  constructor(readonly peopleService:PeopleService, readonly whiteBoardService: WhiteboardService){
-    this.peopleList = peopleService.findAll()
-  }
+  peopleSubscription?:Subscription
+  
+  constructor(readonly peopleService:PeopleService, readonly whiteBoardService: WhiteboardService){}
 
   ngOnInit(): void {
-    this.peopleChangeSubscription = this.whiteBoardService.peopleChanged_channel.subscribe(p => this.peopleList = this.peopleService.findAll())
+    this.peopleService.findAll()
+    this.peopleChangeSubscription = this.whiteBoardService.peopleChanged_channel.subscribe(p => this.peopleService.findAll())
+    this.peopleSubscription = this.whiteBoardService.people_channel.subscribe(people => this.peopleList = people)
     
   }
 
   ngOnDestroy(): void {
     this.peopleChangeSubscription!.unsubscribe()
+    this.peopleSubscription!.unsubscribe()
   }
 
 }

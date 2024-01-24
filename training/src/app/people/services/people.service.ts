@@ -19,8 +19,8 @@ export class PeopleService {
   getUser():Person {
     return this.user
   }
-  findAll():Array<Person>{
-    return Array.from(this.peopleMap.values())
+  findAll():void{
+    this.whiteBoardService.people_channel.next(Array.from(this.peopleMap.values()))
   }
   create(lastname:string, firstname:string){
     let newPerson = new PersonClass(this.counter, lastname, firstname)
