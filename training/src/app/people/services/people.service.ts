@@ -24,5 +24,6 @@ export class PeopleService {
     let newPerson = new PersonClass(this.counter, lastname, firstname)
     this.peopleMap.set(newPerson.id, newPerson)
     this.counter += 1
+    return newPerson
   }
 }
