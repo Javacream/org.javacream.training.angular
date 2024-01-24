@@ -16,8 +16,8 @@ export class PeopleService {
     this.peopleMap.set(101, {id: 101, lastname: 'Metzger', firstname: 'Hannah'})
     this.peopleMap.set(102, {id: 102, lastname: 'Sawitzki', firstname: 'Andrea'})
   }
-  getUser():Person {
-    return this.user
+  getUser():void {
+    this.whiteBoardService.user_channel.next(this.user)
   }
   findAll():void{
     this.whiteBoardService.people_channel.next(Array.from(this.peopleMap.values()))
@@ -28,7 +28,7 @@ export class PeopleService {
     this.counter += 1
     this.whiteBoardService.personCreated_channel.next(newPerson.id)
     //this.whiteBoardService.logs_channel.next("person created")
-    return newPerson
+    this.whiteBoardService.createdPerson_channel.next(newPerson)
   }
 
   delete(id:number){

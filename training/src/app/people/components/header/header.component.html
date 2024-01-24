@@ -1,5 +1,5 @@
 <div class="app-header">
     <p class="app-name">{{configService.appName}}</p>
     
-    <p class="app-user"><app-person [person]="user" class="app-user"></app-person></p>
+    <p *ngIf = "user" class="app-user"><app-person [person]="user" class="app-user"></app-person></p>
 </div>
