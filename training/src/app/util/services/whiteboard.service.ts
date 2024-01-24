@@ -9,6 +9,9 @@ export class WhiteboardService {
   demo_channel = new Subject<string>()
   personCreated_channel = new Subject<Person>()
   logs_channel = new BehaviorSubject<string>('nothing')
-  constructor() { }
+  
+  constructor() { 
+    this.personCreated_channel.subscribe(p => this.logs_channel.next("person created"))
+  }
   
 }

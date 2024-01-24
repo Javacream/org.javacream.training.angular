@@ -27,7 +27,7 @@ export class PeopleService {
     this.peopleMap.set(newPerson.id, newPerson)
     this.counter += 1
     this.whiteBoardService.personCreated_channel.next(newPerson)
-    this.whiteBoardService.logs_channel.next("person created")
+    //this.whiteBoardService.logs_channel.next("person created")
     return newPerson
   }
 }
