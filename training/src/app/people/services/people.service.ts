@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Person, PersonClass } from '../model/people';
+import { WhiteboardService } from '../../util/services/whiteboard.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,8 @@ export class PeopleService {
   user:Person  = {id: 1000, lastname:'Mustermann', firstname: 'Max'}
   peopleMap: Map<number, Person>
   counter = 0
-  constructor() { 
+  constructor( readonly whiteBoardService:WhiteboardService) { 
+
     this.peopleMap = new Map()
     this.peopleMap.set(100, {id: 100, lastname: 'Sawitzki', firstname: 'Rainer'})
     this.peopleMap.set(101, {id: 101, lastname: 'Metzger', firstname: 'Hannah'})
@@ -24,6 +26,8 @@ export class PeopleService {
     let newPerson = new PersonClass(this.counter, lastname, firstname)
     this.peopleMap.set(newPerson.id, newPerson)
     this.counter += 1
+    this.whiteBoardService.personCreated_channel.next(newPerson)
+    this.whiteBoardService.logs_channel.next("person created")
     return newPerson
   }
 }
