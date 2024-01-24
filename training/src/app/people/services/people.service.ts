@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Person, PersonClass } from '../model/people';
 import { WhiteboardService } from '../../util/services/whiteboard.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PeopleService {
-  user:Person  = {id: 1000, lastname:'Mustermann', firstname: 'Max'}
   peopleMap: Map<number, Person>
   counter = 0
-  constructor( readonly whiteBoardService:WhiteboardService) { 
+  constructor( readonly whiteBoardService:WhiteboardService, readonly httpClient: HttpClient) { 
 
     this.peopleMap = new Map()
     this.peopleMap.set(100, {id: 100, lastname: 'Sawitzki', firstname: 'Rainer'})
@@ -17,7 +17,8 @@ export class PeopleService {
     this.peopleMap.set(102, {id: 102, lastname: 'Sawitzki', firstname: 'Andrea'})
   }
   getUser():void {
-    this.whiteBoardService.user_channel.next(this.user)
+    this.httpClient.get('http://javacream.eu:8080/people/6').subscribe(user => this.whiteBoardService.user_channel.next(user as Person))
+    
   }
   findAll():void{
     this.whiteBoardService.people_channel.next(Array.from(this.peopleMap.values()))
