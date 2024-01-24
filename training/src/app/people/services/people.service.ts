@@ -26,8 +26,15 @@ export class PeopleService {
     let newPerson = new PersonClass(this.counter, lastname, firstname)
     this.peopleMap.set(newPerson.id, newPerson)
     this.counter += 1
-    this.whiteBoardService.personCreated_channel.next(newPerson)
+    this.whiteBoardService.personCreated_channel.next(newPerson.id)
     //this.whiteBoardService.logs_channel.next("person created")
     return newPerson
   }
+
+  delete(id:number){
+    this.peopleMap.delete(id)
+    this.whiteBoardService.personDeleted_channel.next(id)
+
+  }
+
 }

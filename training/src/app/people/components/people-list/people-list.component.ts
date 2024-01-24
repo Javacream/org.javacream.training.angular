@@ -15,18 +15,18 @@ import { Subscription } from 'rxjs';
 })
 export class PeopleListComponent implements OnInit, OnDestroy {
   peopleList:Array<Person>
-  personCreatedSubscription?:Subscription
+  peopleChangeSubscription?:Subscription
   constructor(readonly peopleService:PeopleService, readonly whiteBoardService: WhiteboardService){
     this.peopleList = peopleService.findAll()
   }
 
   ngOnInit(): void {
-    this.personCreatedSubscription = this.whiteBoardService.personCreated_channel.subscribe(p => this.peopleList = this.peopleService.findAll())
+    this.peopleChangeSubscription = this.whiteBoardService.peopleChanged_channel.subscribe(p => this.peopleList = this.peopleService.findAll())
     
   }
 
   ngOnDestroy(): void {
-    this.personCreatedSubscription!.unsubscribe()
+    this.peopleChangeSubscription!.unsubscribe()
   }
 
 }

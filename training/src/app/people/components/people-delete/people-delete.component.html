@@ -1,0 +1,4 @@
+<form [formGroup]="idInputForm" (ngSubmit)="delete()">
+    <input type="text" formControlName="id"/>
+    <button [disabled] = "!idInputForm.valid">Delete</button>
+</form>
