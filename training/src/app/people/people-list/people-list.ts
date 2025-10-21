@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { PeopleService } from '../people-service';
+import { Person } from '../person_class';
 
 @Component({
   selector: 'app-people-list',
@@ -8,5 +10,8 @@ import { Component } from '@angular/core';
   styleUrl: './people-list.css'
 })
 export class PeopleList {
-  peopleList = ['Hugo', 'Emil', 'Hannah']
+  peopleList:Array<Person> = []
+  constructor(readonly peopleService: PeopleService){
+    this.peopleList = peopleService.people
+  }
 }
