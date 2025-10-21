@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConfigService } from '../config-service';
 
 @Component({
   selector: 'app-footer',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './footer.css'
 })
 export class Footer {
-
+  constructor(readonly config: ConfigService){}
 }
