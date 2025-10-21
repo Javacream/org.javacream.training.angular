@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ConfigService } from '../config-service';
-// import { Config } from '../config';
+import { PeopleService } from '../people-service';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +9,6 @@ import { ConfigService } from '../config-service';
   styleUrl: './header.css'
 })
 export class Header {
-  config: ConfigService
-  constructor(config: ConfigService){
-    this.config = config
-    console.log('******************')
+  constructor(readonly config: ConfigService, readonly peopleService: PeopleService){
   }
 }
