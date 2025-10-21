@@ -1,4 +1,6 @@
 <div class="app-header">
 <p>{{config.appName}}</p>
-<p class="app-user">{{peopleService.user.firstname}} {{peopleService.user.lastname}}</p>
+<p class="app-user">
+<app-person [person]="peopleService.user"></app-person>
+</p>
 </div>
