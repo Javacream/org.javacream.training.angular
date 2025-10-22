@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Person } from './person';
 import { WhiteboardService } from './whiteboard-service';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root', 
 })
 export class PeopleService {
   counter = 3
   peopleMap: Map<number, Person>
-  constructor(readonly whiteboardService: WhiteboardService) {
+  constructor(readonly whiteboardService: WhiteboardService, readonly httpClient: HttpClient) {
     this.peopleMap = new Map()
     let p1 = {id: 1, lastname:"Sawitzki", firstname: "Rainer"}
     this.peopleMap.set(1, p1)
     this.peopleMap.set(2, {id: 2, lastname:"Mustermann", firstname: "Hannah"})
     this.peopleMap.set(3, {id: 3, lastname:"Schneider", firstname: "Andrea"})
+    this.getUser() // simulates authentication ...
   }
   
   create(lastname:string, firstname:string):number{
@@ -37,7 +39,9 @@ export class PeopleService {
   findAll():Array<Person>{
     return Array.from(this.peopleMap.values())
   }
-  getUser():Person{
-    return {id: 100, lastname:'Us', firstname: 'Er'}
+  getUser(){
+    this.httpClient.get<Person>('http://javacream.eu:8080/people/7').subscribe((person) => {
+      this.whiteboardService.userAuthenticated.next(person)
+    })
   }
 }

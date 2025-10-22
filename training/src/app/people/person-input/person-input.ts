@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {FormGroup, FormControl, Validators, ReactiveFormsModule} from '@angular/forms'
-import { Person } from '../person_class';
 import { PeopleService } from '../people-service';
 import { PersonComponent } from '../person-component/person-component';
+import { Person } from '../person';
 @Component({
   selector: 'app-person-input',
   templateUrl: './person-input.html',

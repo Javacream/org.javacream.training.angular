@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { PeopleService } from '../people-service';
-import { Person } from '../person_class';
+import { Person } from '../person';
 import { PersonComponent } from '../person-component/person-component';
 import { WhiteboardService } from '../whiteboard-service';
 
