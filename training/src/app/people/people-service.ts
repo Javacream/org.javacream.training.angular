@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Person } from './person';
+import { WhiteboardService } from './whiteboard-service';
 @Injectable({
   providedIn: 'root'
 })
 export class PeopleService {
   counter = 3
   peopleMap: Map<number, Person>
-  constructor() {
+  constructor(readonly whiteboardService: WhiteboardService) {
     this.peopleMap = new Map()
-    this.peopleMap.set(1, {id: 1, lastname:"Sawitzki", firstname: "Rainer"})
+    let p1 = {id: 1, lastname:"Sawitzki", firstname: "Rainer"}
+    this.peopleMap.set(1, p1)
     this.peopleMap.set(2, {id: 2, lastname:"Mustermann", firstname: "Hannah"})
     this.peopleMap.set(3, {id: 3, lastname:"Schneider", firstname: "Andrea"})
   }
@@ -17,6 +19,7 @@ export class PeopleService {
     this.counter++
     let p:Person = {id:this.counter, lastname, firstname}
     this.peopleMap.set(p.id, p)
+    this.whiteboardService.personCreated.next(p.id)
     return p.id
   }
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ConfigService } from '../config-service';
+import { WhiteboardService } from '../whiteboard-service';
 
 @Component({
   selector: 'app-footer',
@@ -8,5 +9,9 @@ import { ConfigService } from '../config-service';
   styleUrl: './footer.css'
 })
 export class Footer {
-  constructor(readonly config: ConfigService){}
+  constructor(readonly config: ConfigService, readonly whiteboardService: WhiteboardService){
+    whiteboardService.personCreated.subscribe((id) => {
+      console.log('******************** ' + id)
+    })
+  }
 }

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { PeopleService } from '../people-service';
 import { Person } from '../person_class';
 import { PersonComponent } from '../person-component/person-component';
+import { WhiteboardService } from '../whiteboard-service';
 
 @Component({
   selector: 'app-people-list',
@@ -12,7 +13,10 @@ import { PersonComponent } from '../person-component/person-component';
 })
 export class PeopleList {
   peopleList:Array<Person> = []
-  constructor(readonly peopleService: PeopleService){
+  constructor(readonly peopleService: PeopleService, readonly whiteboardService: WhiteboardService){
     this.peopleList = peopleService.findAll()
+    whiteboardService.personCreated.subscribe((id) => {
+      this.peopleList = peopleService.findAll()
+    })
   }
 }
