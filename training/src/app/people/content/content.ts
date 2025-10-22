@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { PeopleList } from '../people-list/people-list';
-import { PersonInput } from '../person-input/person-input';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-content',
-  imports: [PeopleList, PersonInput],
+  imports: [RouterModule],
   templateUrl: './content.html',
   styleUrl: './content.css'
 })
