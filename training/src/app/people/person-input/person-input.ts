@@ -20,8 +20,7 @@ export class PersonInput {
     firstname: new FormControl('', Validators.compose([Validators.required, Validators.minLength(3)]))
   })
   savePerson(){
-    let nextId = this.peopleService.people.length + 1
-    this.createdPerson = {id: nextId, lastname: this.personInputForm.value.lastname!, firstname: this.personInputForm.value.firstname!}
-    this.peopleService.people.push(this.createdPerson)
+    let id = this.peopleService.create(this.personInputForm.value.lastname!, this.personInputForm.value.firstname!)
+    this.createdPerson = this.peopleService.findById(id)
   }
 }

@@ -13,6 +13,6 @@ import { PersonComponent } from '../person-component/person-component';
 export class PeopleList {
   peopleList:Array<Person> = []
   constructor(readonly peopleService: PeopleService){
-    this.peopleList = peopleService.people
+    this.peopleList = peopleService.findAll()
   }
 }
