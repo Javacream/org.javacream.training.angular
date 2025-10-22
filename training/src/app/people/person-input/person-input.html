@@ -1,5 +1,6 @@
-<input type="text" [(ngModel)]="id">
-<input type="text" [(ngModel)]="firstname">
-<input type="text" [(ngModel)]="lastname">
-<button (click)="savePerson()">Save Person</button>
-
+<form [formGroup] = "personInputForm" (ngSubmit)="savePerson()">
+    <input type="text" formControlName="lastname"/>
+    <input type="text" formControlName="firstname"/>
+    <button [disabled] = "!personInputForm.valid">Save</button>
+</form>
+<app-person [person]="createdPerson"></app-person>
