@@ -64,6 +64,14 @@
       "linter": "eslint",
       "style": "scss",
       "unitTestRunner": "jest"
+    },
+    "@nx/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "style": "scss"
+    },
+    "@nx/angular:component": {
+      "style": "scss"
     }
   }
 }

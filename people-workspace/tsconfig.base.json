@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@people-workspace/header": ["libs/shared/ui/header/src/index.ts"],
+      "@people-workspace/footer": ["libs/shared/ui/footer/src/index.ts"],
+      "@people-workspace/content": ["libs/shared/ui/content/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
